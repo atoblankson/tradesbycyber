@@ -9,3 +9,4 @@ export * from "./StatsRow";
 export * from "./AboutSection";
 export * from "./ResultsSection";
 export * from "./WorkWithMeSection";
+export * from "./TestimonialsSection";

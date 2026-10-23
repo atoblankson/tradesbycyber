@@ -8,6 +8,7 @@ import {
   AboutSection,
   ResultsSection,
   WorkWithMeSection,
+  TestimonialsSection,
 } from "@/components";
 
 export default function Home() {
@@ -39,6 +40,9 @@ export default function Home() {
 
       {/* 5. Work With Me Section on Cream with 3 Offer Cards & Most Popular Sticker */}
       <WorkWithMeSection />
+
+      {/* 6. Testimonials Section on Black: Student Quote Cards in Masonry Layout */}
+      <TestimonialsSection />
     </main>
   );
 }
