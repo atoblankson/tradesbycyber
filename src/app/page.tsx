@@ -6,6 +6,7 @@ import {
   TickerStrip,
   StatsRow,
   AboutSection,
+  ResultsSection,
 } from "@/components";
 
 export default function Home() {
@@ -31,6 +32,9 @@ export default function Home() {
 
       {/* 3. About / My Approach Section with Cream Grid Background */}
       <AboutSection />
+
+      {/* 4. Results Section: "THE RECEIPTS." on Black with Trade Tickets & Equity Curve */}
+      <ResultsSection />
     </main>
   );
 }

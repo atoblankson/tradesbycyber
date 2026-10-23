@@ -7,3 +7,4 @@ export * from "./HeroGridPanel";
 export * from "./TickerStrip";
 export * from "./StatsRow";
 export * from "./AboutSection";
+export * from "./ResultsSection";
