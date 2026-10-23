@@ -5,6 +5,7 @@ import {
   HeroGridPanel,
   TickerStrip,
   StatsRow,
+  AboutSection,
 } from "@/components";
 
 export default function Home() {
@@ -27,6 +28,9 @@ export default function Home() {
 
       {/* 2. Black Stats Row with 4 Big Condensed Stats in Cream */}
       <StatsRow />
+
+      {/* 3. About / My Approach Section with Cream Grid Background */}
+      <AboutSection />
     </main>
   );
 }
