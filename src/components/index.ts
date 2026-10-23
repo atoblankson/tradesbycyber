@@ -8,3 +8,4 @@ export * from "./TickerStrip";
 export * from "./StatsRow";
 export * from "./AboutSection";
 export * from "./ResultsSection";
+export * from "./WorkWithMeSection";

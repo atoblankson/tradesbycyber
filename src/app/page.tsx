@@ -7,6 +7,7 @@ import {
   StatsRow,
   AboutSection,
   ResultsSection,
+  WorkWithMeSection,
 } from "@/components";
 
 export default function Home() {
@@ -35,6 +36,9 @@ export default function Home() {
 
       {/* 4. Results Section: "THE RECEIPTS." on Black with Trade Tickets & Equity Curve */}
       <ResultsSection />
+
+      {/* 5. Work With Me Section on Cream with 3 Offer Cards & Most Popular Sticker */}
+      <WorkWithMeSection />
     </main>
   );
 }
