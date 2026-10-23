@@ -5,7 +5,7 @@ import React, { useId } from "react";
 export interface CircleBadgeProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Text that wraps around the circular border edge.
-   * e.g. "• TRADED BY CYBER • INSTITUTIONAL FOREX • ORDERFLOW EDGE •"
+   * e.g. "* LIVE TRADE BREAKDOWNS * LIVE TRADE BREAKDOWNS"
    */
   text: string;
   /**
@@ -18,14 +18,38 @@ export interface CircleBadgeProps extends React.HTMLAttributes<HTMLDivElement> {
    */
   size?: number;
   /**
-   * Accent color for text/border.
+   * Stroke and text color token.
    * Default: "cream"
    */
   color?: "cream" | "teal" | "pink" | "yellow" | "orange" | "lime" | "profit" | "loss" | "black" | string;
   /**
+   * Background fill for the entire badge.
+   * Default: "transparent"
+   */
+  badgeBg?: "transparent" | "lime" | "teal" | "pink" | "yellow" | "orange" | "cream" | "black" | string;
+  /**
    * Background color for the inner center area.
    */
   centerBg?: string;
+  /**
+   * Static rotation in degrees (number e.g. -14, or string e.g. "-14deg").
+   * Default: 0
+   */
+  rotation?: number | string;
+  /**
+   * Add neo-brutalist hard drop shadow.
+   * Default: false
+   */
+  hasShadow?: boolean;
+  /**
+   * Add solid border around outer edge.
+   * Default: false
+   */
+  hasBorder?: boolean;
+  /**
+   * Preset icon in center: "globe" | "crosshair" | "target"
+   */
+  icon?: "globe" | "crosshair" | "target";
   /**
    * Placeholder hook for rotation animation to be activated later.
    * Default: false (no animation as per initial foundation specs)
@@ -44,6 +68,7 @@ const COLOR_MAP: Record<string, string> = {
   lime: "#A6E36E",
   profit: "#10B981",
   loss: "#EF4444",
+  transparent: "transparent",
 };
 
 export function CircleBadge({
@@ -51,14 +76,27 @@ export function CircleBadge({
   centerContent,
   size = 140,
   color = "cream",
-  centerBg = "#0A0A0A",
+  badgeBg = "transparent",
+  centerBg,
+  rotation = 0,
+  hasShadow = false,
+  hasBorder = false,
+  icon = "crosshair",
   isRotating = false,
   className = "",
+  style,
   ...rest
 }: CircleBadgeProps) {
   const uniqueId = useId();
   const pathId = `circle-path-${uniqueId.replace(/:/g, "")}`;
+  
   const strokeColor = COLOR_MAP[color] || color;
+  const resolvedBg = COLOR_MAP[badgeBg] || badgeBg;
+  const isSolid = badgeBg !== "transparent";
+
+  // If solid badge (like reference lime sticker), text and stroke are black by default
+  const effectiveStroke = isSolid && color === "cream" ? "#0A0A0A" : strokeColor;
+  const innerBg = centerBg || (isSolid ? resolvedBg : "#0A0A0A");
 
   // SVG viewBox coordinates: 200x200
   // Radius for text circle = 68 (circumference ~= 427px)
@@ -73,10 +111,30 @@ export function CircleBadge({
     a ${r},${r} 0 1,1 0,-${2 * r}
   `;
 
+  // Parse rotation
+  const rotationTransform =
+    typeof rotation === "number"
+      ? `rotate(${rotation}deg)`
+      : rotation.includes("deg")
+      ? `rotate(${rotation})`
+      : `rotate(${rotation}deg)`;
+
   return (
     <div
-      className={`relative inline-flex items-center justify-center select-none ${className}`}
-      style={{ width: size, height: size }}
+      className={`
+        relative inline-flex items-center justify-center select-none rounded-full
+        transition-transform will-change-transform
+        ${hasBorder ? "border-2 border-[#0A0A0A]" : ""}
+        ${hasShadow ? "shadow-[3px_3px_0px_#0A0A0A]" : ""}
+        ${className}
+      `.trim()}
+      style={{
+        width: size,
+        height: size,
+        backgroundColor: resolvedBg,
+        transform: rotationTransform,
+        ...style,
+      }}
       data-rotating={isRotating}
       {...rest}
     >
@@ -86,7 +144,7 @@ export function CircleBadge({
         className={`w-full h-full ${
           isRotating ? "animate-[spin_16s_linear_infinite]" : ""
         }`}
-        style={{ color: strokeColor }}
+        style={{ color: effectiveStroke }}
       >
         <defs>
           <path id={pathId} d={circlePath} fill="none" />
@@ -100,8 +158,8 @@ export function CircleBadge({
           fill="none"
           stroke="currentColor"
           strokeWidth="1.5"
-          strokeDasharray="4 4"
-          className="opacity-40"
+          strokeDasharray={isSolid ? "none" : "4 4"}
+          className={isSolid ? "opacity-100" : "opacity-40"}
         />
 
         {/* Middle bounding ring */}
@@ -117,7 +175,7 @@ export function CircleBadge({
 
         {/* Circular text along the edge */}
         <text
-          className="fill-current font-black uppercase text-[11px] tracking-[0.24em]"
+          className="fill-current font-black uppercase text-[11px] tracking-[0.22em]"
           style={{ letterSpacing: "0.22em" }}
         >
           <textPath
@@ -135,35 +193,47 @@ export function CircleBadge({
           cx={cx}
           cy={cy}
           r={50}
-          fill={centerBg}
+          fill={innerBg}
           stroke="currentColor"
           strokeWidth="2"
         />
       </svg>
 
-      {/* Centered element / icon / crosshair */}
+      {/* Centered element / icon / globe */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         {centerContent ? (
           centerContent
+        ) : icon === "globe" ? (
+          /* Globe wireframe icon like reference image */
+          <svg
+            width="26"
+            height="26"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke={effectiveStroke}
+            strokeWidth="2"
+          >
+            <circle cx="12" cy="12" r="9" />
+            <ellipse cx="12" cy="12" rx="4" ry="9" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+          </svg>
         ) : (
-          <div className="flex flex-col items-center justify-center text-center">
-            {/* Minimalist Neo-brutalist Forex Crosshair Glyph */}
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke={strokeColor}
-              strokeWidth="2"
-              strokeLinecap="square"
-            >
-              <circle cx="12" cy="12" r="3" fill={strokeColor} />
-              <line x1="12" y1="2" x2="12" y2="7" />
-              <line x1="12" y1="17" x2="12" y2="22" />
-              <line x1="2" y1="12" x2="7" y2="12" />
-              <line x1="17" y1="12" x2="22" y2="12" />
-            </svg>
-          </div>
+          /* Minimalist Forex Crosshair Glyph */
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke={effectiveStroke}
+            strokeWidth="2"
+            strokeLinecap="square"
+          >
+            <circle cx="12" cy="12" r="3" fill={effectiveStroke} />
+            <line x1="12" y1="2" x2="12" y2="7" />
+            <line x1="12" y1="17" x2="12" y2="22" />
+            <line x1="2" y1="12" x2="7" y2="12" />
+            <line x1="17" y1="12" x2="22" y2="12" />
+          </svg>
         )}
       </div>
     </div>

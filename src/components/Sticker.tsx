@@ -39,9 +39,9 @@ export interface StickerProps extends React.HTMLAttributes<HTMLSpanElement> {
    */
   size?: "sm" | "md" | "lg";
   /**
-   * Shape style: rounded rectangle (default) or pill.
+   * Shape style: rounded rectangle (default), pill, or circle.
    */
-  shape?: "rectangle" | "pill";
+  shape?: "rectangle" | "pill" | "circle";
   /**
    * Add neo-brutalist hard drop shadow.
    * Default: true
@@ -146,7 +146,12 @@ export function Sticker({
   const isCustomColor = !COLOR_STYLES[color.toLowerCase()];
   const presetStyle = COLOR_STYLES[color.toLowerCase()] || COLOR_STYLES.yellow;
 
-  const shapeClass = shape === "pill" ? "rounded-full" : "rounded-md";
+  const shapeClass =
+    shape === "pill"
+      ? "rounded-full"
+      : shape === "circle"
+      ? "rounded-full aspect-square text-center flex-col justify-center"
+      : "rounded-md";
   const borderClass = hasBorder ? `border-2 ${presetStyle.border}` : "";
   const shadowClass = hasShadow ? presetStyle.shadow : "";
 
