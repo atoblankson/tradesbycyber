@@ -10,6 +10,7 @@ import {
   WorkWithMeSection,
   TestimonialsSection,
   CtaSection,
+  Footer,
 } from "@/components";
 
 export default function Home() {
@@ -47,6 +48,9 @@ export default function Home() {
 
       {/* 7. Final Loud Full-Bleed CTA Section on Cream with Scattered Stickers & Two Buttons */}
       <CtaSection />
+
+      {/* 8. Site Footer on Black with Giant Wordmark, Socials & Risk Disclaimer */}
+      <Footer />
     </main>
   );
 }
