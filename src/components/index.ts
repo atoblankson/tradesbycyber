@@ -4,3 +4,5 @@ export * from "./Container";
 export * from "./Navbar";
 export * from "./HeroTop";
 export * from "./HeroGridPanel";
+export * from "./TickerStrip";
+export * from "./StatsRow";
