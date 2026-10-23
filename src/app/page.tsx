@@ -9,6 +9,7 @@ import {
   ResultsSection,
   WorkWithMeSection,
   TestimonialsSection,
+  CtaSection,
 } from "@/components";
 
 export default function Home() {
@@ -43,6 +44,9 @@ export default function Home() {
 
       {/* 6. Testimonials Section on Black: Student Quote Cards in Masonry Layout */}
       <TestimonialsSection />
+
+      {/* 7. Final Loud Full-Bleed CTA Section on Cream with Scattered Stickers & Two Buttons */}
+      <CtaSection />
     </main>
   );
 }
