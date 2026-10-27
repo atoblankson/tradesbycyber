@@ -31,9 +31,11 @@
   --muted-dark: #A89F8C;
   --trade-green: #3DDC97;
   --trade-red: #FF5C5C;
+  --neon-green: #03FA84;
 }
 
 @theme {
+  --color-neon-green: #03FA84;
   --color-cyber-black: #0A0A0A;
   --color-cyber-cream: #EFEAE4;
   --color-cyber-teal: #5ED1C4;
@@ -103,6 +105,10 @@ body {
 }
 
 /* Metallic Gold Gradient Utilities */
+.text-neon-green {
+  color: #03FA84 !important;
+}
+
 .gold-metallic-text {
   background: linear-gradient(135deg, #F6E7B4 0%, #E8C766 35%, #D4A62A 70%, #B8871B 100%);
   -webkit-background-clip: text;

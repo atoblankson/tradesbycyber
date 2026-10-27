@@ -72,7 +72,7 @@ export function HeroSection({ className = "", traderImageSrc }: HeroSectionProps
               <span className="block text-[#EFEAE4]">TRADE</span>
               <span className="block gold-metallic-text">GOLD</span>
               <span className="block text-[#EFEAE4]">WITH</span>
-              <span className="block text-[#03FA84]">PRECISION.</span>
+              <span className="block text-neon-green text-[#03FA84]" style={{ color: "#03FA84" }}>PRECISION.</span>
             </h1>
 
             {/* 2. Thin horizontal divider line (gold-800 to transparent fade) */}
