@@ -78,17 +78,8 @@ export function AboutSection({ className = "" }: AboutSectionProps) {
         }}
       >
         <Container size="lg">
-          {/* Section Header: Pill kicker + Giant condensed headline */}
+          {/* Section Header */}
           <div className="mb-12 sm:mb-16 md:mb-20">
-            <div className="flex items-center gap-3 mb-4">
-              <span className="font-mono text-xs uppercase tracking-widest text-[#0A0A0A] bg-[#0A0A0A]/10 border border-[#0A0A0A]/20 px-3 py-1 rounded-full font-bold">
-                {"// 02 • PHILOSOPHY & METHODOLOGY"}
-              </span>
-              <span className="font-mono text-xs text-[#0A0A0A]/50 tracking-wider hidden sm:inline">
-                EXECUTION OVER EMOTION
-              </span>
-            </div>
-
             <h2 className="font-display uppercase text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[0.88] text-[#0A0A0A] max-w-5xl">
               I DON&apos;T GAMBLE.
               <br />
@@ -103,11 +94,8 @@ export function AboutSection({ className = "" }: AboutSectionProps) {
             {/* LEFT COLUMN: BIO PARAGRAPH + PHOTO PLACEHOLDER              */}
             {/* ----------------------------------------------------------- */}
             <div className="lg:col-span-5 flex flex-col gap-6 sm:gap-8">
-              {/* Bio Paragraph (Placeholder clearly documented) */}
+              {/* Bio Paragraph */}
               <div className="space-y-4">
-                <span className="font-mono text-xs uppercase tracking-wider text-[#0A0A0A]/60 font-bold block">
-                  [TRADER BIO — EDITORIAL PLACEHOLDER]
-                </span>
                 <p className="font-sans text-base sm:text-lg leading-relaxed text-[#0A0A0A]/85">
                   I trade the London and New York sessions using pure price action and institutional orderflow.
                   No lagging indicators, no get-rich-quick gambles, and no lifestyle illusions.
@@ -161,7 +149,7 @@ export function AboutSection({ className = "" }: AboutSectionProps) {
                 {/* Corner mini-sticker accent */}
                 <div className="absolute -top-3 -right-3 rotate-6 hidden sm:block">
                   <span className="inline-block bg-[#0A0A0A] text-[#EFEAE4] border border-[#0A0A0A] font-mono text-[10px] uppercase font-black px-2.5 py-1 rounded shadow-[2px_2px_0px_rgba(10,10,10,0.3)]">
-                    {"LIVE DESK // 08:00 GMT"}
+                    LONDON DESK • 08:00 GMT
                   </span>
                 </div>
               </div>
@@ -189,7 +177,7 @@ export function AboutSection({ className = "" }: AboutSectionProps) {
                   {/* Top Row: Pillar Number Tag */}
                   <div className="flex items-center justify-between mb-6">
                     <span className="font-mono text-xs font-black uppercase tracking-widest px-2.5 py-1 bg-[#0A0A0A] text-[#EFEAE4] rounded border border-[#0A0A0A]">
-                      {"PILLAR //"} {card.number}
+                      0{card.number}
                     </span>
                     <span className="font-mono text-xs font-bold text-[#0A0A0A]/40">
                       ★

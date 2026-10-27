@@ -4,7 +4,6 @@ import React from "react";
 import Link from "next/link";
 import { Container } from "./Container";
 import { Navbar } from "./Navbar";
-import { Sticker } from "./Sticker";
 
 export interface HeroSectionProps {
   className?: string;
@@ -194,68 +193,6 @@ export function HeroSection({ className = "", traderImageSrc }: HeroSectionProps
                   </span>
                 </div>
               )}
-            </div>
-
-            {/* ------------------------------------------------------- */}
-            {/* 4 STICKERS SCATTERED AROUND & SLIGHTLY OVERLAPPING EDGE */}
-            {/* (Never covering face area; exactly 2 visible on mobile) */}
-            {/* ------------------------------------------------------- */}
-
-            {/* 1. Pink: "PRICE ACTION ©" (Top-Left of photo edge - visible mobile & desktop) */}
-            <div className="absolute top-[8%] sm:top-[12%] -left-3 sm:-left-6 lg:-left-10 z-20">
-              <Sticker
-                color="pink"
-                rotation={5}
-                size="md"
-                className="text-xs sm:text-sm font-black shadow-[3px_3px_0px_#0B0A08] border-2 border-[#0B0A08]"
-              >
-                PRICE ACTION ©
-              </Sticker>
-            </div>
-
-            {/* 2. Yellow: "⚡ XAU/USD GOLD SETUPS" (Mid-Left of photo edge - visible mobile & desktop) */}
-            <div className="absolute top-[42%] sm:top-[46%] -left-2 sm:-left-5 lg:-left-8 z-20">
-              <Sticker
-                color="yellow"
-                rotation={-4}
-                size="md"
-                className="text-xs sm:text-sm font-black shadow-[3px_3px_0px_#0B0A08] border-2 border-[#0B0A08]"
-              >
-                <span className="flex items-center gap-1.5">
-                  <span className="font-mono text-xs">⚡</span>
-                  <span>XAU/USD GOLD SETUPS</span>
-                </span>
-              </Sticker>
-            </div>
-
-            {/* 3. Orange: "LONDON & NY SESSIONS →" (Lower-Left edge - desktop only, hidden on mobile) */}
-            <div className="absolute bottom-[16%] sm:bottom-[18%] left-4 sm:left-8 lg:left-0 z-20 hidden lg:inline-flex">
-              <Sticker
-                color="orange"
-                rotation={-7}
-                size="md"
-                className="text-xs sm:text-sm font-black shadow-[3px_3px_0px_#0B0A08] border-2 border-[#0B0A08]"
-              >
-                <span className="flex items-center gap-1.5">
-                  <span>LONDON &amp; NY SESSIONS</span>
-                  <span className="font-bold">→</span>
-                </span>
-              </Sticker>
-            </div>
-
-            {/* 4. Teal: "PROP FIRM FUNDED ©26 ★" (Lower-Right edge - desktop only, hidden on mobile) */}
-            <div className="absolute bottom-[20%] sm:bottom-[22%] right-6 sm:right-10 lg:right-12 z-20 hidden lg:inline-flex">
-              <Sticker
-                color="teal"
-                rotation={-12}
-                size="md"
-                className="text-xs sm:text-sm font-black shadow-[3px_3px_0px_#0B0A08] border-2 border-[#0B0A08]"
-              >
-                <span className="flex items-center gap-1.5">
-                  <span>PROP FIRM FUNDED ©26</span>
-                  <span className="font-mono text-xs">★</span>
-                </span>
-              </Sticker>
             </div>
 
           </div>

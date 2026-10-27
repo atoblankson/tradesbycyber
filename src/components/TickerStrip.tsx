@@ -59,12 +59,12 @@ export function TickerStrip({
               </span>
             </div>
 
-            {/* Neo-brutalist Divider */}
+            {/* Divider */}
             <span
               className="mx-4 sm:mx-6 md:mx-8 text-[#0A0A0A]/30 font-bold select-none"
               aria-hidden="true"
             >
-              {"//"}
+              •
             </span>
           </div>
         ))}

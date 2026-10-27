@@ -27,9 +27,9 @@ export function HeroGridPanel({ className = "" }: HeroGridPanelProps) {
           `,
         }}
       >
-        {/* Subtle decorative grid coordinate markers in the corners */}
+        {/* Subtle decorative coordinate markers in the corners */}
         <div className="absolute top-4 left-6 font-mono text-[10px] tracking-widest text-[#0A0A0A]/35 uppercase hidden sm:block">
-          GRID: LONDON / NY SESSION // 0.01R
+          LONDON &amp; NY SESSIONS
         </div>
 
         {/* ----------------------------------------------------------- */}

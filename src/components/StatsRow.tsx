@@ -64,11 +64,6 @@ export function StatsRow({ stats = DEFAULT_STATS, className = "" }: StatsRowProp
                 border-[rgba(212,166,42,0.18)]
               `}
             >
-              {/* Stat Index / Order Tag */}
-              <span className="font-mono text-[10px] sm:text-xs text-[#D4A62A] uppercase tracking-widest mb-2 font-bold">
-                METRIC // 0{idx + 1}
-              </span>
-
               {/* Big Condensed Number Stat in Metallic Gold Gradient */}
               <div className="font-display uppercase gold-metallic-text text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl leading-[0.85] tracking-tight">
                 {stat.value}

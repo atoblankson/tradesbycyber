@@ -100,8 +100,8 @@ export function WorkWithMeSection({ className = "" }: WorkWithMeSectionProps) {
         {/* Section Header */}
         <div className="mb-12 sm:mb-16 md:mb-20 text-center max-w-3xl mx-auto">
           <div className="flex items-center justify-center gap-2 mb-4">
-            <span className="font-mono text-xs uppercase tracking-widest text-[#0A0A0A] bg-[#0A0A0A]/10 border border-[#0A0A0A]/20 px-3 py-1 rounded-full font-bold">
-              {"// 04 • WORK WITH ME"}
+            <span className="font-mono text-xs uppercase tracking-widest text-[#0A0A0A]/70 font-bold">
+              WORK WITH ME
             </span>
           </div>
 
@@ -157,7 +157,7 @@ export function WorkWithMeSection({ className = "" }: WorkWithMeSectionProps) {
                       {offer.badge}
                     </span>
                     <span className="font-mono text-xs text-[#0A0A0A]/30">
-                      {"//"} 0{OFFERS.indexOf(offer) + 1}
+                      0{OFFERS.indexOf(offer) + 1}
                     </span>
                   </div>
 
@@ -179,9 +179,6 @@ export function WorkWithMeSection({ className = "" }: WorkWithMeSectionProps) {
                         {offer.frequency}
                       </span>
                     </div>
-                    <span className="font-mono text-[10px] text-[#0A0A0A]/40 uppercase mt-1 block">
-                      [PRICE PLACEHOLDER]
-                    </span>
                   </div>
 
                   {/* 3 Bullet Points */}

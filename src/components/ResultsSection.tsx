@@ -99,15 +99,6 @@ export function ResultsSection({ className = "" }: ResultsSectionProps) {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16 pb-8 border-b border-[rgba(212,166,42,0.2)]">
           <div>
-            <div className="flex items-center gap-3 mb-4">
-              <span className="font-mono text-xs uppercase tracking-widest text-[#D4A62A] bg-[#D4A62A]/10 border border-[#D4A62A]/30 px-3 py-1 rounded-full font-bold">
-                {"// 03 • PROVEN TRACK RECORD"}
-              </span>
-              <span className="font-mono text-xs text-[#A89F8C] tracking-wider hidden sm:inline">
-                LIVE MARKET EXECUTIONS
-              </span>
-            </div>
-
             <h2 className="font-display uppercase text-5xl sm:text-7xl md:text-8xl lg:text-9xl tracking-tight leading-[0.85] text-[#EFEAE4]">
               <span>THE </span>
               <span className="gold-metallic-text">RECEIPTS.</span>
@@ -219,7 +210,7 @@ export function ResultsSection({ className = "" }: ResultsSectionProps) {
                     CHART SCREENSHOT
                   </span>
                   <span className="font-mono text-[9px] text-[#A89F8C]">
-                    TradingView Execution // 15m TF
+                    TradingView Execution • 15m TF
                   </span>
                 </div>
 
@@ -247,7 +238,7 @@ export function ResultsSection({ className = "" }: ResultsSectionProps) {
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-6 border-b border-[rgba(212,166,42,0.2)]">
               <div>
                 <span className="font-mono text-[11px] uppercase tracking-widest text-[#D4A62A] font-bold block mb-1">
-                  {"// PORTFOLIO PERFORMANCE // AUDITED"}
+                  PORTFOLIO PERFORMANCE • AUDITED
                 </span>
                 <h3 className="font-display uppercase text-2xl sm:text-4xl tracking-tight text-[#EFEAE4]">
                   VERIFIED EQUITY CURVE

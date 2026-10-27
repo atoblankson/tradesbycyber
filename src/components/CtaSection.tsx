@@ -106,8 +106,8 @@ export function CtaSection({
       <Container size="lg" className="relative z-10 flex flex-col items-center text-center">
         {/* Kicker tag */}
         <div className="mb-4 sm:mb-6">
-          <span className="font-mono text-xs uppercase tracking-widest text-[#0A0A0A] bg-[#0A0A0A]/10 border border-[#0A0A0A]/20 px-3.5 py-1.5 rounded-full font-bold">
-            {"// 06 • TIME TO EXECUTE"}
+          <span className="font-mono text-xs uppercase tracking-widest text-[#0A0A0A]/70 font-bold">
+            TIME TO EXECUTE
           </span>
         </div>
 
