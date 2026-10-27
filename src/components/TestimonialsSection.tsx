@@ -113,12 +113,6 @@ export function TestimonialsSection({ className = "" }: TestimonialsSectionProps
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16 pb-8 border-b border-[rgba(212,166,42,0.2)]">
           <div>
-            <div className="flex items-center gap-3 mb-4">
-              <span className="font-mono text-xs uppercase tracking-widest text-[#D4A62A] font-bold">
-                STUDENT COMMUNITY PROOF
-              </span>
-            </div>
-
             <h2 className="font-display uppercase text-5xl sm:text-7xl md:text-8xl lg:text-9xl tracking-tight leading-[0.85] text-[#EFEAE4]">
               <span>COMMUNITY </span>
               <span className="gold-metallic-text">WINS.</span>

@@ -101,16 +101,9 @@ export function CtaSection({
       </div>
 
       {/* ----------------------------------------------------------- */}
-      {/* CENTERED CONTENT: KICKER + MASSIVE HEADLINE + 2 BUTTONS     */}
+      {/* CENTERED CONTENT: MASSIVE HEADLINE + 2 BUTTONS              */}
       {/* ----------------------------------------------------------- */}
       <Container size="lg" className="relative z-10 flex flex-col items-center text-center">
-        {/* Kicker tag */}
-        <div className="mb-4 sm:mb-6">
-          <span className="font-mono text-xs uppercase tracking-widest text-[#0A0A0A]/70 font-bold">
-            TIME TO EXECUTE
-          </span>
-        </div>
-
         {/* Massive Condensed Headline (Loud & Full-Bleed) */}
         <h2 className="font-display uppercase text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] 2xl:text-[11.5rem] tracking-tight leading-[0.84] text-[#0A0A0A] max-w-6xl mx-auto">
           {headlineLine1}

@@ -99,12 +99,6 @@ export function WorkWithMeSection({ className = "" }: WorkWithMeSectionProps) {
       <Container size="lg">
         {/* Section Header */}
         <div className="mb-12 sm:mb-16 md:mb-20 text-center max-w-3xl mx-auto">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <span className="font-mono text-xs uppercase tracking-widest text-[#0A0A0A]/70 font-bold">
-              WORK WITH ME
-            </span>
-          </div>
-
           <h2 className="font-display uppercase text-5xl sm:text-7xl md:text-8xl tracking-tight leading-[0.88] text-[#0A0A0A]">
             LEVEL UP YOUR EDGE.
           </h2>
