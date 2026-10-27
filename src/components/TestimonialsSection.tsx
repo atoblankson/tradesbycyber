@@ -103,37 +103,39 @@ export function TestimonialsSection({ className = "" }: TestimonialsSectionProps
       id="testimonials"
       aria-label="Student Testimonials and Reviews"
       className={`
-        w-full bg-[#0A0A0A] text-[#EFEAE4]
-        border-b-2 sm:border-b-[3px] border-[#0A0A0A]
-        py-16 sm:py-24 md:py-32 select-none
+        w-full bg-gold-glow-tl film-grain text-[#EFEAE4]
+        border-y border-[rgba(212,166,42,0.3)]
+        py-16 sm:py-24 md:py-32 relative select-none
         ${className}
       `.trim()}
     >
-      <Container size="lg">
+      <Container size="lg" className="relative z-10">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16 pb-8 border-b border-[rgba(239,234,228,0.15)]">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16 pb-8 border-b border-[rgba(212,166,42,0.2)]">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <span className="font-mono text-xs uppercase tracking-widest text-[#F0527E] bg-[#F0527E]/10 border border-[#F0527E]/30 px-3 py-1 rounded-full font-bold">
+              <span className="font-mono text-xs uppercase tracking-widest text-[#D4A62A] bg-[#D4A62A]/10 border border-[#D4A62A]/30 px-3 py-1 rounded-full font-bold">
                 {"// 05 • STUDENT COMMUNITY PROOF"}
               </span>
-              <span className="font-mono text-xs text-[#EFEAE4]/50 tracking-wider hidden sm:inline">
+              <span className="font-mono text-xs text-[#A89F8C] tracking-wider hidden sm:inline">
                 VERIFIED STUDENT WINS
               </span>
             </div>
 
             <h2 className="font-display uppercase text-5xl sm:text-7xl md:text-8xl lg:text-9xl tracking-tight leading-[0.85] text-[#EFEAE4]">
-              COMMUNITY WINS.
+              <span>COMMUNITY </span>
+              <span className="gold-metallic-text">WINS.</span>
             </h2>
           </div>
 
-          <p className="font-sans text-sm sm:text-base text-[#EFEAE4]/75 max-w-md leading-relaxed">
+          <p className="font-sans text-sm sm:text-base text-[#A89F8C] max-w-md leading-relaxed">
             Real quotes and milestone payouts from students executing the institutional orderflow framework in live markets.
           </p>
         </div>
 
         {/* ----------------------------------------------------------- */}
         {/* MASONRY-STYLE GRID OF 6 STUDENT QUOTE CARDS                 */}
+        {/* Raised dark background (#14110D), 1px gold border, gold-800 shadow */}
         {/* ----------------------------------------------------------- */}
         <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
           {TESTIMONIALS.map((item) => (
@@ -143,50 +145,50 @@ export function TestimonialsSection({ className = "" }: TestimonialsSectionProps
             >
               <article className="
                 relative flex flex-col justify-between
-                bg-[#121212] border-2 border-[rgba(239,234,228,0.16)]
+                bg-[#14110D] border border-[#B8871B]/35
                 rounded-2xl p-6 sm:p-7
-                shadow-[4px_4px_0px_rgba(239,234,228,0.1)]
-                hover:border-[rgba(239,234,228,0.35)] transition-colors
+                shadow-[4px_4px_0px_#6B4F12]
+                hover:border-[#D4A62A]/60 transition-colors
               ">
-                {/* Result Tag as Rotated Sticker */}
+                {/* Result Tag as Rotated Sticker (Keeps original colorful palette) */}
                 <div className="mb-5 flex items-start justify-between gap-3">
                   <Sticker
                     label={item.resultTag}
                     color={item.stickerColor}
                     rotation={item.rotation}
                     size="sm"
-                    className="font-mono text-[11px] font-black shadow-[2px_2px_0px_#0A0A0A] border-2 border-[#0A0A0A]"
+                    className="font-mono text-[11px] font-black shadow-[2px_2px_0px_#0B0A08] border-2 border-[#0B0A08]"
                   />
-                  <span className="font-mono text-[10px] text-[#EFEAE4]/40">
+                  <span className="font-mono text-[10px] text-[#A89F8C]">
                     {item.date}
                   </span>
                 </div>
 
-                {/* Quote Text */}
-                <p className="font-sans text-sm sm:text-[15px] leading-relaxed text-[#EFEAE4]/90 mb-6 font-normal">
+                {/* Quote Text in Cream for strong contrast */}
+                <p className="font-sans text-sm sm:text-[15px] leading-relaxed text-[#EFEAE4] mb-6 font-normal">
                   &ldquo;{item.quote}&rdquo;
                 </p>
 
                 {/* Author Info & Metric Bar */}
-                <div className="pt-4 border-t border-[rgba(239,234,228,0.1)] flex items-center justify-between">
+                <div className="pt-4 border-t border-[rgba(212,166,42,0.18)] flex items-center justify-between">
                   {/* Avatar Initial + Student Name/Handle */}
                   <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-full bg-[#EFEAE4] text-[#0A0A0A] font-display text-base font-black flex items-center justify-center select-none">
+                    <div className="w-9 h-9 rounded-full bg-[#EFEAE4] text-[#0B0A08] font-display text-base font-black flex items-center justify-center select-none">
                       {item.name.charAt(0)}
                     </div>
                     <div>
                       <div className="font-sans text-sm font-bold text-[#EFEAE4] leading-tight flex items-center gap-1.5">
                         <span>{item.name}</span>
-                        <span className="text-[#10B981] text-xs" title="Verified Trader">✓</span>
+                        <span className="text-[#3DDC97] text-xs" title="Verified Trader">✓</span>
                       </div>
-                      <span className="font-mono text-[11px] text-[#EFEAE4]/50 leading-none">
+                      <span className="font-mono text-[11px] text-[#A89F8C] leading-none">
                         {item.handle}
                       </span>
                     </div>
                   </div>
 
-                  {/* Prop Firm / Metric Badge */}
-                  <span className="font-mono text-[10px] text-[#5ED1C4] uppercase tracking-wider font-semibold bg-[#5ED1C4]/10 px-2 py-1 rounded border border-[#5ED1C4]/20">
+                  {/* Prop Firm / Metric Badge in Gold Accent */}
+                  <span className="font-mono text-[10px] text-[#E8C766] uppercase tracking-wider font-semibold bg-[#D4A62A]/10 px-2 py-1 rounded border border-[#D4A62A]/30">
                     {item.metric}
                   </span>
                 </div>

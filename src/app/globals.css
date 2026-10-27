@@ -16,6 +16,21 @@
 
   /* Editorial Grid Lines */
   --grid-line: rgba(239, 234, 228, 0.12);
+
+  /* Gold Theme Tokens for Dark Areas */
+  --warm-black: #0B0A08;
+  --raised-dark: #14110D;
+  --panel-dark: #1B1712;
+
+  --gold-100: #F6E7B4;
+  --gold-300: #E8C766;
+  --gold-500: #D4A62A;
+  --gold-600: #B8871B;
+  --gold-800: #6B4F12;
+
+  --muted-dark: #A89F8C;
+  --trade-green: #3DDC97;
+  --trade-red: #FF5C5C;
 }
 
 @theme {
@@ -39,6 +54,21 @@
   --color-profit: var(--profit);
   --color-loss: var(--loss);
 
+  /* Gold Theme Extensions */
+  --color-warm-black: #0B0A08;
+  --color-raised-dark: #14110D;
+  --color-panel-dark: #1B1712;
+
+  --color-gold-100: #F6E7B4;
+  --color-gold-300: #E8C766;
+  --color-gold-500: #D4A62A;
+  --color-gold-600: #B8871B;
+  --color-gold-800: #6B4F12;
+
+  --color-muted-dark: #A89F8C;
+  --color-trade-green: #3DDC97;
+  --color-trade-red: #FF5C5C;
+
   --font-display: var(--font-bebas), var(--font-anton), "Arial Narrow", sans-serif;
   --font-anton: var(--font-anton), sans-serif;
   --font-bebas: var(--font-bebas), sans-serif;
@@ -48,12 +78,12 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: var(--black);
+  background-color: var(--warm-black);
   color: var(--cream);
 }
 
 body {
-  background-color: var(--black);
+  background-color: var(--warm-black);
   color: var(--cream);
   font-family: var(--font-body);
   min-height: 100vh;
@@ -61,15 +91,77 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom Selection Highlight: Neo-brutalist Yellow on Black */
+/* Custom Selection Highlight */
 ::selection {
-  background-color: var(--yellow);
-  color: var(--black);
+  background-color: var(--gold-500);
+  color: #0B0A08;
 }
 
 ::-moz-selection {
-  background-color: var(--yellow);
-  color: var(--black);
+  background-color: var(--gold-500);
+  color: #0B0A08;
+}
+
+/* Metallic Gold Gradient Utilities */
+.gold-metallic-text {
+  background: linear-gradient(135deg, #F6E7B4 0%, #E8C766 35%, #D4A62A 70%, #B8871B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-metallic-bg {
+  background: linear-gradient(135deg, #F6E7B4 0%, #E8C766 35%, #D4A62A 70%, #B8871B 100%);
+}
+
+.gold-vertical-text {
+  background: linear-gradient(180deg, #EFEAE4 0%, #E8C766 50%, #D4A62A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Soft Radial Gold Glows on Warm Black (6-10% opacity) */
+.bg-gold-glow-tr {
+  background-color: #0B0A08;
+  background-image: radial-gradient(ellipse at top right, rgba(212, 166, 42, 0.08) 0%, transparent 65%);
+}
+
+.bg-gold-glow-tl {
+  background-color: #0B0A08;
+  background-image: radial-gradient(ellipse at top left, rgba(212, 166, 42, 0.08) 0%, transparent 65%);
+}
+
+.bg-gold-glow-bl {
+  background-color: #0B0A08;
+  background-image: radial-gradient(ellipse at bottom left, rgba(212, 166, 42, 0.07) 0%, transparent 60%);
+}
+
+.bg-gold-glow-br {
+  background-color: #0B0A08;
+  background-image: radial-gradient(ellipse at bottom right, rgba(212, 166, 42, 0.08) 0%, transparent 60%);
+}
+
+/* Film-grain texture for dark areas only (3-4% opacity) */
+.film-grain {
+  position: relative;
+}
+
+.film-grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  z-index: 1;
+}
+
+/* Thin gold divider line between dark and cream sections */
+.gold-divider-b {
+  border-bottom: 1px solid rgba(212, 166, 42, 0.35);
+}
+
+.gold-divider-t {
+  border-top: 1px solid rgba(212, 166, 42, 0.35);
 }
 
 /* Neo-brutalist Grid-line utilities */

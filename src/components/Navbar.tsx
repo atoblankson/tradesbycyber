@@ -19,9 +19,9 @@ export function Navbar({ className = "" }: NavbarProps) {
         {/* Brand Logo & Name */}
         <Link
           href="/"
-          className="inline-flex items-center gap-3 group focus:outline-none focus-visible:ring-1 focus-visible:ring-[#EFEAE4]"
+          className="inline-flex items-center gap-3 group focus:outline-none focus-visible:ring-1 focus-visible:ring-[#D4A62A]"
         >
-          {/* Cream rounded pill / block shape placeholder from reference */}
+          {/* Cream rounded pill / block shape placeholder */}
           <span
             className="w-9 h-5 sm:w-10 sm:h-5.5 bg-[#EFEAE4] rounded-r-full rounded-l-[2px] transition-transform duration-150 group-hover:scale-105"
             aria-hidden="true"
@@ -37,7 +37,7 @@ export function Navbar({ className = "" }: NavbarProps) {
             <Link
               key={link.label}
               href={link.href}
-              className="text-xs sm:text-sm font-normal text-[#EFEAE4]/90 hover:text-[#5ED1C4] transition-colors focus:outline-none focus-visible:text-[#5ED1C4]"
+              className="text-xs sm:text-sm font-normal text-[#EFEAE4]/85 hover:text-[#E8C766] transition-colors focus:outline-none focus-visible:text-[#E8C766]"
             >
               {link.label}
             </Link>

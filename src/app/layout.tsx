@@ -37,7 +37,7 @@ export default function RootLayout({
       lang="en"
       className={`${anton.variable} ${bebasNeue.variable} ${inter.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-cyber-black text-cyber-cream flex flex-col font-sans">
+      <body className="min-h-full bg-[#0B0A08] text-cyber-cream flex flex-col font-sans">
         {children}
       </body>
     </html>

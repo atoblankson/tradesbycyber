@@ -48,9 +48,9 @@ export function StatsRow({ stats = DEFAULT_STATS, className = "" }: StatsRowProp
   return (
     <section
       aria-label="Trading Performance Statistics"
-      className={`w-full bg-[#0A0A0A] text-[#EFEAE4] border-b border-[rgba(239,234,228,0.12)] py-14 sm:py-20 md:py-24 ${className}`}
+      className={`w-full bg-gold-glow-tl film-grain text-[#EFEAE4] border-y border-[rgba(212,166,42,0.3)] py-14 sm:py-20 md:py-24 relative select-none ${className}`}
     >
-      <Container size="lg">
+      <Container size="lg" className="relative z-10">
         {/* 4-Column Neo-brutalist Stats Grid with Editorial Dividers */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-y-10 sm:gap-y-12 md:gap-y-0">
           {stats.map((stat, idx) => (
@@ -61,27 +61,27 @@ export function StatsRow({ stats = DEFAULT_STATS, className = "" }: StatsRowProp
                 px-3 sm:px-6 md:px-8 lg:px-10
                 ${idx % 2 === 0 ? "border-r md:border-r" : "border-r-0 md:border-r"}
                 ${idx === stats.length - 1 ? "md:border-r-0" : ""}
-                border-[rgba(239,234,228,0.12)]
+                border-[rgba(212,166,42,0.18)]
               `}
             >
               {/* Stat Index / Order Tag */}
-              <span className="font-mono text-[10px] sm:text-xs text-[#5ED1C4] uppercase tracking-widest mb-2 font-bold">
+              <span className="font-mono text-[10px] sm:text-xs text-[#D4A62A] uppercase tracking-widest mb-2 font-bold">
                 METRIC // 0{idx + 1}
               </span>
 
-              {/* Big Condensed Number Stat in Cream */}
-              <div className="font-display uppercase text-[#EFEAE4] text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl leading-[0.85] tracking-tight">
+              {/* Big Condensed Number Stat in Metallic Gold Gradient */}
+              <div className="font-display uppercase gold-metallic-text text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl leading-[0.85] tracking-tight">
                 {stat.value}
               </div>
 
-              {/* Stat Label */}
+              {/* Stat Label in Cream */}
               <span className="font-mono text-xs sm:text-sm uppercase tracking-widest text-[#EFEAE4] font-bold mt-3 sm:mt-4">
                 {stat.label}
               </span>
 
-              {/* Stat Descriptor */}
+              {/* Stat Descriptor in Muted Text (#A89F8C) */}
               {stat.descriptor && (
-                <span className="font-sans text-[11px] sm:text-xs text-[#EFEAE4]/50 mt-1 leading-snug">
+                <span className="font-sans text-[11px] sm:text-xs text-[#A89F8C] mt-1 leading-snug">
                   {stat.descriptor}
                 </span>
               )}

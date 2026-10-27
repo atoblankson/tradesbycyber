@@ -16,21 +16,21 @@ export function Footer({ className = "" }: FooterProps) {
   ];
 
   const socialLinks = [
-    { label: "Instagram", href: "https://instagram.com", handle: "@tradedbycyber", hoverColor: "hover:text-[#5ED1C4]" },
-    { label: "X (Twitter)", href: "https://x.com", handle: "@tradedbycyber", hoverColor: "hover:text-[#F7D417]" },
-    { label: "YouTube", href: "https://youtube.com", handle: "@tradedbycyber", hoverColor: "hover:text-[#F0527E]" },
-    { label: "Telegram", href: "https://t.me", handle: "t.me/tradedbycyber", hoverColor: "hover:text-[#5ED1C4]" },
-    { label: "TikTok", href: "https://tiktok.com", handle: "@tradedbycyber", hoverColor: "hover:text-[#A6E36E]" },
+    { label: "Instagram", href: "https://instagram.com", handle: "@tradedbycyber" },
+    { label: "X (Twitter)", href: "https://x.com", handle: "@tradedbycyber" },
+    { label: "YouTube", href: "https://youtube.com", handle: "@tradedbycyber" },
+    { label: "Telegram", href: "https://t.me", handle: "t.me/tradedbycyber" },
+    { label: "TikTok", href: "https://tiktok.com", handle: "@tradedbycyber" },
   ];
 
   return (
     <footer
       aria-label="Site Footer"
-      className={`w-full bg-[#0A0A0A] text-[#EFEAE4] pt-16 sm:pt-24 md:pt-32 pb-12 select-none ${className}`}
+      className={`w-full bg-gold-glow-br film-grain text-[#EFEAE4] border-t border-[rgba(212,166,42,0.35)] pt-16 sm:pt-24 md:pt-32 pb-12 select-none relative ${className}`}
     >
-      <Container size="lg">
+      <Container size="lg" className="relative z-10">
         {/* Top Grid: Brand + Navigation + Socials + Market Session Specs */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 sm:gap-12 pb-16 border-b border-[rgba(239,234,228,0.12)]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 sm:gap-12 pb-16 border-b border-[rgba(212,166,42,0.2)]">
           {/* Column 1: Brand Logo & Wordmark + Bio */}
           <div className="lg:col-span-5 space-y-4">
             <Link
@@ -47,19 +47,19 @@ export function Footer({ className = "" }: FooterProps) {
               </span>
             </Link>
 
-            <p className="font-sans text-sm text-[#EFEAE4]/70 max-w-sm leading-relaxed">
+            <p className="font-sans text-sm text-[#A89F8C] max-w-sm leading-relaxed">
               Institutional orderflow, liquidity modeling, and execution discipline for serious forex traders.
-              No lagging indicators, zero hindsight commentary.
+              Specializing in London &amp; New York gold (XAU/USD) setups.
             </p>
 
             {/* Email Contact Block */}
             <div className="pt-2">
-              <span className="font-mono text-[11px] text-[#EFEAE4]/40 uppercase tracking-widest block mb-1">
+              <span className="font-mono text-[11px] text-[#A89F8C] uppercase tracking-widest block mb-1">
                 DIRECT INQUIRIES &amp; MENTORSHIP
               </span>
               <a
                 href="mailto:contact@tradedbycyber.com"
-                className="inline-flex items-center gap-2 font-mono text-sm sm:text-base font-bold text-[#5ED1C4] hover:text-[#EFEAE4] transition-colors underline underline-offset-4 decoration-1"
+                className="inline-flex items-center gap-2 font-mono text-sm sm:text-base font-bold text-[#D4A62A] hover:text-[#E8C766] transition-colors underline underline-offset-4 decoration-1 decoration-[#D4A62A]"
               >
                 contact@tradedbycyber.com
                 <span aria-hidden="true">→</span>
@@ -69,7 +69,7 @@ export function Footer({ className = "" }: FooterProps) {
 
           {/* Column 2: Navigation Links */}
           <div className="lg:col-span-2 space-y-4">
-            <span className="font-mono text-xs uppercase tracking-widest text-[#EFEAE4]/45 font-bold block">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#E8C766] font-bold block">
               NAVIGATION
             </span>
             <ul className="space-y-2.5 font-sans text-sm">
@@ -77,7 +77,7 @@ export function Footer({ className = "" }: FooterProps) {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-[#EFEAE4]/80 hover:text-[#5ED1C4] transition-colors inline-block"
+                    className="text-[#A89F8C] hover:text-[#E8C766] transition-colors inline-block"
                   >
                     {link.label}
                   </Link>
@@ -88,7 +88,7 @@ export function Footer({ className = "" }: FooterProps) {
 
           {/* Column 3: Social Links (Instagram, X, YouTube, Telegram, TikTok) */}
           <div className="lg:col-span-3 space-y-4">
-            <span className="font-mono text-xs uppercase tracking-widest text-[#EFEAE4]/45 font-bold block">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#E8C766] font-bold block">
               SOCIAL CHANNELS
             </span>
             <ul className="space-y-2.5 font-sans text-sm">
@@ -98,10 +98,10 @@ export function Footer({ className = "" }: FooterProps) {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`text-[#EFEAE4]/80 ${social.hoverColor} transition-colors inline-flex items-center gap-1.5 group`}
+                    className="text-[#A89F8C] hover:text-[#E8C766] transition-colors inline-flex items-center gap-1.5 group"
                   >
                     <span>{social.label}</span>
-                    <span className="text-[10px] text-[#EFEAE4]/40 group-hover:translate-x-0.5 transition-transform">
+                    <span className="text-[10px] text-[#A89F8C]/60 group-hover:text-[#E8C766] group-hover:translate-x-0.5 transition-all">
                       ↗
                     </span>
                   </a>
@@ -112,20 +112,20 @@ export function Footer({ className = "" }: FooterProps) {
 
           {/* Column 4: Live Session Status Widget */}
           <div className="lg:col-span-2 space-y-3 font-mono text-xs">
-            <span className="font-mono text-xs uppercase tracking-widest text-[#EFEAE4]/45 font-bold block">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#E8C766] font-bold block">
               SESSION DESK
             </span>
-            <div className="p-3 bg-[rgba(239,234,228,0.03)] border border-[rgba(239,234,228,0.08)] rounded-lg space-y-2">
+            <div className="p-3 bg-[#14110D] border border-[#B8871B]/35 rounded-lg space-y-2 shadow-[2px_2px_0px_#6B4F12]">
               <div className="flex items-center justify-between">
-                <span className="text-[#EFEAE4]/60">LONDON:</span>
+                <span className="text-[#A89F8C]">LONDON:</span>
                 <span className="text-[#EFEAE4] font-bold">08:00 - 16:00 GMT</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-[#EFEAE4]/60">NEW YORK:</span>
+                <span className="text-[#A89F8C]">NEW YORK:</span>
                 <span className="text-[#EFEAE4] font-bold">13:00 - 21:00 GMT</span>
               </div>
-              <div className="pt-1.5 border-t border-[rgba(239,234,228,0.08)] flex items-center gap-1.5 text-[11px] text-[#10B981] font-bold">
-                <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse inline-block" />
+              <div className="pt-1.5 border-t border-[rgba(212,166,42,0.2)] flex items-center gap-1.5 text-[11px] text-[#3DDC97] font-bold">
+                <span className="w-2 h-2 rounded-full bg-[#3DDC97] animate-pulse inline-block" />
                 <span>EXECUTION DESK ACTIVE</span>
               </div>
             </div>
@@ -134,14 +134,14 @@ export function Footer({ className = "" }: FooterProps) {
       </Container>
 
       {/* ----------------------------------------------------------- */}
-      {/* GIANT CREAM CONDENSED "TRADEDBYCYBER" WORDMARK FULL WIDTH   */}
+      {/* GIANT WORDMARK IN CREAM-TO-GOLD VERTICAL GRADIENT           */}
       {/* ----------------------------------------------------------- */}
-      <div className="w-full overflow-hidden select-none py-10 sm:py-14 md:py-18">
+      <div className="w-full overflow-hidden select-none py-10 sm:py-14 md:py-18 relative z-10">
         <span className="
-          font-display uppercase text-[#EFEAE4]
+          font-display uppercase gold-vertical-text
           text-[12.8vw] sm:text-[12.4vw] md:text-[12vw] lg:text-[11.8vw] xl:text-[11.4vw] 2xl:text-[170px]
           leading-[0.8] tracking-tight whitespace-nowrap block text-center
-          opacity-90 hover:opacity-100 transition-opacity
+          opacity-95 hover:opacity-100 transition-opacity
         ">
           TRADEDBYCYBER
         </span>
@@ -150,24 +150,24 @@ export function Footer({ className = "" }: FooterProps) {
       {/* ----------------------------------------------------------- */}
       {/* DISCLAIMER + COPYRIGHT                                      */}
       {/* ----------------------------------------------------------- */}
-      <Container size="lg">
-        <div className="pt-8 border-t border-[rgba(239,234,228,0.12)] space-y-6">
+      <Container size="lg" className="relative z-10">
+        <div className="pt-8 border-t border-[rgba(212,166,42,0.2)] space-y-6">
           {/* Small-print Risk Disclaimer */}
-          <p className="font-mono text-xs sm:text-[13px] leading-relaxed text-[#EFEAE4]/50 max-w-4xl">
+          <p className="font-mono text-xs sm:text-[13px] leading-relaxed text-[#A89F8C] max-w-4xl">
             Trading forex involves substantial risk of loss and is not suitable for every investor. Nothing on this site is financial advice.
           </p>
 
           {/* Bottom Row: Copyright + Back to top link */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-mono text-[11px] text-[#EFEAE4]/40">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-mono text-[11px] text-[#A89F8C]">
             <div>
               © 2026 TRADEDBYCYBER. ALL RIGHTS RESERVED.
             </div>
 
             <div className="flex items-center gap-6">
-              <span className="text-[#EFEAE4]/30">BUILT FOR DISCIPLINED TRADERS</span>
+              <span className="text-[#A89F8C]/60">BUILT FOR DISCIPLINED TRADERS</span>
               <a
                 href="#"
-                className="text-[#EFEAE4]/70 hover:text-[#5ED1C4] transition-colors inline-flex items-center gap-1 uppercase"
+                className="text-[#EFEAE4] hover:text-[#E8C766] transition-colors inline-flex items-center gap-1 uppercase"
               >
                 <span>BACK TO TOP</span>
                 <span>↑</span>
