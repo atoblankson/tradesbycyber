@@ -99,7 +99,7 @@ export function WorkWithMeSection({ className = "" }: WorkWithMeSectionProps) {
       <Container size="lg">
         {/* Section Header */}
         <div className="mb-12 sm:mb-16 md:mb-20 text-center max-w-3xl mx-auto">
-          <h2 className="font-display uppercase text-5xl sm:text-7xl md:text-8xl tracking-tight leading-[0.88] text-[#0A0A0A]">
+          <h2 className="font-display uppercase text-5xl sm:text-7xl md:text-8xl tracking-tight leading-[0.88] text-[#03FA84]">
             LEVEL UP YOUR EDGE.
           </h2>
 
@@ -155,7 +155,7 @@ export function WorkWithMeSection({ className = "" }: WorkWithMeSectionProps) {
                     </span>
                   </div>
 
-                  <h3 className="font-display uppercase text-3xl sm:text-4xl tracking-tight text-[#0A0A0A] mb-3 leading-none">
+                  <h3 className="font-display uppercase text-3xl sm:text-4xl tracking-tight text-[#03FA84] mb-3 leading-none">
                     {offer.title}
                   </h3>
 

@@ -80,7 +80,7 @@ export function AboutSection({ className = "" }: AboutSectionProps) {
         <Container size="lg">
           {/* Section Header */}
           <div className="mb-12 sm:mb-16 md:mb-20">
-            <h2 className="font-display uppercase text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[0.88] text-[#0A0A0A] max-w-5xl">
+            <h2 className="font-display uppercase text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[0.88] text-[#03FA84] max-w-5xl">
               I DON&apos;T GAMBLE.
               <br />
               I EXECUTE.

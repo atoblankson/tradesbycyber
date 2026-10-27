@@ -49,12 +49,12 @@ export function CtaSection({
         {/* ========================================================= */}
         <div className="order-1 lg:col-span-6 xl:col-span-6 flex flex-col justify-center py-12 sm:py-16 lg:py-10 pl-5 sm:pl-8 md:pl-12 lg:pl-16 xl:pl-20 pr-5 sm:pr-8 lg:pr-6 z-10">
           
-          {/* 1. Headline stacked on 4 lines, very large, tight line-height, black */}
+          {/* 1. Headline stacked on 4 lines, very large, tight line-height */}
           <h2 className="font-display uppercase tracking-tight leading-[0.84] text-6xl sm:text-7xl md:text-8xl lg:text-7xl xl:text-8xl 2xl:text-9xl select-none">
-            <span className="block text-[#0A0A0A]">STOP</span>
-            <span className="block text-[#0A0A0A]">GUESSING.</span>
-            <span className="block text-[#0A0A0A]">START</span>
-            <span className="block text-[#0A0A0A]/30">TRADING.</span>
+            <span className="block text-[#03FA84]">STOP</span>
+            <span className="block text-[#03FA84]">GUESSING.</span>
+            <span className="block text-[#03FA84]">START</span>
+            <span className="block text-[#03FA84]/40">TRADING.</span>
           </h2>
 
           {/* 2. Thin horizontal divider line (black fading to transparent) */}
