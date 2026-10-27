@@ -14,7 +14,7 @@ export interface CtaSectionProps {
 
 export function CtaSection({
   className = "",
-  phoneImageSrc,
+  phoneImageSrc = "/images/cta-phone.jpg",
   primaryCtaText = "JOIN THE COMMUNITY →",
   primaryCtaHref = "#contact",
   secondaryCtaText = "BOOK A CALL",
@@ -41,7 +41,7 @@ export function CtaSection({
       }}
     >
       {/* Container to enforce exact site-wide alignment and generous padding */}
-      <div className="w-full max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16 xl:px-20 h-full flex flex-col justify-center relative z-10 py-12 lg:py-8">
+      <div className="w-full max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16 xl:px-20 h-full flex flex-col justify-center relative lg:static z-10 py-12 lg:py-8">
         
         {/* 2-Column Split */}
         <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
@@ -151,145 +151,84 @@ export function CtaSection({
           </div>
 
           {/* ========================================================= */}
-          {/* RIGHT COLUMN: SIZED PHONE AREA WITH ANCHORED STICKERS     */}
-          {/* (Order 2 on mobile & desktop - anchored to bottom right)  */}
+          {/* RIGHT COLUMN: BLEEDING REAL PHONE PHOTO + 3 STICKERS      */}
+          {/* (Order 2 on mobile & desktop - edge-to-edge full bleed)   */}
           {/* ========================================================= */}
-          <div className="order-2 lg:col-span-6 xl:col-span-6 relative w-full h-[460px] sm:h-[540px] lg:h-full min-h-[440px] lg:min-h-[580px] flex items-end justify-center lg:justify-end overflow-visible">
+          <div className="order-2 lg:col-span-6 xl:col-span-6 relative lg:absolute lg:top-0 lg:bottom-0 lg:right-0 lg:w-1/2 w-[calc(100%+2.5rem)] sm:w-[calc(100%+4rem)] lg:w-1/2 -mx-5 sm:-mx-8 lg:mx-0 -mb-12 lg:mb-0 h-[460px] sm:h-[540px] md:h-[620px] lg:h-full overflow-hidden flex items-center justify-center lg:justify-end">
             
-            {/* Subtle soft grounding shadow beneath the phone */}
-            <div
-              className="absolute right-0 bottom-0 w-[420px] h-[420px] pointer-events-none z-0"
-              style={{
-                background: "radial-gradient(circle at 60% 70%, rgba(10, 10, 10, 0.08) 0%, rgba(10, 10, 10, 0.02) 45%, transparent 70%)",
-              }}
-              aria-hidden="true"
-            />
-
-            {/* SIZED PHONE FRAME CONTAINER (Holds phone cutout + anchored stickers) */}
-            <div className="relative w-[300px] sm:w-[350px] md:w-[380px] lg:w-[410px] h-[440px] sm:h-[520px] lg:h-[600px] flex items-end justify-center z-10">
-              
-              {/* Masked Photo Area: smoothly fades left & bottom edges */}
-              <div
-                className="w-full h-full relative z-10 flex items-end justify-center"
+            {/* Bleeding photo container with responsive directional mask & multiply blend */}
+            <div className="w-full h-full relative z-10 overflow-hidden cta-phone-mask">
+              <style>{`
+                .cta-phone-mask {
+                  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 6%, black 22%);
+                  mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 6%, black 22%);
+                }
+                @media (min-width: 1024px) {
+                  .cta-phone-mask {
+                    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 8%, black 25%);
+                    mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 8%, black 25%);
+                  }
+                }
+              `}</style>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={phoneImageSrc}
+                alt="Hand holding phone showing Telegram signals channel"
+                className="w-full h-full object-cover select-none pointer-events-none"
                 style={{
-                  WebkitMaskImage: `
-                    linear-gradient(to right, transparent 0%, rgba(0,0,0,0.3) 5%, black 16%),
-                    linear-gradient(to top, transparent 0%, rgba(0,0,0,0.4) 4%, black 14%)
-                  `,
-                  WebkitMaskComposite: "destination-in",
-                  maskImage: `
-                    linear-gradient(to right, transparent 0%, rgba(0,0,0,0.3) 5%, black 16%),
-                    linear-gradient(to top, transparent 0%, rgba(0,0,0,0.4) 4%, black 14%)
-                  `,
-                  maskComposite: "intersect",
+                  objectPosition: "70% 35%",
+                  transform: "scale(1.3)",
+                  transformOrigin: "right center",
+                  mixBlendMode: "multiply",
+                  filter: "brightness(1.05) saturate(0.95) contrast(1.02)",
                 }}
+              />
+            </div>
+
+            {/* ----------------------------------------------------------- */}
+            {/* 3 STICKERS LAYERED ABOVE PHOTO (Never covering screen text) */}
+            {/* ----------------------------------------------------------- */}
+
+            {/* 1. Teal: "⚡ NEXT SESSION STARTS TODAY" (Overlapping phone's top-left corner) */}
+            <div className="absolute top-[6%] sm:top-[8%] lg:top-[12%] left-[4%] sm:left-[8%] lg:left-[10%] xl:left-[14%] z-20 pointer-events-auto">
+              <Sticker
+                color="teal"
+                rotation={-5}
+                size="md"
+                className="text-xs sm:text-sm font-black shadow-[3px_3px_0px_#0A0A0A] border-2 border-[#0A0A0A]"
               >
-                {phoneImageSrc ? (
-                  /* Real photo cutout when provided */
-                  /* eslint-disable-next-line @next/next/no-img-element */
-                  <img
-                    src={phoneImageSrc}
-                    alt="Hand holding phone with Telegram signals channel"
-                    className="w-full h-full object-cover object-bottom select-none -rotate-2"
-                  />
-                ) : (
-                  /* Sized Phone Mockup Placeholder: Clean editorial frame */
-                  <div className="w-full h-full rounded-[2.5rem] border-2 sm:border-[2.5px] border-dashed border-[#0A0A0A]/40 bg-white/70 shadow-[8px_8px_0px_rgba(10,10,10,0.15)] flex flex-col justify-between p-5 sm:p-6 text-center select-none -rotate-2 backdrop-blur-xs">
-                    
-                    {/* Top Status & Dynamic Island */}
-                    <div className="flex flex-col items-center gap-3">
-                      <div className="w-20 h-4 bg-[#0A0A0A]/20 rounded-full mx-auto" />
-                      
-                      {/* Telegram Channel Header */}
-                      <div className="w-full bg-[#0A0A0A]/5 rounded-xl p-2.5 flex items-center gap-2.5 border border-[#0A0A0A]/10">
-                        <div className="w-8 h-8 rounded-full bg-[#0A0A0A] text-[#EFEAE4] flex items-center justify-center flex-shrink-0">
-                          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z" />
-                          </svg>
-                        </div>
-                        <div className="text-left font-mono leading-tight">
-                          <span className="block text-xs font-black text-[#0A0A0A]">TRADEDBYCYBER VIP</span>
-                          <span className="block text-[10px] text-[#0A0A0A]/50">1,840 members • 142 online</span>
-                        </div>
-                      </div>
-                    </div>
+                <span className="flex items-center gap-1.5">
+                  <span>⚡</span>
+                  <span>NEXT SESSION STARTS TODAY</span>
+                </span>
+              </Sticker>
+            </div>
 
-                    {/* Middle: Mock Trade Signal Ticket */}
-                    <div className="w-full bg-[#0B0A08] text-[#EFEAE4] rounded-xl p-3 sm:p-4 text-left border border-[rgba(212,166,42,0.3)] shadow-[3px_3px_0px_rgba(10,10,10,0.3)] font-mono space-y-1.5 my-auto">
-                      <div className="flex items-center justify-between text-[10px]">
-                        <span className="text-[#3DDC97] font-bold">● XAU/USD BUY LIMIT</span>
-                        <span className="text-[#A89F8C]">08:14 GMT</span>
-                      </div>
-                      <div className="text-xs sm:text-sm font-black text-[#EFEAE4]">
-                        ENTRY: 2,724.50
-                      </div>
-                      <div className="text-[10px] sm:text-xs text-[#A89F8C] flex justify-between">
-                        <span>SL: 2,718.00</span>
-                        <span className="text-[#3DDC97] font-bold">TP: 2,748.00 (+4.0R)</span>
-                      </div>
-                    </div>
+            {/* 2. Yellow: "STRICT 0.5% RISK RULE" (Overlapping left edge near thumb) */}
+            <div className="absolute top-[48%] sm:top-[50%] left-[2%] sm:left-[4%] lg:left-[5%] xl:left-[8%] z-20 pointer-events-auto">
+              <Sticker
+                color="yellow"
+                rotation={4}
+                size="md"
+                className="text-xs sm:text-sm font-black shadow-[3px_3px_0px_#0A0A0A] border-2 border-[#0A0A0A]"
+              >
+                STRICT 0.5% RISK RULE
+              </Sticker>
+            </div>
 
-                    {/* Bottom: Instructional Label */}
-                    <div className="space-y-1 pt-2 border-t border-[#0A0A0A]/10">
-                      <span className="font-mono text-xs font-black tracking-widest text-[#0A0A0A] uppercase block">
-                        HAND + PHONE PHOTO HERE
-                      </span>
-                      <span className="font-mono text-[10px] text-[#0A0A0A]/60 block leading-tight max-w-[240px] mx-auto">
-                        Cutout drops in via phoneImageSrc prop. Smoothly masked at left and bottom edges.
-                      </span>
-                    </div>
-
-                  </div>
-                )}
-              </div>
-
-              {/* ----------------------------------------------------------- */}
-              {/* 3 STICKERS TIGHTLY ANCHORED AROUND THE PHONE EDGES          */}
-              {/* (Overlapping edges nicely; never covering screen center)    */}
-              {/* ----------------------------------------------------------- */}
-
-              {/* 1. Teal: "⚡ NEXT SESSION STARTS TODAY" (Overlapping top-left corner) */}
-              <div className="absolute -top-4 sm:-top-6 -left-4 sm:-left-8 lg:-left-12 z-20">
-                <Sticker
-                  color="teal"
-                  rotation={-5}
-                  size="md"
-                  className="text-xs sm:text-sm font-black shadow-[3px_3px_0px_#0A0A0A] border-2 border-[#0A0A0A]"
-                >
-                  <span className="flex items-center gap-1.5">
-                    <span>⚡</span>
-                    <span>NEXT SESSION STARTS TODAY</span>
-                  </span>
-                </Sticker>
-              </div>
-
-              {/* 2. Yellow: "STRICT 0.5% RISK RULE" (Overlapping mid-left bezel) */}
-              <div className="absolute top-[48%] sm:top-[50%] -left-5 sm:-left-7 lg:-left-10 z-20">
-                <Sticker
-                  color="yellow"
-                  rotation={4}
-                  size="md"
-                  className="text-xs sm:text-sm font-black shadow-[3px_3px_0px_#0A0A0A] border-2 border-[#0A0A0A]"
-                >
-                  STRICT 0.5% RISK RULE
-                </Sticker>
-              </div>
-
-              {/* 3. Lime Circle Badge (Overlapping bottom-right bezel - desktop only, hidden on mobile for max 2) */}
-              <div className="absolute -bottom-4 sm:-bottom-6 -right-4 sm:-right-6 lg:-right-8 z-20 hidden sm:block">
-                <CircleBadge
-                  text="* TRADED BY CYBER * FOREX DISCIPLINE * "
-                  badgeBg="lime"
-                  color="cream"
-                  rotation={-10}
-                  size={100}
-                  hasBorder
-                  hasShadow
-                  icon="crosshair"
-                  className="scale-85 sm:scale-95 md:scale-100"
-                />
-              </div>
-
+            {/* 3. Lime Circle Badge (Over bottom right sleeve - desktop only, hidden on mobile for 2 stickers max) */}
+            <div className="absolute bottom-[8%] xl:bottom-[12%] right-[6%] xl:right-[10%] z-20 hidden lg:block pointer-events-auto">
+              <CircleBadge
+                text="* TRADED BY CYBER * FOREX DISCIPLINE * "
+                badgeBg="lime"
+                color="cream"
+                rotation={-10}
+                size={100}
+                hasBorder
+                hasShadow
+                icon="crosshair"
+                className="scale-90 md:scale-95 lg:scale-100"
+              />
             </div>
 
           </div>
