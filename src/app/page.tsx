@@ -1,8 +1,5 @@
 import {
-  Container,
-  Navbar,
-  HeroTop,
-  HeroGridPanel,
+  HeroSection,
   TickerStrip,
   StatsRow,
   AboutSection,
@@ -16,42 +13,31 @@ import {
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#0B0A08] text-[#EFEAE4] overflow-x-hidden">
-      {/* Hero Top Area on Warm Black with Subtle Gold Glow & Film Grain */}
-      <div className="w-full bg-gold-glow-tr film-grain relative">
-        <Container size="lg" className="flex flex-col relative z-10">
-          {/* Top Navbar */}
-          <Navbar />
+      {/* 1. New Full-Viewport Height 2-Column Hero on Warm Black */}
+      <HeroSection />
 
-          {/* Hero Top: Giant Headline with Gold metallic keyword + Intro Row */}
-          <HeroTop />
-
-          {/* Cream Chart-Grid Panel with Curved Right Edge, Photo Placeholder & Scattered Stickers */}
-          <HeroGridPanel />
-        </Container>
-      </div>
-
-      {/* 1. Full-Width Ticker Strip (Cream) */}
+      {/* 2. Full-Width Ticker Strip (Cream) */}
       <TickerStrip />
 
-      {/* 2. Dark-Gold Stats Row with Metallic Gold Numbers & Thin Gold Dividers */}
+      {/* 3. Dark-Gold Stats Row with Metallic Gold Numbers & Thin Gold Dividers */}
       <StatsRow />
 
-      {/* 3. About / My Approach Section (Cream Grid Background - Untouched) */}
+      {/* 4. About / My Approach Section with Cream Curved Grid Panel Background */}
       <AboutSection />
 
-      {/* 4. Results Section: "THE RECEIPTS." with Dark-Gold Cards & Gold-800 Shadows */}
+      {/* 5. Results Section: "THE RECEIPTS." with Dark-Gold Cards & Gold-800 Shadows */}
       <ResultsSection />
 
-      {/* 5. Work With Me Section (Cream Background with 3 Offer Cards - Untouched) */}
+      {/* 6. Work With Me Section (Cream Background with 3 Offer Cards) */}
       <WorkWithMeSection />
 
-      {/* 6. Testimonials Section: Dark-Gold Masonry Cards & Original Colorful Stickers */}
+      {/* 7. Testimonials Section: Dark-Gold Masonry Cards & Original Colorful Stickers */}
       <TestimonialsSection />
 
-      {/* 7. Final Loud Full-Bleed CTA Section (Cream Background - Untouched) */}
+      {/* 8. Final Loud Full-Bleed CTA Section (Cream Background) */}
       <CtaSection />
 
-      {/* 8. Site Footer: Warm Black with Vertical Cream-to-Gold Wordmark & Disclaimer */}
+      {/* 9. Site Footer: Warm Black with Vertical Cream-to-Gold Wordmark & Disclaimer */}
       <Footer />
     </main>
   );
