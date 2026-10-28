@@ -109,53 +109,6 @@ export function AboutSection({ className = "" }: AboutSectionProps) {
                   good on Instagram reels.
                 </p>
               </div>
-
-              {/* Photo Spot (Dashed Placeholder) */}
-              <div className="relative">
-                <div className="
-                  w-full h-[260px] sm:h-[300px] md:h-[340px]
-                  border-2 border-dashed border-[#0A0A0A]/40
-                  bg-[rgba(10,10,10,0.04)]
-                  rounded-2xl
-                  flex flex-col items-center justify-center gap-3
-                  p-6 text-center select-none shadow-[2px_2px_0px_rgba(10,10,10,0.08)]
-                ">
-                  {/* Camera / Desk icon */}
-                  <div className="w-12 h-12 rounded-full border-2 border-dashed border-[#0A0A0A]/40 flex items-center justify-center text-[#0A0A0A]/50">
-                    <svg
-                      className="w-6 h-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={1.5}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z"
-                      />
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z"
-                      />
-                    </svg>
-                  </div>
-                  <span className="font-mono text-xs sm:text-sm font-black tracking-widest text-[#0A0A0A]/70 uppercase">
-                    TRADER PHOTO / WORKING SETUP
-                  </span>
-                  <span className="font-mono text-[11px] text-[#0A0A0A]/45 max-w-[220px] leading-tight">
-                    Desk setup, charts multi-monitor, or candid working portrait (4:3 aspect ratio)
-                  </span>
-                </div>
-
-                {/* Corner mini-sticker accent */}
-                <div className="absolute -top-3 -right-3 rotate-6 hidden sm:block">
-                  <span className="inline-block bg-[#0A0A0A] text-[#EFEAE4] border border-[#0A0A0A] font-mono text-[10px] uppercase font-black px-2.5 py-1 rounded shadow-[2px_2px_0px_rgba(10,10,10,0.3)]">
-                    LONDON DESK • 08:00 GMT
-                  </span>
-                </div>
-              </div>
             </div>
 
             {/* ----------------------------------------------------------- */}
