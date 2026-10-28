@@ -19,7 +19,7 @@ export function CtaSection({
   headlineLine1 = "STOP GUESSING.",
   headlineLine2 = "START TRADING.",
   primaryCtaText = "JOIN THE COMMUNITY →",
-  primaryCtaHref = "#contact",
+  primaryCtaHref = "https://t.me/+ZJ-RRfV9XjM0MWI8",
   secondaryCtaText = "BOOK A CALL",
   secondaryCtaHref = "#contact",
 }: CtaSectionProps) {
@@ -122,6 +122,8 @@ export function CtaSection({
           {/* Button 1: "JOIN THE COMMUNITY →" (Solid Black) */}
           <Link
             href={primaryCtaHref}
+            target={primaryCtaHref.startsWith("http") ? "_blank" : undefined}
+            rel={primaryCtaHref.startsWith("http") ? "noopener noreferrer" : undefined}
             className="
               w-full sm:w-auto
               bg-[#0A0A0A] text-[#EFEAE4]

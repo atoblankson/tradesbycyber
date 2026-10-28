@@ -34,7 +34,7 @@ const OFFERS: OfferCard[] = [
       "Private Discord access with active trade markup channels and weekly group Q&A",
     ],
     buttonText: "JOIN THE COMMUNITY",
-    buttonHref: "#contact",
+    buttonHref: "https://t.me/+ZJ-RRfV9XjM0MWI8",
     isPopular: false,
   },
   {
@@ -200,6 +200,8 @@ export function WorkWithMeSection({ className = "" }: WorkWithMeSectionProps) {
                 <div className="pt-2">
                   <a
                     href={offer.buttonHref}
+                    target={offer.buttonHref.startsWith("http") ? "_blank" : undefined}
+                    rel={offer.buttonHref.startsWith("http") ? "noopener noreferrer" : undefined}
                     className={`
                       w-full py-4 px-6 rounded-lg
                       font-mono text-xs sm:text-sm font-black uppercase tracking-wider

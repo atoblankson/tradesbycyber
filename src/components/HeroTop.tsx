@@ -18,7 +18,7 @@ export function HeroTop({
   leftText = "Trading the London and New York sessions. Price action, supply and demand, strict risk.",
   rightText = "Disciplined, data-backed, and transparent. I trade so you can learn what actually works, not what looks good on Instagram.",
   ctaText = "JOIN THE COMMUNITY",
-  ctaHref = "#community",
+  ctaHref = "https://t.me/+ZJ-RRfV9XjM0MWI8",
 }: HeroTopProps) {
   return (
     <section className={`w-full pt-10 sm:pt-14 md:pt-18 lg:pt-20 pb-12 sm:pb-16 ${className}`}>
@@ -50,6 +50,8 @@ export function HeroTop({
         <div className="md:col-span-3 lg:col-span-3 flex md:justify-end items-start pt-1 md:pt-0">
           <Link
             href={ctaHref}
+            target={ctaHref.startsWith("http") ? "_blank" : undefined}
+            rel={ctaHref.startsWith("http") ? "noopener noreferrer" : undefined}
             className="inline-flex items-center gap-1.5 font-sans text-xs sm:text-sm font-semibold tracking-wider uppercase text-[#EFEAE4] hover:text-[#E8C766] transition-colors group"
           >
             <span className="underline underline-offset-4 decoration-1 decoration-[#D4A62A] group-hover:decoration-[#E8C766]">

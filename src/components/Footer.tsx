@@ -19,7 +19,7 @@ export function Footer({ className = "" }: FooterProps) {
     { label: "Instagram", href: "https://instagram.com", handle: "@tradedbycyber" },
     { label: "X (Twitter)", href: "https://x.com", handle: "@tradedbycyber" },
     { label: "YouTube", href: "https://youtube.com", handle: "@tradedbycyber" },
-    { label: "Telegram", href: "https://t.me", handle: "t.me/tradedbycyber" },
+    { label: "Telegram", href: "https://t.me/+ZJ-RRfV9XjM0MWI8", handle: "t.me/tradedbycyber" },
     { label: "TikTok", href: "https://tiktok.com", handle: "@tradedbycyber" },
   ];
 

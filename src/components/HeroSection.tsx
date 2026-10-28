@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Container } from "./Container";
 import { Navbar } from "./Navbar";
+import { Sticker } from "./Sticker";
 
 export interface HeroSectionProps {
   className?: string;
@@ -98,7 +99,9 @@ export function HeroSection({
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-5 w-full sm:w-auto">
               {/* Primary Pill: Metallic Gold Gradient + Dark Text */}
               <Link
-                href="#contact"
+                href="https://t.me/+ZJ-RRfV9XjM0MWI8"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="
                   w-full sm:w-auto inline-flex items-center justify-center
                   gold-metallic-bg text-[#0B0A08]
