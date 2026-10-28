@@ -16,11 +16,11 @@ export function Footer({ className = "" }: FooterProps) {
   ];
 
   const socialLinks = [
-    { label: "Instagram", href: "https://instagram.com", handle: "@tradedbycyber" },
-    { label: "X (Twitter)", href: "https://x.com", handle: "@tradedbycyber" },
-    { label: "YouTube", href: "https://youtube.com", handle: "@tradedbycyber" },
-    { label: "Telegram", href: "https://t.me/+ZJ-RRfV9XjM0MWI8", handle: "t.me/tradedbycyber" },
-    { label: "TikTok", href: "https://tiktok.com", handle: "@tradedbycyber" },
+    { label: "Instagram", href: "https://instagram.com", handle: "@tradesbycyber" },
+    { label: "X (Twitter)", href: "https://x.com", handle: "@tradesbycyber" },
+    { label: "YouTube", href: "https://youtube.com", handle: "@tradesbycyber" },
+    { label: "Telegram", href: "https://t.me/+ZJ-RRfV9XjM0MWI8", handle: "t.me/tradesbycyber" },
+    { label: "TikTok", href: "https://tiktok.com", handle: "@tradesbycyber" },
   ];
 
   return (
@@ -43,7 +43,7 @@ export function Footer({ className = "" }: FooterProps) {
                 aria-hidden="true"
               />
               <span className="font-sans text-lg sm:text-xl font-bold tracking-tight text-[#EFEAE4]">
-                tradedbycyber
+                tradesbycyber
               </span>
             </Link>
 
@@ -58,10 +58,10 @@ export function Footer({ className = "" }: FooterProps) {
                 DIRECT INQUIRIES &amp; MENTORSHIP
               </span>
               <a
-                href="mailto:contact@tradedbycyber.com"
+                href="mailto:contact@tradesbycyber.com"
                 className="inline-flex items-center gap-2 font-mono text-sm sm:text-base font-bold text-[#D4A62A] hover:text-[#E8C766] transition-colors underline underline-offset-4 decoration-1 decoration-[#D4A62A]"
               >
-                contact@tradedbycyber.com
+                contact@tradesbycyber.com
                 <span aria-hidden="true">→</span>
               </a>
             </div>
@@ -143,7 +143,7 @@ export function Footer({ className = "" }: FooterProps) {
           leading-[0.8] tracking-tight whitespace-nowrap block text-center
           opacity-95 hover:opacity-100 transition-opacity
         ">
-          TRADEDBYCYBER
+          TRADESBYCYBER
         </span>
       </div>
 
@@ -160,7 +160,7 @@ export function Footer({ className = "" }: FooterProps) {
           {/* Bottom Row: Copyright + Back to top link */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-mono text-[11px] text-[#A89F8C]">
             <div>
-              © 2026 TRADEDBYCYBER. ALL RIGHTS RESERVED.
+              © 2026 TRADESBYCYBER. ALL RIGHTS RESERVED.
             </div>
 
             <div className="flex items-center gap-6">

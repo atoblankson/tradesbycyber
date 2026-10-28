@@ -23,8 +23,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "TRADEDBYCYBER | Institutional Forex Edge",
-  description: "High-conviction forex trading, institutional orderflow, and execution psychology by Tradedbycyber.",
+  title: "TRADESBYCYBER | Institutional Forex Edge",
+  description: "High-conviction forex trading, institutional orderflow, and execution psychology by Tradesbycyber.",
 };
 
 export default function RootLayout({

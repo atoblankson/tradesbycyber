@@ -27,7 +27,7 @@ export function Navbar({ className = "" }: NavbarProps) {
             aria-hidden="true"
           />
           <span className="font-sans text-sm sm:text-base font-semibold tracking-tight text-[#EFEAE4]">
-            tradedbycyber
+            tradesbycyber
           </span>
         </Link>
 

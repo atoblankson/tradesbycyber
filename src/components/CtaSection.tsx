@@ -2,7 +2,6 @@ import React from "react";
 import Link from "next/link";
 import { Container } from "./Container";
 import { Sticker } from "./Sticker";
-import { CircleBadge } from "./CircleBadge";
 import { getWhatsAppUrl } from "@/lib/contact";
 
 export interface CtaSectionProps {
@@ -90,7 +89,7 @@ export function CtaSection({
       {/* 4. Lime Circle Badge (Bottom-Right) - Visual echo of Hero's Lime badge */}
       <div className="absolute bottom-6 sm:bottom-10 md:bottom-14 right-4 sm:right-12 md:right-20 lg:right-32 z-20">
         <CircleBadge
-          text="* TRADED BY CYBER * FOREX DISCIPLINE * "
+          text="* TRADES BY CYBER * FOREX DISCIPLINE * "
           badgeBg="lime"
           color="cream"
           rotation={-12}

@@ -179,7 +179,7 @@ export function HeroSection({
               >
                 <Image
                   src={traderImageSrc}
-                  alt="Tradedbycyber Lead Forex Trader"
+                  alt="Tradesbycyber Lead Forex Trader"
                   width={768}
                   height={1024}
                   priority

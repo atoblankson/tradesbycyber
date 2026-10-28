@@ -12,7 +12,7 @@ export interface StrategyCardItem {
 
 /* =========================================================================
    STRATEGY CARDS DATA
-   4 core pillars of the Tradedbycyber trading methodology
+   4 core pillars of the Tradesbycyber trading methodology
    ========================================================================= */
 const STRATEGY_CARDS: StrategyCardItem[] = [
   {
