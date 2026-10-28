@@ -5,7 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, useReducedMotion } from "motion/react";
 import { EASING } from "@/lib/motion";
-import { Sticker } from "./Sticker";
 
 export interface HeroSectionProps {
   className?: string;
@@ -190,7 +189,7 @@ export function HeroSection({
           {/* ========================================================= */}
           <div className="order-1 lg:order-2 lg:col-span-6 xl:col-span-6 relative w-full h-[400px] sm:h-[480px] md:h-[540px] lg:h-full min-h-full lg:self-stretch flex items-end justify-center overflow-visible">
             
-            {/* Photo + Stickers Container (Rendered height 115% of hero, anchored to bottom center, centered in col) */}
+            {/* Photo Container (Rendered height 115% of hero, anchored to bottom center, centered in col) */}
             <div
               className="relative w-full lg:w-auto h-auto lg:h-[115%] flex items-end justify-center origin-bottom"
               style={{
@@ -247,92 +246,6 @@ export function HeroSection({
                   }}
                 />
               </motion.div>
-
-              {/* ----------------------------------------------------- */}
-              {/* HERO STICKERS: POP IN LAST WITH AMBIENT DRIFT LOOPS   */}
-              {/* 0.4s stagger between each sticker, settle into drift */}
-              {/* ----------------------------------------------------- */}
-
-              {/* 1. Yellow Sticker: "XAU/USD GOLD SETUPS" */}
-              <div className="absolute top-[34%] -left-2 sm:left-4 md:left-8 lg:-left-6 z-20 pointer-events-auto sticker-drift-1">
-                <motion.div
-                  initial={shouldReduceMotion ? {} : { scale: 0.85, opacity: 0, rotate: -7 }}
-                  animate={{ scale: 1, opacity: 1, rotate: -4 }}
-                  transition={{ duration: 0.5, ease: EASING, delay: 0.7 }}
-                >
-                  <Sticker
-                    color="yellow"
-                    rotation={-4}
-                    size="md"
-                    className="text-xs sm:text-sm cursor-default"
-                  >
-                    <span className="flex items-center gap-1.5">
-                      <span className="font-mono text-xs">⚡</span>
-                      <span>XAU/USD GOLD SETUPS</span>
-                    </span>
-                  </Sticker>
-                </motion.div>
-              </div>
-
-              {/* 2. Orange Sticker: "LONDON & NY SESSIONS" */}
-              <div className="absolute bottom-[26%] -left-1 sm:left-6 md:left-12 lg:-left-4 z-20 pointer-events-auto sticker-drift-2">
-                <motion.div
-                  initial={shouldReduceMotion ? {} : { scale: 0.85, opacity: 0, rotate: -12 }}
-                  animate={{ scale: 1, opacity: 1, rotate: -8 }}
-                  transition={{ duration: 0.5, ease: EASING, delay: 1.1 }}
-                >
-                  <Sticker
-                    color="orange"
-                    rotation={-8}
-                    size="md"
-                    className="text-xs sm:text-sm cursor-default"
-                  >
-                    <span className="flex items-center gap-1.5">
-                      <span>LONDON &amp; NY SESSIONS</span>
-                      <span className="font-bold">→</span>
-                    </span>
-                  </Sticker>
-                </motion.div>
-              </div>
-
-              {/* 3. Pink Sticker: "PRICE ACTION ©" (Desktop only, 2 max on mobile) */}
-              <div className="hidden lg:block absolute top-[28%] -right-4 xl:-right-8 z-20 pointer-events-auto sticker-drift-3">
-                <motion.div
-                  initial={shouldReduceMotion ? {} : { scale: 0.85, opacity: 0, rotate: 2 }}
-                  animate={{ scale: 1, opacity: 1, rotate: 6 }}
-                  transition={{ duration: 0.5, ease: EASING, delay: 1.5 }}
-                >
-                  <Sticker
-                    color="pink"
-                    rotation={6}
-                    size="md"
-                    className="text-xs sm:text-sm cursor-default"
-                  >
-                    PRICE ACTION ©
-                  </Sticker>
-                </motion.div>
-              </div>
-
-              {/* 4. Teal Sticker: "PROP FIRM FUNDED ©26" (Desktop only, 2 max on mobile) */}
-              <div className="hidden lg:block absolute bottom-[38%] -right-2 xl:-right-6 z-20 pointer-events-auto sticker-drift-4">
-                <motion.div
-                  initial={shouldReduceMotion ? {} : { scale: 0.85, opacity: 0, rotate: -16 }}
-                  animate={{ scale: 1, opacity: 1, rotate: -12 }}
-                  transition={{ duration: 0.5, ease: EASING, delay: 1.9 }}
-                >
-                  <Sticker
-                    color="teal"
-                    rotation={-12}
-                    size="md"
-                    className="text-xs sm:text-sm cursor-default"
-                  >
-                    <span className="flex items-center gap-1.5">
-                      <span>PROP FIRM FUNDED ©26</span>
-                      <span className="font-mono text-xs">★</span>
-                    </span>
-                  </Sticker>
-                </motion.div>
-              </div>
 
             </div>
 
