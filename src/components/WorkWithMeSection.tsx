@@ -3,6 +3,7 @@
 import React from "react";
 import { Container } from "./Container";
 import { Sticker } from "./Sticker";
+import { getWhatsAppUrl } from "@/lib/contact";
 
 export interface WorkWithMeSectionProps {
   className?: string;
@@ -149,7 +150,9 @@ export function WorkWithMeSection({ className = "" }: WorkWithMeSectionProps) {
             {/* Black Button */}
             <div className="pt-6 border-t border-[#0A0A0A]/10 mt-auto">
               <a
-                href="#contact"
+                href={getWhatsAppUrl("program")}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="
                   w-full py-4 px-6 rounded-lg
                   font-mono text-xs sm:text-sm font-black uppercase tracking-wider
@@ -233,7 +236,9 @@ export function WorkWithMeSection({ className = "" }: WorkWithMeSectionProps) {
             {/* Black Button */}
             <div className="pt-6 border-t border-[#0A0A0A]/10 mt-auto">
               <a
-                href="#contact"
+                href={getWhatsAppUrl("elite")}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="
                   w-full py-4 px-6 rounded-lg
                   font-mono text-xs sm:text-sm font-black uppercase tracking-wider

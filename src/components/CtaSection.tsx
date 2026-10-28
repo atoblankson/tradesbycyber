@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Container } from "./Container";
 import { Sticker } from "./Sticker";
 import { CircleBadge } from "./CircleBadge";
+import { getWhatsAppUrl } from "@/lib/contact";
 
 export interface CtaSectionProps {
   className?: string;
@@ -21,8 +22,9 @@ export function CtaSection({
   primaryCtaText = "JOIN THE COMMUNITY →",
   primaryCtaHref = "https://t.me/+ZJ-RRfV9XjM0MWI8",
   secondaryCtaText = "BOOK A CALL",
-  secondaryCtaHref = "#contact",
+  secondaryCtaHref,
 }: CtaSectionProps) {
+  const resolvedSecondaryHref = secondaryCtaHref ?? getWhatsAppUrl("cta");
   return (
     <section
       id="contact"
@@ -142,8 +144,10 @@ export function CtaSection({
           </Link>
 
           {/* Button 2: "BOOK A CALL" (Outlined) */}
-          <Link
-            href={secondaryCtaHref}
+          <a
+            href={resolvedSecondaryHref}
+            target="_blank"
+            rel="noopener noreferrer"
             className="
               w-full sm:w-auto
               bg-transparent text-[#0A0A0A]
@@ -159,7 +163,7 @@ export function CtaSection({
             "
           >
             {secondaryCtaText}
-          </Link>
+          </a>
         </div>
       </Container>
     </section>
