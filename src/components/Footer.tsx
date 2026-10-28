@@ -140,7 +140,7 @@ export function Footer({ className = "" }: FooterProps) {
             </p>
 
             <p>
-              <strong className="font-bold text-[#EFEAE4]">DISCLAIMER:</strong> tradedbycyber provides trading education, mentorship, market commentary and trade breakdowns for informational purposes only. Nothing on this website or in our community channels, including videos, courses, mentorship sessions, signals, analysis or trade setups, is financial advice, an investment recommendation or an offer to buy or sell any financial instrument. Any account management or copy-trading arrangement is a separate, private agreement between the parties involved and is not offered through this website.
+              <strong className="font-bold text-[#EFEAE4]">DISCLAIMER:</strong> tradesbycyber provides trading education, mentorship, market commentary and trade breakdowns for informational purposes only. Nothing on this website or in our community channels, including videos, courses, mentorship sessions, signals, analysis or trade setups, is financial advice, an investment recommendation or an offer to buy or sell any financial instrument. Any account management or copy-trading arrangement is a separate, private agreement between the parties involved and is not offered through this website.
             </p>
             {/* TODO: client to confirm licensing/registration status and the exact wording of this last sentence with a lawyer before launch */}
 
@@ -149,18 +149,18 @@ export function Footer({ className = "" }: FooterProps) {
             </p>
 
             <p>
-              We encourage you to speak with a licensed financial advisor or the regulator in your jurisdiction before you trade or hand control of any account to anyone. Using any third-party broker or platform is entirely your choice, and tradedbycyber is not liable for any loss or damage arising directly or indirectly from using this website or its content.
+              We encourage you to speak with a licensed financial advisor or the regulator in your jurisdiction before you trade or hand control of any account to anyone. Using any third-party broker or platform is entirely your choice, and tradesbycyber is not liable for any loss or damage arising directly or indirectly from using this website or its content.
             </p>
 
             <p className="pt-2 text-[11px] sm:text-xs text-[#A89F8C]/80">
               By using this website, you agree to our{" "}
-              <a href="#terms" className="text-[#E8C766] underline underline-offset-2 hover:text-[#EFEAE4] transition-colors">
+              <Link href="/terms" className="text-[#E8C766] underline underline-offset-2 hover:text-[#EFEAE4] transition-colors">
                 Terms of Service
-              </a>
+              </Link>
               ,{" "}
-              <a href="#privacy" className="text-[#E8C766] underline underline-offset-2 hover:text-[#EFEAE4] transition-colors">
+              <Link href="/privacy" className="text-[#E8C766] underline underline-offset-2 hover:text-[#EFEAE4] transition-colors">
                 Privacy Policy
-              </a>
+              </Link>
               , and acknowledge the risks involved in trading.
             </p>
           </div>
