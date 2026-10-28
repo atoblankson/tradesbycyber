@@ -71,16 +71,13 @@ export default function TermsPage() {
 
         {/* High-Risk Warning Alert Box */}
         <div className="mb-12 p-6 rounded-xl border border-[#D4A62A]/40 bg-[#14110D] shadow-[4px_4px_0px_#6B4F12]">
-          <div className="flex items-start gap-3.5">
-            <span className="text-[#E8C766] text-xl leading-none">⚠️</span>
-            <div className="space-y-2 text-xs sm:text-sm leading-relaxed text-[#EFEAE4]">
-              <strong className="block font-mono uppercase tracking-wider text-[#E8C766] font-black">
-                IMPORTANT RISK NOTICE &amp; EDUCATIONAL DISCLAIMER
-              </strong>
-              <p className="text-[#EFEAE4]/90">
-                Trading foreign exchange (Forex), Gold (XAU/USD), and leveraged contracts carries a high level of risk and can result in the loss of all your deposited capital. All content provided by <strong>tradesbycyber</strong> is strictly for educational purposes and does not constitute financial, investment, or trading advice.
-              </p>
-            </div>
+          <div className="space-y-2 text-xs sm:text-sm leading-relaxed text-[#EFEAE4]">
+            <strong className="block font-mono uppercase tracking-wider text-[#E8C766] font-black">
+              IMPORTANT RISK NOTICE &amp; EDUCATIONAL DISCLAIMER
+            </strong>
+            <p className="text-[#EFEAE4]/90">
+              Trading foreign exchange (Forex), Gold (XAU/USD), and leveraged contracts carries a high level of risk and can result in the loss of all your deposited capital. All content provided by <strong>tradesbycyber</strong> is strictly for educational purposes and does not constitute financial, investment, or trading advice.
+            </p>
           </div>
         </div>
 
@@ -93,7 +90,7 @@ export default function TermsPage() {
               <span>Who We Are and Acceptance of Terms</span>
             </h2>
             <p>
-              1.1. These Terms of Service (&ldquo;Terms&rdquo;) form a legally binding agreement between you (&ldquo;you&rdquo;, &ldquo;your&rdquo;, or &ldquo;User&rdquo;) and <strong>tradesbycyber</strong> (&ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;our&rdquo;), operating via this website and our official communication channels, based in [Accra, Ghana].
+              1.1. These Terms of Service (&ldquo;Terms&rdquo;) form a legally binding agreement between you (&ldquo;you&rdquo;, &ldquo;your&rdquo;, or &ldquo;User&rdquo;) and <strong>tradesbycyber</strong> (&ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;our&rdquo;), operating via this website and our official communication channels, based in Accra, Ghana.
             </p>
             <p>
               1.2. By visiting our website, contacting us through WhatsApp or Telegram, or purchasing our trading education programs, you acknowledge that you have read, understood, and agreed to be bound by these Terms and our Privacy Policy. If you do not agree to every provision of these Terms, you must discontinue use of our site and services immediately.
@@ -352,7 +349,7 @@ export default function TermsPage() {
               15.1. <strong>Governing Law:</strong> These Terms and any dispute arising from them shall be governed by and interpreted under the laws of the <strong>Republic of Ghana</strong>, without regard to conflict of law principles.
             </p>
             <p>
-              15.2. <strong>Informal Resolution:</strong> You agree to first contact us directly at [contact@tradesbycyber.com] and allow at least thirty (30) business days to resolve any dispute amicably.
+              15.2. <strong>Informal Resolution:</strong> You agree to first contact us directly at <a href="mailto:contact@tradesbycyber.com" className="text-[#D4A62A] underline hover:text-[#E8C766]">contact@tradesbycyber.com</a> and allow at least thirty (30) business days to resolve any dispute amicably.
             </p>
             <p>
               15.3. <strong>Jurisdiction:</strong> Any legal action or dispute that cannot be resolved informally shall be submitted to the exclusive jurisdiction of the competent courts in <strong>Accra, Ghana</strong>.
@@ -378,9 +375,9 @@ export default function TermsPage() {
               <br />
               • Email: <a href="mailto:contact@tradesbycyber.com" className="text-[#D4A62A] underline hover:text-[#E8C766]">contact@tradesbycyber.com</a>
               <br />
-              • WhatsApp: [WhatsApp business number, e.g. +233 50 935 7336]
+              • WhatsApp: <a href="https://wa.me/233509357336" target="_blank" rel="noopener noreferrer" className="text-[#D4A62A] underline hover:text-[#E8C766]">+233 50 935 7336</a>
               <br />
-              • Operating Location: [Accra, Ghana]
+              • Operating Location: Accra, Ghana
             </p>
           </section>
         </article>

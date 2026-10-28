@@ -78,7 +78,7 @@ export default function PrivacyPage() {
               <span>Who We Are &amp; Privacy Overview</span>
             </h2>
             <p>
-              1.1. This Privacy Policy details how <strong>tradesbycyber</strong> (&ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;our&rdquo;), based in [Accra, Ghana], collects, uses, protects, and discloses personal information gathered through our website, WhatsApp inquiries, Telegram communities, and educational programs.
+              1.1. This Privacy Policy details how <strong>tradesbycyber</strong> (&ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;our&rdquo;), based in Accra, Ghana, collects, uses, protects, and discloses personal information gathered through our website, WhatsApp inquiries, Telegram communities, and educational programs.
             </p>
             <p>
               1.2. We are committed to processing your data transparently, securely, and lawfully under:
@@ -301,9 +301,9 @@ export default function PrivacyPage() {
               <br />
               • Email: <a href="mailto:contact@tradesbycyber.com" className="text-[#D4A62A] underline hover:text-[#E8C766]">contact@tradesbycyber.com</a>
               <br />
-              • WhatsApp: [WhatsApp business number, e.g. +233 50 935 7336]
+              • WhatsApp: <a href="https://wa.me/233509357336" target="_blank" rel="noopener noreferrer" className="text-[#D4A62A] underline hover:text-[#E8C766]">+233 50 935 7336</a>
               <br />
-              • Location: [Accra, Ghana]
+              • Location: Accra, Ghana
             </p>
           </section>
         </article>
