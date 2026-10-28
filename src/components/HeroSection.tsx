@@ -5,7 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { Container } from "./Container";
 import { Navbar } from "./Navbar";
-import { Sticker } from "./Sticker";
 
 export interface HeroSectionProps {
   className?: string;
@@ -190,92 +189,6 @@ export function HeroSection({
                     filter: "saturate(0.9) brightness(0.9) contrast(1.05) hue-rotate(8deg)",
                   }}
                 />
-              </div>
-
-              {/* ------------------------------------------------------- */}
-              {/* 4 STICKERS ANCHORED WITH PERCENTAGES TO PHOTO CONTAINER */}
-              {/* (Around shoulders & empty backdrop; never over face)    */}
-              {/* ------------------------------------------------------- */}
-
-              {/* 1. Pink: "PRICE ACTION ©" (Upper-Left empty backdrop - mobile & desktop) */}
-              <div
-                className="absolute z-20 pointer-events-auto"
-                style={{
-                  top: "14%",
-                  left: "-4%",
-                }}
-              >
-                <Sticker
-                  color="pink"
-                  rotation={5}
-                  size="md"
-                  className="text-xs sm:text-sm font-black shadow-[3px_3px_0px_#0B0A08] border-2 border-[#0B0A08]"
-                >
-                  PRICE ACTION ©
-                </Sticker>
-              </div>
-
-              {/* 2. Yellow: "⚡ XAU/USD GOLD SETUPS" (Mid-Left near shoulder - mobile & desktop) */}
-              <div
-                className="absolute z-20 pointer-events-auto"
-                style={{
-                  top: "40%",
-                  left: "-8%",
-                }}
-              >
-                <Sticker
-                  color="yellow"
-                  rotation={-4}
-                  size="md"
-                  className="text-xs sm:text-sm font-black shadow-[3px_3px_0px_#0B0A08] border-2 border-[#0B0A08]"
-                >
-                  <span className="flex items-center gap-1.5">
-                    <span className="font-mono text-xs">⚡</span>
-                    <span>XAU/USD GOLD SETUPS</span>
-                  </span>
-                </Sticker>
-              </div>
-
-              {/* 3. Orange: "LONDON & NY SESSIONS →" (Mid-Right near shoulder - desktop only) */}
-              <div
-                className="absolute z-20 pointer-events-auto hidden lg:inline-flex"
-                style={{
-                  top: "34%",
-                  right: "-6%",
-                }}
-              >
-                <Sticker
-                  color="orange"
-                  rotation={-7}
-                  size="md"
-                  className="text-xs sm:text-sm font-black shadow-[3px_3px_0px_#0B0A08] border-2 border-[#0B0A08]"
-                >
-                  <span className="flex items-center gap-1.5">
-                    <span>LONDON &amp; NY SESSIONS</span>
-                    <span className="font-bold">→</span>
-                  </span>
-                </Sticker>
-              </div>
-
-              {/* 4. Teal: "PROP FIRM FUNDED ©26 ★" (Lower-Right near blazer - desktop only) */}
-              <div
-                className="absolute z-20 pointer-events-auto hidden lg:inline-flex"
-                style={{
-                  bottom: "16%",
-                  right: "-2%",
-                }}
-              >
-                <Sticker
-                  color="teal"
-                  rotation={-12}
-                  size="md"
-                  className="text-xs sm:text-sm font-black shadow-[3px_3px_0px_#0B0A08] border-2 border-[#0B0A08]"
-                >
-                  <span className="flex items-center gap-1.5">
-                    <span>PROP FIRM FUNDED ©26</span>
-                    <span className="font-mono text-xs">★</span>
-                  </span>
-                </Sticker>
               </div>
 
             </div>
