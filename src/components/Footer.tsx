@@ -51,20 +51,6 @@ export function Footer({ className = "" }: FooterProps) {
               Institutional orderflow, liquidity modeling, and execution discipline for serious forex traders.
               Specializing in London &amp; New York gold (XAU/USD) setups.
             </p>
-
-            {/* Email Contact Block */}
-            <div className="pt-2">
-              <span className="font-mono text-[11px] text-[#A89F8C] uppercase tracking-widest block mb-1">
-                DIRECT INQUIRIES &amp; MENTORSHIP
-              </span>
-              <a
-                href="mailto:contact@tradesbycyber.com"
-                className="inline-flex items-center gap-2 font-mono text-sm sm:text-base font-bold text-[#D4A62A] hover:text-[#E8C766] transition-colors underline underline-offset-4 decoration-1 decoration-[#D4A62A]"
-              >
-                contact@tradesbycyber.com
-                <span aria-hidden="true">→</span>
-              </a>
-            </div>
           </div>
 
           {/* Column 2: Navigation Links */}
