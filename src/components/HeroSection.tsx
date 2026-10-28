@@ -138,16 +138,21 @@ export function HeroSection({
           {/* RIGHT COLUMN: TRADER PHOTO AREA (UNCROPPED, NATURAL 3:4)  */}
           {/* (Order 1 on mobile, Order 2 on desktop - centered in col) */}
           {/* ========================================================= */}
-          <div className="order-1 lg:order-2 lg:col-span-6 xl:col-span-6 relative w-full h-[400px] sm:h-[480px] md:h-[540px] lg:h-full min-h-full flex items-end justify-center overflow-visible">
+          <div className="order-1 lg:order-2 lg:col-span-6 xl:col-span-6 relative w-full h-[400px] sm:h-[480px] md:h-[540px] lg:h-full min-h-full lg:self-stretch flex items-end justify-center overflow-visible">
             
-            {/* Photo + Stickers Container (Natural aspect ratio, uncropped, centered) */}
-            <div className="relative w-full lg:w-auto h-auto lg:h-full flex items-end justify-center">
+            {/* Photo + Stickers Container (Rendered height 115% of hero, anchored to bottom center, centered in col) */}
+            <div
+              className="relative w-full lg:w-auto h-auto lg:h-[115%] flex items-end justify-center origin-bottom"
+              style={{
+                transformOrigin: "bottom center",
+              }}
+            >
               
               {/* Soft radial gold glow centered behind his head & shoulders */}
               <div
                 className="absolute pointer-events-none z-0"
                 style={{
-                  top: "12%",
+                  top: "14%",
                   left: "50%",
                   transform: "translate(-50%, -20%)",
                   width: "560px",
@@ -185,6 +190,92 @@ export function HeroSection({
                     filter: "saturate(0.9) brightness(0.9) contrast(1.05) hue-rotate(8deg)",
                   }}
                 />
+              </div>
+
+              {/* ------------------------------------------------------- */}
+              {/* 4 STICKERS ANCHORED WITH PERCENTAGES TO PHOTO CONTAINER */}
+              {/* (Around shoulders & empty backdrop; never over face)    */}
+              {/* ------------------------------------------------------- */}
+
+              {/* 1. Pink: "PRICE ACTION ©" (Upper-Left empty backdrop - mobile & desktop) */}
+              <div
+                className="absolute z-20 pointer-events-auto"
+                style={{
+                  top: "14%",
+                  left: "-4%",
+                }}
+              >
+                <Sticker
+                  color="pink"
+                  rotation={5}
+                  size="md"
+                  className="text-xs sm:text-sm font-black shadow-[3px_3px_0px_#0B0A08] border-2 border-[#0B0A08]"
+                >
+                  PRICE ACTION ©
+                </Sticker>
+              </div>
+
+              {/* 2. Yellow: "⚡ XAU/USD GOLD SETUPS" (Mid-Left near shoulder - mobile & desktop) */}
+              <div
+                className="absolute z-20 pointer-events-auto"
+                style={{
+                  top: "40%",
+                  left: "-8%",
+                }}
+              >
+                <Sticker
+                  color="yellow"
+                  rotation={-4}
+                  size="md"
+                  className="text-xs sm:text-sm font-black shadow-[3px_3px_0px_#0B0A08] border-2 border-[#0B0A08]"
+                >
+                  <span className="flex items-center gap-1.5">
+                    <span className="font-mono text-xs">⚡</span>
+                    <span>XAU/USD GOLD SETUPS</span>
+                  </span>
+                </Sticker>
+              </div>
+
+              {/* 3. Orange: "LONDON & NY SESSIONS →" (Mid-Right near shoulder - desktop only) */}
+              <div
+                className="absolute z-20 pointer-events-auto hidden lg:inline-flex"
+                style={{
+                  top: "34%",
+                  right: "-6%",
+                }}
+              >
+                <Sticker
+                  color="orange"
+                  rotation={-7}
+                  size="md"
+                  className="text-xs sm:text-sm font-black shadow-[3px_3px_0px_#0B0A08] border-2 border-[#0B0A08]"
+                >
+                  <span className="flex items-center gap-1.5">
+                    <span>LONDON &amp; NY SESSIONS</span>
+                    <span className="font-bold">→</span>
+                  </span>
+                </Sticker>
+              </div>
+
+              {/* 4. Teal: "PROP FIRM FUNDED ©26 ★" (Lower-Right near blazer - desktop only) */}
+              <div
+                className="absolute z-20 pointer-events-auto hidden lg:inline-flex"
+                style={{
+                  bottom: "16%",
+                  right: "-2%",
+                }}
+              >
+                <Sticker
+                  color="teal"
+                  rotation={-12}
+                  size="md"
+                  className="text-xs sm:text-sm font-black shadow-[3px_3px_0px_#0B0A08] border-2 border-[#0B0A08]"
+                >
+                  <span className="flex items-center gap-1.5">
+                    <span>PROP FIRM FUNDED ©26</span>
+                    <span className="font-mono text-xs">★</span>
+                  </span>
+                </Sticker>
               </div>
 
             </div>
