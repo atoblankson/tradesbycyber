@@ -33,7 +33,7 @@ export function CtaSection({
       className={`
         w-full bg-[#EFEAE4] text-[#0A0A0A]
         border-b-2 sm:border-b-[3px] border-[#0A0A0A]
-        py-20 sm:py-28 md:py-36 lg:py-44
+        pt-28 pb-20 sm:py-28 md:py-36 lg:py-44
         relative overflow-hidden select-none
         ${className}
       `.trim()}
@@ -50,12 +50,12 @@ export function CtaSection({
       {/* ----------------------------------------------------------- */}
 
       {/* 1. Teal Sticker (Top-Left) with drift loop & hover lift */}
-      <div className="absolute top-8 sm:top-14 md:top-20 left-4 sm:left-10 md:left-16 lg:left-24 z-20 sticker-drift-1">
+      <div className="absolute top-3 sm:top-12 md:top-20 left-2.5 sm:left-10 md:left-16 lg:left-24 z-20 sticker-drift-1">
         <Sticker
           color="teal"
-          rotation={-6}
-          size="md"
-          className="text-xs sm:text-sm font-black shadow-[3px_3px_0px_#0A0A0A] border-2 border-[#0A0A0A] hover:-translate-y-0.5 hover:rotate-0 transition-transform duration-200"
+          rotation={-5}
+          size="sm"
+          className="text-[11px] sm:text-xs md:text-sm font-black shadow-[2.5px_2.5px_0px_#0A0A0A] sm:shadow-[3px_3px_0px_#0A0A0A] border-2 border-[#0A0A0A] hover:-translate-y-0.5 hover:rotate-0 transition-transform duration-200"
         >
           <span className="flex items-center gap-1.5">
             <span>⚡</span>
@@ -64,25 +64,25 @@ export function CtaSection({
         </Sticker>
       </div>
 
-      {/* 2. Pink Sticker (Top-Right) with drift loop & hover lift */}
-      <div className="absolute top-10 sm:top-16 md:top-24 right-4 sm:right-10 md:right-16 lg:right-28 z-20 sticker-drift-2">
+      {/* 2. Pink Sticker (Top-Right, vertically staggered on mobile to prevent overlapping) */}
+      <div className="absolute top-14 sm:top-16 md:top-24 right-2.5 sm:right-10 md:right-16 lg:right-28 z-20 sticker-drift-2">
         <Sticker
           color="pink"
-          rotation={5}
-          size="md"
-          className="text-xs sm:text-sm font-black shadow-[3px_3px_0px_#0A0A0A] border-2 border-[#0A0A0A] hover:-translate-y-0.5 hover:rotate-0 transition-transform duration-200"
+          rotation={4}
+          size="sm"
+          className="text-[11px] sm:text-xs md:text-sm font-black shadow-[2.5px_2.5px_0px_#0A0A0A] sm:shadow-[3px_3px_0px_#0A0A0A] border-2 border-[#0A0A0A] hover:-translate-y-0.5 hover:rotate-0 transition-transform duration-200"
         >
           NO RETAIL INDICATORS
         </Sticker>
       </div>
 
       {/* 3. Yellow Sticker (Bottom-Left) with drift loop & hover lift */}
-      <div className="absolute bottom-8 sm:bottom-14 md:bottom-20 left-4 sm:left-12 md:left-20 lg:left-32 z-20 sticker-drift-3">
+      <div className="absolute bottom-6 sm:bottom-14 md:bottom-20 left-3 sm:left-12 md:left-20 lg:left-32 z-20 sticker-drift-3">
         <Sticker
           color="yellow"
           rotation={-4}
-          size="md"
-          className="text-xs sm:text-sm font-black shadow-[3px_3px_0px_#0A0A0A] border-2 border-[#0A0A0A] hover:-translate-y-0.5 hover:rotate-0 transition-transform duration-200"
+          size="sm"
+          className="text-[11px] sm:text-xs md:text-sm font-black shadow-[2.5px_2.5px_0px_#0A0A0A] sm:shadow-[3px_3px_0px_#0A0A0A] border-2 border-[#0A0A0A] hover:-translate-y-0.5 hover:rotate-0 transition-transform duration-200"
         >
           STRICT 0.5% RISK RULE
         </Sticker>
