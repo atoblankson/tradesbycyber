@@ -25,24 +25,25 @@ export function TickerStrip({
   items = DEFAULT_TICKER_ITEMS,
   className = "",
 }: TickerStripProps) {
-  // Repeating the array 3 times to ensure a seamless full-width strip across all screen widths.
-  // Static for now; ready for marquee / infinite scroll CSS animation later.
-  const displayItems = [...items, ...items, ...items];
+  // Duplicate array so first half and second half are identical for a seamless 50% translation loop
+  const displayItems = [...items, ...items, ...items, ...items];
 
   return (
     <aside
+      data-theme="cream"
       aria-label="Live Forex Ticker"
       className={`
         w-full overflow-hidden
         bg-[#EFEAE4] text-[#0A0A0A]
         border-y-2 sm:border-y-[3px] border-[#0A0A0A]
         py-2.5 sm:py-3.5 select-none
+        group-marquee
         ${className}
       `.trim()}
     >
-      <div className="flex items-center whitespace-nowrap justify-around sm:justify-start">
+      <div className="animate-marquee flex items-center whitespace-nowrap">
         {displayItems.map((item, idx) => (
-          <div key={`${item.pair}-${idx}`} className="flex items-center">
+          <div key={`${item.pair}-${idx}`} className="flex items-center shrink-0">
             {/* Ticker Pair & Movement Data */}
             <div className="inline-flex items-center gap-2 sm:gap-2.5 font-mono text-xs sm:text-sm font-black tracking-wider">
               <span className="text-[#0A0A0A] font-extrabold">{item.pair}</span>

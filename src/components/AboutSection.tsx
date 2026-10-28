@@ -1,5 +1,6 @@
 import React from "react";
 import { Container } from "./Container";
+import { MaskedLineReveal, ScrollReveal } from "@/lib/motion";
 
 export interface StrategyCardItem {
   number: string;
@@ -57,6 +58,7 @@ export function AboutSection({ className = "" }: AboutSectionProps) {
   return (
     <section
       id="strategy"
+      data-theme="cream"
       aria-label="About & My Approach"
       className={`w-full bg-[#0B0A08] relative select-none ${className}`}
     >
@@ -78,15 +80,18 @@ export function AboutSection({ className = "" }: AboutSectionProps) {
         }}
       >
         <Container size="lg">
-          {/* Section Header */}
+          {/* Section Header with Masked Line Slide */}
           <div className="mb-12 sm:mb-16 md:mb-20">
             <h2
               className="font-display uppercase text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[0.88] text-neon-green text-[#03FA84] max-w-5xl"
               style={{ color: "#03FA84" }}
             >
-              I DON&apos;T GAMBLE.
-              <br />
-              I EXECUTE.
+              <MaskedLineReveal delay={0}>
+                <span>I DON&apos;T GAMBLE.</span>
+              </MaskedLineReveal>
+              <MaskedLineReveal delay={0.08}>
+                <span>I EXECUTE.</span>
+              </MaskedLineReveal>
             </h2>
           </div>
 
@@ -98,7 +103,7 @@ export function AboutSection({ className = "" }: AboutSectionProps) {
             {/* ----------------------------------------------------------- */}
             <div className="lg:col-span-5 flex flex-col gap-6 sm:gap-8">
               {/* Bio Paragraph */}
-              <div className="space-y-4">
+              <ScrollReveal delay={0.16} className="space-y-4">
                 <p className="font-sans text-base sm:text-lg leading-relaxed text-[#0A0A0A]/85">
                   I trade the London and New York sessions using pure price action and institutional orderflow.
                   No lagging indicators, no get-rich-quick gambles, and no lifestyle illusions.
@@ -108,48 +113,58 @@ export function AboutSection({ className = "" }: AboutSectionProps) {
                   I built this methodology so serious traders can learn what actually works in live markets—not what looks
                   good on Instagram reels.
                 </p>
-              </div>
+              </ScrollReveal>
             </div>
 
             {/* ----------------------------------------------------------- */}
             {/* RIGHT COLUMN: 4 STRATEGY CHUNKY STICKER-CARDS               */}
             {/* ----------------------------------------------------------- */}
             <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
-              {STRATEGY_CARDS.map((card) => (
-                <div
+              {STRATEGY_CARDS.map((card, idx) => (
+                <ScrollReveal
                   key={card.number}
-                  className={`
-                    relative flex flex-col justify-between
-                    p-6 sm:p-7 rounded-xl
-                    border-2 sm:border-[2.5px] border-[#0A0A0A]
-                    shadow-[4px_4px_0px_#0A0A0A] sm:shadow-[5px_5px_0px_#0A0A0A]
-                    ${card.accentBg} ${card.textColor}
-                    transition-transform will-change-transform hover:scale-[1.02]
-                  `}
-                  style={{
-                    transform: `rotate(${card.rotation}deg)`,
-                  }}
+                  delay={0.1 + idx * 0.08}
+                  className="h-full"
                 >
-                  {/* Top Row: Pillar Number Tag */}
-                  <div className="flex items-center justify-between mb-6">
-                    <span className="font-mono text-xs font-black uppercase tracking-widest px-2.5 py-1 bg-[#0A0A0A] text-[#EFEAE4] rounded border border-[#0A0A0A]">
-                      0{card.number}
-                    </span>
-                    <span className="font-mono text-xs font-bold text-[#0A0A0A]/40">
-                      ★
-                    </span>
-                  </div>
+                  <div
+                    style={{
+                      transform: `rotate(${card.rotation}deg)`,
+                    }}
+                    className="h-full"
+                  >
+                    <div
+                      className={`
+                        relative flex flex-col justify-between h-full
+                        p-6 sm:p-7 rounded-xl
+                        border-2 sm:border-[2.5px] border-[#0A0A0A]
+                        shadow-[4px_4px_0px_#0A0A0A] sm:shadow-[5px_5px_0px_#0A0A0A]
+                        hover:shadow-[8px_8px_0px_#0A0A0A] hover:-translate-y-1
+                        ${card.accentBg} ${card.textColor}
+                        transition-all duration-200
+                      `}
+                    >
+                      {/* Top Row: Pillar Number Tag */}
+                      <div className="flex items-center justify-between mb-6">
+                        <span className="font-mono text-xs font-black uppercase tracking-widest px-2.5 py-1 bg-[#0A0A0A] text-[#EFEAE4] rounded border border-[#0A0A0A]">
+                          0{card.number}
+                        </span>
+                        <span className="font-mono text-xs font-bold text-[#0A0A0A]/40">
+                          ★
+                        </span>
+                      </div>
 
-                  {/* Card Title & 1-Line Description */}
-                  <div>
-                    <h3 className="font-display uppercase text-2xl sm:text-3xl tracking-tight leading-none mb-3">
-                      {card.title}
-                    </h3>
-                    <p className="font-sans text-xs sm:text-[13px] leading-relaxed text-[#0A0A0A]/90 font-medium">
-                      {card.description}
-                    </p>
+                      {/* Card Title & 1-Line Description */}
+                      <div>
+                        <h3 className="font-display uppercase text-2xl sm:text-3xl tracking-tight leading-none mb-3">
+                          {card.title}
+                        </h3>
+                        <p className="font-sans text-xs sm:text-[13px] leading-relaxed text-[#0A0A0A]/90 font-medium">
+                          {card.description}
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                </ScrollReveal>
               ))}
             </div>
 

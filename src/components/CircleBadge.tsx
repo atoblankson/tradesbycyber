@@ -82,7 +82,7 @@ export function CircleBadge({
   hasShadow = false,
   hasBorder = false,
   icon = "crosshair",
-  isRotating = false,
+  isRotating = true,
   className = "",
   style,
   ...rest
@@ -142,7 +142,7 @@ export function CircleBadge({
       <svg
         viewBox="0 0 200 200"
         className={`w-full h-full ${
-          isRotating ? "animate-[spin_16s_linear_infinite]" : ""
+          isRotating ? "animate-spin-badge" : ""
         }`}
         style={{ color: effectiveStroke }}
       >

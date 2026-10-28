@@ -3,8 +3,9 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Container } from "./Container";
-import { Navbar } from "./Navbar";
+import { motion, useReducedMotion } from "motion/react";
+import { EASING } from "@/lib/motion";
+import { Sticker } from "./Sticker";
 
 export interface HeroSectionProps {
   className?: string;
@@ -15,13 +16,18 @@ export function HeroSection({
   className = "",
   traderImageSrc = "/images/trader-hero.jpg",
 }: HeroSectionProps) {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <section
+      id="hero"
+      data-theme="dark"
       aria-label="Hero Section"
       className={`
         w-full min-h-screen lg:h-screen lg:max-h-[1050px]
         bg-[#0B0A08] text-[#EFEAE4]
         relative overflow-hidden flex flex-col justify-between
+        pt-24 sm:pt-28 lg:pt-24
         select-none
         ${className}
       `.trim()}
@@ -50,15 +56,6 @@ export function HeroSection({
       />
 
       {/* ----------------------------------------------------------- */}
-      {/* NAVBAR (Transparent at top of hero)                         */}
-      {/* ----------------------------------------------------------- */}
-      <div className="w-full relative z-30 flex-shrink-0">
-        <Container size="lg">
-          <Navbar />
-        </Container>
-      </div>
-
-      {/* ----------------------------------------------------------- */}
       {/* HERO MAIN BODY: 2 COLUMNS (STACKED ON MOBILE)               */}
       {/* ----------------------------------------------------------- */}
       <div className="w-full flex-1 relative z-10 flex flex-col justify-center">
@@ -71,31 +68,85 @@ export function HeroSection({
           {/* ========================================================= */}
           <div className="order-2 lg:order-1 lg:col-span-6 xl:col-span-6 flex flex-col justify-center py-10 sm:py-12 lg:py-8 pl-5 sm:pl-8 md:pl-12 lg:pl-16 xl:pl-20 pr-5 sm:pr-8 lg:pr-6 z-20">
             
-            {/* 1. Four-line stacked headline, huge, tight line-height */}
+            {/* 1. Four-line stacked headline, huge, tight line-height with masked slide reveals */}
             <h1 className="font-display uppercase tracking-tight leading-[0.84] text-6xl sm:text-7xl md:text-8xl lg:text-7xl xl:text-8xl 2xl:text-9xl select-none">
-              <span className="block text-[#EFEAE4]">TRADE</span>
-              <span className="block gold-metallic-text">GOLD</span>
-              <span className="block text-[#EFEAE4]">WITH</span>
-              <span className="block text-[#EFEAE4]/30">PRECISION.</span>
+              <div className="overflow-hidden">
+                <motion.span
+                  initial={shouldReduceMotion ? {} : { y: "110%", opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.7, ease: EASING, delay: 0 }}
+                  className="block text-[#EFEAE4]"
+                >
+                  TRADE
+                </motion.span>
+              </div>
+              <div className="overflow-hidden">
+                <motion.span
+                  initial={shouldReduceMotion ? {} : { y: "110%", opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.7, ease: EASING, delay: 0.08 }}
+                  className="block gold-metallic-text"
+                >
+                  GOLD
+                </motion.span>
+              </div>
+              <div className="overflow-hidden">
+                <motion.span
+                  initial={shouldReduceMotion ? {} : { y: "110%", opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.7, ease: EASING, delay: 0.16 }}
+                  className="block text-[#EFEAE4]"
+                >
+                  WITH
+                </motion.span>
+              </div>
+              <div className="overflow-hidden">
+                <motion.span
+                  initial={shouldReduceMotion ? {} : { y: "110%", opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.7, ease: EASING, delay: 0.24 }}
+                  className="block text-[#EFEAE4]/30"
+                >
+                  PRECISION.
+                </motion.span>
+              </div>
             </h1>
 
-            {/* 2. Thin horizontal divider line (gold-800 to transparent fade) */}
-            <div
+            {/* 2. Thin horizontal divider line (draws in from left) */}
+            <motion.div
+              initial={shouldReduceMotion ? {} : { scaleX: 0, opacity: 0 }}
+              animate={{ scaleX: 1, opacity: 1 }}
+              transition={{ duration: 0.7, ease: EASING, delay: 0.35 }}
+              style={{ transformOrigin: "left" }}
               className="w-36 sm:w-48 h-[1.5px] my-6 sm:my-7 lg:my-8"
-              style={{
-                background: "linear-gradient(to right, #6B4F12 0%, rgba(107, 79, 18, 0.4) 60%, transparent 100%)",
-              }}
               aria-hidden="true"
-            />
+            >
+              <div
+                className="w-full h-full"
+                style={{
+                  background: "linear-gradient(to right, #6B4F12 0%, rgba(107, 79, 18, 0.4) 60%, transparent 100%)",
+                }}
+              />
+            </motion.div>
 
-            {/* 3. Short paragraph in muted body text, with last sentence brighter */}
-            <p className="font-sans text-base sm:text-lg leading-relaxed text-[#A89F8C] max-w-lg mb-8 sm:mb-10">
+            {/* 3. Short paragraph in muted body text (fades up 16px) */}
+            <motion.p
+              initial={shouldReduceMotion ? {} : { y: 16, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6, ease: EASING, delay: 0.45 }}
+              className="font-sans text-base sm:text-lg leading-relaxed text-[#A89F8C] max-w-lg mb-8 sm:mb-10"
+            >
               A distraction-free home for traders who want to get consistent on gold.{" "}
               <span className="text-[#EFEAE4] font-medium">No fluff. Just results.</span>
-            </p>
+            </motion.p>
 
-            {/* 4. Two buttons side by side (sharing left edge) */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-5 w-full sm:w-auto">
+            {/* 4. Two buttons side by side (fade up 16px with stagger & interactive states) */}
+            <motion.div
+              initial={shouldReduceMotion ? {} : { y: 16, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6, ease: EASING, delay: 0.55 }}
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-5 w-full sm:w-auto"
+            >
               {/* Primary Pill: Metallic Gold Gradient + Dark Text */}
               <Link
                 href="https://t.me/+ZJ-RRfV9XjM0MWI8"
@@ -107,8 +158,8 @@ export function HeroSection({
                   font-mono font-black uppercase text-xs sm:text-sm tracking-wider
                   px-7 sm:px-8 py-3.5 sm:py-4 rounded-full
                   shadow-[4px_4px_0px_#6B4F12] hover:shadow-[6px_6px_0px_#6B4F12]
-                  hover:-translate-y-0.5 active:translate-y-0
-                  transition-all text-center
+                  hover:-translate-y-0.5 hover:brightness-105 active:translate-y-[1px]
+                  transition-all duration-200 text-center
                 "
               >
                 JOIN THE COMMUNITY →
@@ -120,17 +171,17 @@ export function HeroSection({
                 className="
                   w-full sm:w-auto inline-flex items-center justify-center
                   bg-transparent border border-[#D4A62A]/60 text-[#EFEAE4]
-                  hover:bg-[#D4A62A]/10 hover:border-[#E8C766]
+                  hover:bg-[#D4A62A]/10 hover:border-[#E8C766] hover:brightness-105
                   font-mono font-bold uppercase text-xs sm:text-sm tracking-wider
                   px-7 sm:px-8 py-3.5 sm:py-4 rounded-full
                   shadow-[3px_3px_0px_#6B4F12]
-                  hover:-translate-y-0.5 active:translate-y-0
-                  transition-all text-center
+                  hover:-translate-y-0.5 active:translate-y-[1px]
+                  transition-all duration-200 text-center
                 "
               >
                 BEGINNER? START FREE
               </Link>
-            </div>
+            </motion.div>
           </div>
 
           {/* ========================================================= */}
@@ -147,8 +198,11 @@ export function HeroSection({
               }}
             >
               
-              {/* Soft radial gold glow centered behind his head & shoulders */}
-              <div
+              {/* Soft radial gold glow centered behind his head & shoulders (fades in) */}
+              <motion.div
+                initial={shouldReduceMotion ? {} : { opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1.0, ease: EASING, delay: 0.2 }}
                 className="absolute pointer-events-none z-0"
                 style={{
                   top: "14%",
@@ -161,8 +215,11 @@ export function HeroSection({
                 aria-hidden="true"
               />
 
-              {/* Masked Photo Container: uncropped, flush to bottom, dissolved edges */}
-              <div
+              {/* Masked Photo Container: uncropped, flush to bottom, dissolved edges (scale 1.03 -> 1 & fade in) */}
+              <motion.div
+                initial={shouldReduceMotion ? {} : { scale: 1.03, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 1.0, ease: EASING, delay: 0.2 }}
                 className="w-full lg:w-auto h-auto lg:h-full relative z-10 flex items-end justify-center"
                 style={{
                   WebkitMaskImage: `
@@ -189,6 +246,92 @@ export function HeroSection({
                     filter: "saturate(0.9) brightness(0.9) contrast(1.05) hue-rotate(8deg)",
                   }}
                 />
+              </motion.div>
+
+              {/* ----------------------------------------------------- */}
+              {/* HERO STICKERS: POP IN LAST WITH AMBIENT DRIFT LOOPS   */}
+              {/* 0.4s stagger between each sticker, settle into drift */}
+              {/* ----------------------------------------------------- */}
+
+              {/* 1. Yellow Sticker: "XAU/USD GOLD SETUPS" */}
+              <div className="absolute top-[34%] -left-2 sm:left-4 md:left-8 lg:-left-6 z-20 pointer-events-auto sticker-drift-1">
+                <motion.div
+                  initial={shouldReduceMotion ? {} : { scale: 0.85, opacity: 0, rotate: -7 }}
+                  animate={{ scale: 1, opacity: 1, rotate: -4 }}
+                  transition={{ duration: 0.5, ease: EASING, delay: 0.7 }}
+                >
+                  <Sticker
+                    color="yellow"
+                    rotation={-4}
+                    size="md"
+                    className="text-xs sm:text-sm cursor-default"
+                  >
+                    <span className="flex items-center gap-1.5">
+                      <span className="font-mono text-xs">⚡</span>
+                      <span>XAU/USD GOLD SETUPS</span>
+                    </span>
+                  </Sticker>
+                </motion.div>
+              </div>
+
+              {/* 2. Orange Sticker: "LONDON & NY SESSIONS" */}
+              <div className="absolute bottom-[26%] -left-1 sm:left-6 md:left-12 lg:-left-4 z-20 pointer-events-auto sticker-drift-2">
+                <motion.div
+                  initial={shouldReduceMotion ? {} : { scale: 0.85, opacity: 0, rotate: -12 }}
+                  animate={{ scale: 1, opacity: 1, rotate: -8 }}
+                  transition={{ duration: 0.5, ease: EASING, delay: 1.1 }}
+                >
+                  <Sticker
+                    color="orange"
+                    rotation={-8}
+                    size="md"
+                    className="text-xs sm:text-sm cursor-default"
+                  >
+                    <span className="flex items-center gap-1.5">
+                      <span>LONDON &amp; NY SESSIONS</span>
+                      <span className="font-bold">→</span>
+                    </span>
+                  </Sticker>
+                </motion.div>
+              </div>
+
+              {/* 3. Pink Sticker: "PRICE ACTION ©" (Desktop only, 2 max on mobile) */}
+              <div className="hidden lg:block absolute top-[28%] -right-4 xl:-right-8 z-20 pointer-events-auto sticker-drift-3">
+                <motion.div
+                  initial={shouldReduceMotion ? {} : { scale: 0.85, opacity: 0, rotate: 2 }}
+                  animate={{ scale: 1, opacity: 1, rotate: 6 }}
+                  transition={{ duration: 0.5, ease: EASING, delay: 1.5 }}
+                >
+                  <Sticker
+                    color="pink"
+                    rotation={6}
+                    size="md"
+                    className="text-xs sm:text-sm cursor-default"
+                  >
+                    PRICE ACTION ©
+                  </Sticker>
+                </motion.div>
+              </div>
+
+              {/* 4. Teal Sticker: "PROP FIRM FUNDED ©26" (Desktop only, 2 max on mobile) */}
+              <div className="hidden lg:block absolute bottom-[38%] -right-2 xl:-right-6 z-20 pointer-events-auto sticker-drift-4">
+                <motion.div
+                  initial={shouldReduceMotion ? {} : { scale: 0.85, opacity: 0, rotate: -16 }}
+                  animate={{ scale: 1, opacity: 1, rotate: -12 }}
+                  transition={{ duration: 0.5, ease: EASING, delay: 1.9 }}
+                >
+                  <Sticker
+                    color="teal"
+                    rotation={-12}
+                    size="md"
+                    className="text-xs sm:text-sm cursor-default"
+                  >
+                    <span className="flex items-center gap-1.5">
+                      <span>PROP FIRM FUNDED ©26</span>
+                      <span className="font-mono text-xs">★</span>
+                    </span>
+                  </Sticker>
+                </motion.div>
               </div>
 
             </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import { Container } from "./Container";
 import { Sticker, StickerColor } from "./Sticker";
+import { MaskedLineReveal, ScrollReveal } from "@/lib/motion";
 
 export interface TestimonialItem {
   id: string;
@@ -101,6 +102,7 @@ export function TestimonialsSection({ className = "" }: TestimonialsSectionProps
   return (
     <section
       id="testimonials"
+      data-theme="dark"
       aria-label="Student Testimonials and Reviews"
       className={`
         w-full bg-gold-glow-tl film-grain text-[#EFEAE4]
@@ -110,18 +112,22 @@ export function TestimonialsSection({ className = "" }: TestimonialsSectionProps
       `.trim()}
     >
       <Container size="lg" className="relative z-10">
-        {/* Section Header */}
+        {/* Section Header with Masked Line Slide */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16 pb-8 border-b border-[rgba(212,166,42,0.2)]">
           <div>
             <h2 className="font-display uppercase text-5xl sm:text-7xl md:text-8xl lg:text-9xl tracking-tight leading-[0.85] text-[#EFEAE4]">
-              <span>COMMUNITY </span>
-              <span className="gold-metallic-text">WINS.</span>
+              <MaskedLineReveal delay={0}>
+                <span>COMMUNITY </span>
+                <span className="gold-metallic-text">WINS.</span>
+              </MaskedLineReveal>
             </h2>
           </div>
 
-          <p className="font-sans text-sm sm:text-base text-[#A89F8C] max-w-md leading-relaxed">
-            Real quotes and milestone payouts from students executing the institutional orderflow framework in live markets.
-          </p>
+          <ScrollReveal delay={0.1}>
+            <p className="font-sans text-sm sm:text-base text-[#A89F8C] max-w-md leading-relaxed">
+              Real quotes and milestone payouts from students executing the institutional orderflow framework in live markets.
+            </p>
+          </ScrollReveal>
         </div>
 
         {/* ----------------------------------------------------------- */}
@@ -129,9 +135,10 @@ export function TestimonialsSection({ className = "" }: TestimonialsSectionProps
         {/* Raised dark background (#14110D), 1px gold border, gold-800 shadow */}
         {/* ----------------------------------------------------------- */}
         <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-          {TESTIMONIALS.map((item) => (
-            <div
+          {TESTIMONIALS.map((item, idx) => (
+            <ScrollReveal
               key={item.id}
+              delay={idx * 0.08}
               className="break-inside-avoid"
             >
               <article className="
@@ -139,7 +146,8 @@ export function TestimonialsSection({ className = "" }: TestimonialsSectionProps
                 bg-[#14110D] border border-[#B8871B]/35
                 rounded-2xl p-6 sm:p-7
                 shadow-[4px_4px_0px_#6B4F12]
-                hover:border-[#D4A62A]/60 transition-colors
+                hover:border-[#D4A62A]/60 hover:-translate-y-1 hover:shadow-[7px_7px_0px_#6B4F12]
+                transition-all duration-200
               ">
                 {/* Result Tag as Rotated Sticker (Keeps original colorful palette) */}
                 <div className="mb-5 flex items-start justify-between gap-3">
@@ -184,7 +192,7 @@ export function TestimonialsSection({ className = "" }: TestimonialsSectionProps
                   </span>
                 </div>
               </article>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </Container>

@@ -1,5 +1,6 @@
 import React from "react";
 import { Container } from "./Container";
+import { MaskedLineReveal, ScrollReveal } from "@/lib/motion";
 
 export interface TradeTicket {
   id: string;
@@ -87,6 +88,7 @@ export function ResultsSection({ className = "" }: ResultsSectionProps) {
   return (
     <section
       id="results"
+      data-theme="dark"
       aria-label="Verified Trade Results"
       className={`
         w-full bg-gold-glow-tr film-grain text-[#EFEAE4]
@@ -96,38 +98,47 @@ export function ResultsSection({ className = "" }: ResultsSectionProps) {
       `.trim()}
     >
       <Container size="lg" className="relative z-10">
-        {/* Section Header */}
+        {/* Section Header with Masked Line Slide */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16 pb-8 border-b border-[rgba(212,166,42,0.2)]">
           <div>
             <h2 className="font-display uppercase text-5xl sm:text-7xl md:text-8xl lg:text-9xl tracking-tight leading-[0.85] text-[#EFEAE4]">
-              <span>THE </span>
-              <span className="gold-metallic-text">RECEIPTS.</span>
+              <MaskedLineReveal delay={0}>
+                <span>THE </span>
+                <span className="gold-metallic-text">RECEIPTS.</span>
+              </MaskedLineReveal>
             </h2>
           </div>
 
-          <p className="font-sans text-sm sm:text-base text-[#A89F8C] max-w-md leading-relaxed">
-            Every trade is taken in live market conditions with defined risk parameters.
-            Real executions, strict trade journals, and zero retrospective hindsight.
-          </p>
+          <ScrollReveal delay={0.1}>
+            <p className="font-sans text-sm sm:text-base text-[#A89F8C] max-w-md leading-relaxed">
+              Every trade is taken in live market conditions with defined risk parameters.
+              Real executions, strict trade journals, and zero retrospective hindsight.
+            </p>
+          </ScrollReveal>
         </div>
 
         {/* ----------------------------------------------------------- */}
         {/* GRID OF 6 TRADE TICKETS (Raised dark, 1px gold border, gold-800 shadow) */}
         {/* ----------------------------------------------------------- */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
-          {TRADE_TICKETS.map((trade) => {
+          {TRADE_TICKETS.map((trade, idx) => {
             const isBuy = trade.direction === "BUY";
 
             return (
-              <article
+              <ScrollReveal
                 key={trade.id}
-                className="
-                  flex flex-col justify-between
-                  bg-[#14110D] border border-[#B8871B]/35
-                  rounded-xl p-5 sm:p-6
-                  shadow-[4px_4px_0px_#6B4F12]
-                  hover:border-[#D4A62A]/60 transition-colors
-                "
+                delay={idx * 0.08}
+                className="h-full"
+              >
+                <article
+                  className="
+                    flex flex-col justify-between h-full
+                    bg-[#14110D] border border-[#B8871B]/35
+                    rounded-xl p-5 sm:p-6
+                    shadow-[4px_4px_0px_#6B4F12]
+                    hover:border-[#D4A62A]/60 hover:-translate-y-1 hover:shadow-[7px_7px_0px_#6B4F12]
+                    transition-all duration-200
+                  "
               >
                 {/* Ticket Top Row: Pair + BUY/SELL Tag + R Multiple */}
                 <div className="flex items-start justify-between gap-3 mb-4">
@@ -220,20 +231,23 @@ export function ResultsSection({ className = "" }: ResultsSectionProps) {
                   <span>{trade.date}</span>
                 </div>
               </article>
-            );
-          })}
-        </div>
+            </ScrollReveal>
+          );
+        })}
+      </div>
 
-        {/* ----------------------------------------------------------- */}
-        {/* WIDE CARD FOR EQUITY-CURVE PLACEHOLDER                      */}
-        {/* ----------------------------------------------------------- */}
-        <div className="mt-10 sm:mt-12">
-          <div className="
-            w-full bg-[#14110D]
-            border border-[#B8871B]/35
-            rounded-2xl p-6 sm:p-8 md:p-10
-            shadow-[5px_5px_0px_#6B4F12]
-          ">
+      {/* ----------------------------------------------------------- */}
+      {/* WIDE CARD FOR EQUITY-CURVE PLACEHOLDER                      */}
+      {/* ----------------------------------------------------------- */}
+      <ScrollReveal delay={0.2} className="mt-10 sm:mt-12">
+        <div className="
+          w-full bg-[#14110D]
+          border border-[#B8871B]/35
+          rounded-2xl p-6 sm:p-8 md:p-10
+          shadow-[5px_5px_0px_#6B4F12]
+          hover:shadow-[8px_8px_0px_#6B4F12] hover:-translate-y-1
+          transition-all duration-200
+        ">
             {/* Header of Equity Card */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-6 border-b border-[rgba(212,166,42,0.2)]">
               <div>
@@ -319,7 +333,7 @@ export function ResultsSection({ className = "" }: ResultsSectionProps) {
               </span>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* ----------------------------------------------------------- */}
         {/* DISCLAIMER NOTE UNDER SECTION                               */}

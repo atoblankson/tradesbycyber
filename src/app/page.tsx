@@ -1,4 +1,5 @@
 import {
+  Navbar,
   HeroSection,
   TickerStrip,
   StatsRow,
@@ -13,6 +14,9 @@ import {
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#0B0A08] text-[#EFEAE4] overflow-x-hidden">
+      {/* Floating Glass Pill Navbar (Transparent at top, glass pill on scroll) */}
+      <Navbar />
+
       {/* 1. New Full-Viewport Height 2-Column Hero on Warm Black */}
       <HeroSection />
 

@@ -40,6 +40,7 @@ export function Footer({ className = "" }: FooterProps) {
 
   return (
     <footer
+      data-theme="dark"
       aria-label="Site Footer"
       className={`w-full bg-gold-glow-br film-grain text-[#EFEAE4] border-t border-[rgba(212,166,42,0.35)] pt-16 sm:pt-24 md:pt-32 pb-12 select-none relative ${className}`}
     >

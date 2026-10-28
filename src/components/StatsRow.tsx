@@ -1,5 +1,6 @@
 import React from "react";
 import { Container } from "./Container";
+import { CountUpStat, ScrollReveal } from "@/lib/motion";
 
 export interface StatItem {
   value: string;
@@ -47,6 +48,8 @@ export interface StatsRowProps {
 export function StatsRow({ stats = DEFAULT_STATS, className = "" }: StatsRowProps) {
   return (
     <section
+      id="stats"
+      data-theme="dark"
       aria-label="Trading Performance Statistics"
       className={`w-full bg-gold-glow-tl film-grain text-[#EFEAE4] border-y border-[rgba(212,166,42,0.3)] py-14 sm:py-20 md:py-24 relative select-none ${className}`}
     >
@@ -54,8 +57,9 @@ export function StatsRow({ stats = DEFAULT_STATS, className = "" }: StatsRowProp
         {/* 4-Column Neo-brutalist Stats Grid with Editorial Dividers */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-y-10 sm:gap-y-12 md:gap-y-0">
           {stats.map((stat, idx) => (
-            <div
+            <ScrollReveal
               key={stat.label}
+              delay={idx * 0.08}
               className={`
                 flex flex-col justify-start
                 px-3 sm:px-6 md:px-8 lg:px-10
@@ -64,10 +68,11 @@ export function StatsRow({ stats = DEFAULT_STATS, className = "" }: StatsRowProp
                 border-[rgba(212,166,42,0.18)]
               `}
             >
-              {/* Big Condensed Number Stat in Metallic Gold Gradient */}
-              <div className="font-display uppercase gold-metallic-text text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl leading-[0.85] tracking-tight">
-                {stat.value}
-              </div>
+              {/* Big Condensed Number Stat in Metallic Gold Gradient with Count-up */}
+              <CountUpStat
+                value={stat.value}
+                className="font-display uppercase gold-metallic-text text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl leading-[0.85] tracking-tight"
+              />
 
               {/* Stat Label in Cream */}
               <span className="font-mono text-xs sm:text-sm uppercase tracking-widest text-[#EFEAE4] font-bold mt-3 sm:mt-4">
@@ -80,7 +85,7 @@ export function StatsRow({ stats = DEFAULT_STATS, className = "" }: StatsRowProp
                   {stat.descriptor}
                 </span>
               )}
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </Container>

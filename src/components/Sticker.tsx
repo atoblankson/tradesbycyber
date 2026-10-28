@@ -181,7 +181,9 @@ export function Sticker({
     <span
       className={`
         inline-flex items-center justify-center font-black uppercase
-        select-none whitespace-nowrap leading-none transition-transform
+        select-none whitespace-nowrap leading-none
+        transition-transform duration-200 ease-[cubic-bezier(0.22,1,0.36,1)]
+        hover:[transform:rotate(0deg)_translateY(-2px)_!important] cursor-default
         will-change-transform
         ${shapeClass}
         ${SIZE_STYLES[size]}

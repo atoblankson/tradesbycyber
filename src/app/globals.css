@@ -177,3 +177,118 @@ body {
     linear-gradient(to right, rgba(239, 234, 228, 0.05) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(239, 234, 228, 0.05) 1px, transparent 1px);
 }
+
+/* -------------------------------------------------------------------------- */
+/* ANIMATIONS: MARQUEE, ROTATION, STICKER DRIFT & REDUCED MOTION              */
+/* -------------------------------------------------------------------------- */
+
+/* Seamless infinite ticker marquee (40s per loop, pauses on hover) */
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: marqueeScroll 40s linear infinite;
+}
+
+.animate-marquee:hover,
+.group-marquee:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
+/* Circular badge slow infinite rotation (20s linear) */
+@keyframes spinBadge {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-badge {
+  animation: spinBadge 20s linear infinite;
+  will-change: transform;
+}
+
+/* Ambient sticker drift loops (4 to 6px vertical movement, ~1 deg rotation, 5 to 7s) */
+@keyframes stickerDrift1 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(0.8deg);
+  }
+}
+
+@keyframes stickerDrift2 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(-1deg);
+  }
+}
+
+@keyframes stickerDrift3 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-4px) rotate(0.6deg);
+  }
+}
+
+@keyframes stickerDrift4 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-5.5px) rotate(-0.7deg);
+  }
+}
+
+.sticker-drift-1 {
+  animation: stickerDrift1 6.2s ease-in-out infinite;
+  will-change: transform;
+}
+
+.sticker-drift-2 {
+  animation: stickerDrift2 5.4s ease-in-out infinite 0.8s;
+  will-change: transform;
+}
+
+.sticker-drift-3 {
+  animation: stickerDrift3 6.8s ease-in-out infinite 1.5s;
+  will-change: transform;
+}
+
+.sticker-drift-4 {
+  animation: stickerDrift4 5.9s ease-in-out infinite 2.2s;
+  will-change: transform;
+}
+
+/* Ensure sections anchor properly under floating navbar */
+section[id] {
+  scroll-margin-top: 100px;
+}
+
+/* Respect prefers-reduced-motion: disable animations and show final states instantly */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
