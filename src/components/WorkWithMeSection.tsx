@@ -125,6 +125,11 @@ export function WorkWithMeSection({ className = "" }: WorkWithMeSectionProps) {
                   </li>
                 ))}
               </ul>
+
+              {/* Bold Quote Line */}
+              <p className="font-sans text-xs sm:text-sm font-bold text-[#0A0A0A] leading-snug mb-6 pt-5 border-t border-[#0A0A0A]/10">
+                Your goal isn&apos;t to copy my trades. Your goal is to understand WHY the trade exists.
+              </p>
             </div>
 
             {/* Black Button */}
