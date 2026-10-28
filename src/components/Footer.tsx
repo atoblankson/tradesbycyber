@@ -16,11 +16,26 @@ export function Footer({ className = "" }: FooterProps) {
   ];
 
   const socialLinks = [
-    { label: "Instagram", href: "https://instagram.com", handle: "@tradesbycyber" },
-    { label: "X (Twitter)", href: "https://x.com", handle: "@tradesbycyber" },
-    { label: "YouTube", href: "https://youtube.com", handle: "@tradesbycyber" },
-    { label: "Telegram", href: "https://t.me/+ZJ-RRfV9XjM0MWI8", handle: "t.me/tradesbycyber" },
-    { label: "TikTok", href: "https://tiktok.com", handle: "@tradesbycyber" },
+    {
+      label: "Instagram",
+      href: "https://www.instagram.com/itz.cyber_fx?psln=ejB6N3pybzFmbG9l&utm_source=qr",
+      handle: "@itz.cyber_fx",
+    },
+    {
+      label: "X (Twitter)",
+      href: "https://x.com/cyberfx05?s=11",
+      handle: "@cyberfx05",
+    },
+    {
+      label: "Telegram",
+      href: "https://t.me/Cyberian_god_of_FX",
+      handle: "@Cyberian_god_of_FX",
+    },
+    {
+      label: "TikTok",
+      href: "https://www.tiktok.com/@cyberfx.7?_r=1&_t=ZS-9Aw4MS4KYn1",
+      handle: "@cyberfx.7",
+    },
   ];
 
   return (
