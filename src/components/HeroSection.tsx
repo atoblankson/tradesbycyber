@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Container } from "./Container";
 import { Navbar } from "./Navbar";
 
@@ -10,7 +11,10 @@ export interface HeroSectionProps {
   traderImageSrc?: string;
 }
 
-export function HeroSection({ className = "", traderImageSrc }: HeroSectionProps) {
+export function HeroSection({
+  className = "",
+  traderImageSrc = "/images/trader-hero.jpg",
+}: HeroSectionProps) {
   return (
     <section
       aria-label="Hero Section"
@@ -159,12 +163,15 @@ export function HeroSection({ className = "", traderImageSrc }: HeroSectionProps
               }}
             >
               {traderImageSrc ? (
-                /* Real photo when provided */
-                /* eslint-disable-next-line @next/next/no-img-element */
-                <img
+                /* Real photo */
+                <Image
                   src={traderImageSrc}
                   alt="Tradedbycyber Lead Forex Trader"
-                  className="w-full h-full object-cover object-top select-none"
+                  width={768}
+                  height={1024}
+                  priority
+                  quality={90}
+                  className="w-full h-full object-cover object-top select-none pointer-events-none"
                 />
               ) : (
                 /* Dashed placeholder sized exactly where photo sits (no card, no border, no frame) */
