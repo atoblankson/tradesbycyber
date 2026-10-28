@@ -123,28 +123,6 @@ export function WorkWithMeSection({ className = "" }: WorkWithMeSectionProps) {
                   </li>
                 ))}
               </ul>
-
-              {/* Strip of four small tags in a row */}
-              <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-6 pt-5 border-t border-[#0A0A0A]/10">
-                {[
-                  "4 WEEKS",
-                  "LIVE TRAINING",
-                  "PRACTICAL CHART WORK",
-                  "PERSONAL TRADING PLAN",
-                ].map((tag, idx) => (
-                  <span
-                    key={idx}
-                    className="font-mono text-[10px] sm:text-[11px] font-black uppercase tracking-wider px-2.5 py-1.5 bg-[#0A0A0A]/5 border border-[#0A0A0A]/20 rounded text-[#0A0A0A]"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
-              {/* Bold Quote Line */}
-              <p className="font-sans text-xs sm:text-sm font-bold text-[#0A0A0A] leading-snug mb-6">
-                Your goal isn&apos;t to copy my trades. Your goal is to understand WHY the trade exists.
-              </p>
             </div>
 
             {/* Black Button */}
@@ -190,13 +168,10 @@ export function WorkWithMeSection({ className = "" }: WorkWithMeSectionProps) {
                 </h3>
               </div>
 
-              {/* Price Block (GHS 1,300 with / 3 months in small text) */}
-              <div className="py-4 border-y-2 border-[#0A0A0A]/10 my-5 h-20 sm:h-24 flex items-baseline gap-2">
+              {/* Price Block ($200 large condensed number) */}
+              <div className="py-4 border-y-2 border-[#0A0A0A]/10 my-5 h-20 sm:h-24 flex items-baseline">
                 <span className="font-display text-5xl sm:text-6xl md:text-7xl text-[#0A0A0A] tracking-tight leading-none">
-                  GHS 1,300
-                </span>
-                <span className="font-mono text-xs sm:text-sm text-[#0A0A0A]/60 font-bold uppercase tracking-wider">
-                  / 3 months
+                  $200
                 </span>
               </div>
 
@@ -207,30 +182,27 @@ export function WorkWithMeSection({ className = "" }: WorkWithMeSectionProps) {
                 </p>
               </div>
 
-              {/* Subheading: INCLUDES: */}
-              <div className="mb-3">
-                <span className="font-mono text-xs font-black uppercase tracking-wider text-[#0A0A0A]">
-                  INCLUDES:
-                </span>
+              {/* Strip of four small tags in a row */}
+              <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-6 pt-5 border-t border-[#0A0A0A]/10">
+                {[
+                  "4 WEEKS",
+                  "LIVE TRAINING",
+                  "PRACTICAL CHART WORK",
+                  "PERSONAL TRADING PLAN",
+                ].map((tag, idx) => (
+                  <span
+                    key={idx}
+                    className="font-mono text-[10px] sm:text-[11px] font-black uppercase tracking-wider px-2.5 py-1.5 bg-[#0A0A0A]/5 border border-[#0A0A0A]/20 rounded text-[#0A0A0A]"
+                  >
+                    {tag}
+                  </span>
+                ))}
               </div>
 
-              {/* TODO: client to confirm what Elite includes */}
-              <ul className="space-y-4 mb-8">
-                {[
-                  "Feature scope to be confirmed by client",
-                  "Session structure to be confirmed by client",
-                  "Direct mentorship access to be confirmed by client",
-                ].map((placeholder, idx) => (
-                  <li key={idx} className="flex items-start gap-2.5">
-                    <span className="flex-shrink-0 w-4 h-4 rounded-sm bg-[#0A0A0A] text-[#EFEAE4] flex items-center justify-center font-mono text-[10px] font-bold mt-0.5 select-none">
-                      ✓
-                    </span>
-                    <span className="font-sans text-xs sm:text-sm text-[#0A0A0A]/60 italic leading-snug">
-                      {placeholder}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+              {/* Bold Quote Line */}
+              <p className="font-sans text-xs sm:text-sm font-bold text-[#0A0A0A] leading-snug mb-6">
+                Your goal isn&apos;t to copy my trades. Your goal is to understand WHY the trade exists.
+              </p>
             </div>
 
             {/* Black Button */}
