@@ -27,7 +27,7 @@ const TESTIMONIALS: TestimonialItem[] = [
     stickerColor: "teal",
     rotation: -3,
     quote:
-      "Before working with cyber, I was gambling on random EMA crossovers and blowing 50k challenges. His institutional liquidity framework made everything click. The focus on London session manipulation completely changed how I see price. Cleared phase 1 and phase 2 in 6 weeks.",
+      "Before working with cyber, I was gambling on random EMA crossovers and blowing 2k challenges. His institutional liquidity framework made everything click. The focus on London session manipulation completely changed how I see price. Cleared phase 1 and phase 2 in 6 weeks.",
     metric: "FTMO $100K Funded",
     date: "OCT 2026",
   },
