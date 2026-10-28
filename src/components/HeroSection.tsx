@@ -55,7 +55,41 @@ export function HeroSection({
       />
 
       {/* ----------------------------------------------------------- */}
-      {/* HERO MAIN BODY: 2 COLUMNS (STACKED ON MOBILE)               */}
+      {/* MOBILE BACKGROUND PORTRAIT (< lg)                           */}
+      {/* Superimposes headline and text directly over the trader     */}
+      {/* ----------------------------------------------------------- */}
+      <div className="lg:hidden absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        {/* Soft radial gold glow behind his head on mobile */}
+        <div
+          className="absolute top-[8%] left-1/2 -translate-x-1/2 w-[380px] h-[380px] rounded-full pointer-events-none z-0"
+          style={{
+            background: "radial-gradient(circle, rgba(212, 166, 42, 0.22) 0%, rgba(212, 166, 42, 0.06) 50%, transparent 75%)",
+          }}
+          aria-hidden="true"
+        />
+
+        {/* Trader portrait image anchored to top/center */}
+        <div className="relative w-full h-full min-h-screen">
+          <Image
+            src={traderImageSrc}
+            alt="Tradesbycyber Lead Forex Trader"
+            fill
+            priority
+            quality={92}
+            className="object-cover object-top select-none pointer-events-none"
+            style={{
+              filter: "saturate(0.92) brightness(0.88) contrast(1.08) hue-rotate(6deg)",
+            }}
+          />
+          {/* Gradients ensuring the headline and text are 100% legible */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0B0A08] via-[#0B0A08]/65 to-[#0B0A08]/25" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0B0A08]/85 via-transparent to-[#0B0A08]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0B0A08]/75 via-transparent to-[#0B0A08]/40" />
+        </div>
+      </div>
+
+      {/* ----------------------------------------------------------- */}
+      {/* HERO MAIN BODY                                              */}
       {/* ----------------------------------------------------------- */}
       <div className="w-full flex-1 relative z-10 flex flex-col justify-center">
         {/* On Desktop: Full width split; Left column aligns with Container */}
@@ -63,12 +97,12 @@ export function HeroSection({
           
           {/* ========================================================= */}
           {/* LEFT COLUMN: HEADLINE, DIVIDER, PARAGRAPH, BUTTONS        */}
-          {/* (Order 2 on mobile, Order 1 on desktop)                   */}
+          {/* (Overlaid on photo on mobile, Left column on desktop)     */}
           {/* ========================================================= */}
-          <div className="order-2 lg:order-1 lg:col-span-6 xl:col-span-6 flex flex-col justify-center py-10 sm:py-12 lg:py-8 pl-5 sm:pl-8 md:pl-12 lg:pl-16 xl:pl-20 pr-5 sm:pr-8 lg:pr-6 z-20">
+          <div className="relative z-10 w-full lg:col-span-6 xl:col-span-6 flex flex-col justify-center py-10 sm:py-12 lg:py-8 pl-5 sm:pl-8 md:pl-12 lg:pl-16 xl:pl-20 pr-5 sm:pr-8 lg:pr-6">
             
             {/* 1. Four-line stacked headline, huge, tight line-height with masked slide reveals */}
-            <h1 className="font-display uppercase tracking-tight leading-[0.84] text-6xl sm:text-7xl md:text-8xl lg:text-7xl xl:text-8xl 2xl:text-9xl select-none">
+            <h1 className="font-display uppercase tracking-tight leading-[0.84] text-6xl sm:text-7xl md:text-8xl lg:text-7xl xl:text-8xl 2xl:text-9xl select-none drop-shadow-[0_2px_18px_rgba(0,0,0,0.9)]">
               <div className="overflow-hidden">
                 <motion.span
                   initial={shouldReduceMotion ? {} : { y: "110%", opacity: 0 }}
@@ -104,7 +138,7 @@ export function HeroSection({
                   initial={shouldReduceMotion ? {} : { y: "110%", opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.7, ease: EASING, delay: 0.24 }}
-                  className="block text-[#EFEAE4]/30"
+                  className="block text-[#EFEAE4]/50 lg:text-[#EFEAE4]/30"
                 >
                   PRECISION.
                 </motion.span>
@@ -184,10 +218,9 @@ export function HeroSection({
           </div>
 
           {/* ========================================================= */}
-          {/* RIGHT COLUMN: TRADER PHOTO AREA (UNCROPPED, NATURAL 3:4)  */}
-          {/* (Order 1 on mobile, Order 2 on desktop - centered in col) */}
+          {/* RIGHT COLUMN: TRADER PHOTO AREA (DESKTOP ONLY)            */}
           {/* ========================================================= */}
-          <div className="order-1 lg:order-2 lg:col-span-6 xl:col-span-6 relative w-full h-[400px] sm:h-[480px] md:h-[540px] lg:h-full min-h-full lg:self-stretch flex items-end justify-center overflow-visible">
+          <div className="hidden lg:flex lg:col-span-6 xl:col-span-6 relative w-full h-full min-h-full self-stretch items-end justify-center overflow-visible">
             
             {/* Photo Container (Rendered height 115% of hero, anchored to bottom center, centered in col) */}
             <div
