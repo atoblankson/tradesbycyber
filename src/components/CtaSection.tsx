@@ -86,21 +86,6 @@ export function CtaSection({
         </Sticker>
       </div>
 
-      {/* 4. Lime Circle Badge (Bottom-Right) - Visual echo of Hero's Lime badge */}
-      <div className="absolute bottom-6 sm:bottom-10 md:bottom-14 right-4 sm:right-12 md:right-20 lg:right-32 z-20">
-        <CircleBadge
-          text="* TRADES BY CYBER * FOREX DISCIPLINE * "
-          badgeBg="lime"
-          color="cream"
-          rotation={-12}
-          size={110}
-          hasBorder
-          hasShadow
-          icon="crosshair"
-          className="scale-90 sm:scale-100 md:scale-110"
-        />
-      </div>
-
       {/* ----------------------------------------------------------- */}
       {/* CENTERED CONTENT: MASSIVE HEADLINE + 2 BUTTONS              */}
       {/* ----------------------------------------------------------- */}
