@@ -23,8 +23,25 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "TRADESBYCYBER | Institutional Forex Edge",
+  metadataBase: new URL("https://tradesbycyber.com"),
+  title: "TRADESBYCYBER | Forex Educator",
   description: "High-conviction forex trading, institutional orderflow, and execution psychology by Tradesbycyber.",
+  icons: {
+    icon: "/images/logo.png",
+    apple: "/images/logo.png",
+  },
+  openGraph: {
+    title: "TRADESBYCYBER | Forex Educator",
+    description: "High-conviction forex trading, institutional orderflow, and execution psychology by Tradesbycyber.",
+    images: [
+      {
+        url: "/images/logo.png",
+        width: 1024,
+        height: 1024,
+        alt: "TRADESBYCYBER Logo",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({

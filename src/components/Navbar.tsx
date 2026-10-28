@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import { EASING } from "@/lib/motion";
 
@@ -202,15 +203,17 @@ export function Navbar({ className = "" }: NavbarProps) {
               }}
               className="inline-flex items-center gap-3 group focus:outline-none focus-visible:ring-1 focus-visible:ring-[#D4A62A] flex-shrink-0"
             >
-              {/* Rounded pill/block mark */}
-              <span
-                className={`
-                  w-8 h-4.5 sm:w-9 sm:h-5 rounded-r-full rounded-l-[2px]
-                  transition-transform duration-200 group-hover:scale-105
-                  ${isCream ? "bg-[#0B0A08]" : "bg-[#EFEAE4]"}
-                `}
-                aria-hidden="true"
-              />
+              {/* Brand Logo Mark */}
+              <div className="relative w-8 h-8 sm:w-9 sm:h-9 rounded-lg overflow-hidden bg-black border border-[rgba(212,166,42,0.35)] flex-shrink-0 group-hover:scale-105 transition-transform shadow-[2px_2px_0px_#6B4F12]">
+                <Image
+                  src="/images/logo.png"
+                  alt="TradesByCyber Logo"
+                  width={36}
+                  height={36}
+                  className="w-full h-full object-cover"
+                  priority
+                />
+              </div>
               <span
                 className={`
                   font-sans text-sm sm:text-base font-semibold tracking-tight transition-colors duration-300

@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -46,12 +47,17 @@ export default function TermsPage() {
 
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-xs sm:text-sm font-sans font-bold text-[#EFEAE4]"
+            className="inline-flex items-center gap-2.5 text-xs sm:text-sm font-sans font-bold text-[#EFEAE4] group"
           >
-            <span
-              className="w-6 h-3.5 bg-[#EFEAE4] rounded-r-full rounded-l-[2px]"
-              aria-hidden="true"
-            />
+            <div className="relative w-7 h-7 sm:w-8 sm:h-8 rounded-lg overflow-hidden bg-black border border-[rgba(212,166,42,0.35)] flex-shrink-0 group-hover:scale-105 transition-transform shadow-[1.5px_1.5px_0px_#6B4F12]">
+              <Image
+                src="/images/logo.png"
+                alt="TradesByCyber Logo"
+                width={32}
+                height={32}
+                className="w-full h-full object-cover"
+              />
+            </div>
             <span>tradesbycyber</span>
           </Link>
         </div>

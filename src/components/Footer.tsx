@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Container } from "./Container";
 
 export interface FooterProps {
@@ -53,11 +54,16 @@ export function Footer({ className = "" }: FooterProps) {
               href="/"
               className="inline-flex items-center gap-3 group focus:outline-none"
             >
-              {/* Cream rounded pill/block logo mark placeholder */}
-              <span
-                className="w-10 h-5.5 bg-[#EFEAE4] rounded-r-full rounded-l-[2px] transition-transform duration-150 group-hover:scale-105"
-                aria-hidden="true"
-              />
+              {/* Official Brand Logo Mark */}
+              <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-xl overflow-hidden bg-black border border-[rgba(212,166,42,0.35)] flex-shrink-0 group-hover:scale-105 transition-transform shadow-[3px_3px_0px_#6B4F12]">
+                <Image
+                  src="/images/logo.png"
+                  alt="TradesByCyber Logo"
+                  width={44}
+                  height={44}
+                  className="w-full h-full object-cover"
+                />
+              </div>
               <span className="font-sans text-lg sm:text-xl font-bold tracking-tight text-[#EFEAE4]">
                 tradesbycyber
               </span>
