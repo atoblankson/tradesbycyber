@@ -281,9 +281,9 @@ section[id] {
   scroll-margin-top: 100px;
 }
 
-/* Respect prefers-reduced-motion: disable animations and show final states instantly */
+/* Respect prefers-reduced-motion: disable ambient animations and show final states instantly */
 @media (prefers-reduced-motion: reduce) {
-  *,
+  *:not(.ticker-slide-track):not(.animate-marquee),
   ::before,
   ::after {
     animation-duration: 0.01ms !important;
