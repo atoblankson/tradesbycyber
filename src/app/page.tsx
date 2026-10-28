@@ -32,11 +32,11 @@ export default function Home() {
       {/* 5. Results Section: "THE RECEIPTS." with Dark-Gold Cards & Gold-800 Shadows */}
       <ResultsSection />
 
-      {/* 6. Work With Me Section (Cream Background with 3 Offer Cards) */}
-      <WorkWithMeSection />
-
-      {/* 7. Testimonials Section: Dark-Gold Masonry Cards & Original Colorful Stickers */}
+      {/* 6. Community Wins / Testimonials Section: Dark-Gold Masonry Cards & Original Colorful Stickers */}
       <TestimonialsSection />
+
+      {/* 7. Work With Me Section (Cream Background with Offer Cards) */}
+      <WorkWithMeSection />
 
       {/* 8. Final Loud Full-Bleed CTA Section (Cream Background) */}
       <CtaSection />
