@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Container } from "./Container";
 import { Navbar } from "./Navbar";
+import { Sticker } from "./Sticker";
 
 export interface HeroSectionProps {
   className?: string;
@@ -69,14 +70,14 @@ export function HeroSection({
           {/* LEFT COLUMN: HEADLINE, DIVIDER, PARAGRAPH, BUTTONS        */}
           {/* (Order 2 on mobile, Order 1 on desktop)                   */}
           {/* ========================================================= */}
-          <div className="order-2 lg:order-1 lg:col-span-6 xl:col-span-6 flex flex-col justify-center py-10 sm:py-12 lg:py-8 pl-5 sm:pl-8 md:pl-12 lg:pl-16 xl:pl-20 pr-5 sm:pr-8 lg:pr-6">
+          <div className="order-2 lg:order-1 lg:col-span-6 xl:col-span-6 flex flex-col justify-center py-10 sm:py-12 lg:py-8 pl-5 sm:pl-8 md:pl-12 lg:pl-16 xl:pl-20 pr-5 sm:pr-8 lg:pr-6 z-20">
             
             {/* 1. Four-line stacked headline, huge, tight line-height */}
             <h1 className="font-display uppercase tracking-tight leading-[0.84] text-6xl sm:text-7xl md:text-8xl lg:text-7xl xl:text-8xl 2xl:text-9xl select-none">
               <span className="block text-[#EFEAE4]">TRADE</span>
               <span className="block gold-metallic-text">GOLD</span>
               <span className="block text-[#EFEAE4]">WITH</span>
-              <span className="block text-neon-green text-[#03FA84]" style={{ color: "#03FA84" }}>PRECISION.</span>
+              <span className="block text-[#EFEAE4]/30">PRECISION.</span>
             </h1>
 
             {/* 2. Thin horizontal divider line (gold-800 to transparent fade) */}
@@ -132,38 +133,44 @@ export function HeroSection({
           </div>
 
           {/* ========================================================= */}
-          {/* RIGHT COLUMN: TRADER PHOTO AREA (BLEEDING TOP, RIGHT, BOT)*/}
-          {/* (Order 1 on mobile, Order 2 on desktop)                   */}
+          {/* RIGHT COLUMN: TRADER PHOTO AREA (UNCROPPED, NATURAL 3:4)  */}
+          {/* (Order 1 on mobile, Order 2 on desktop - centered in col) */}
           {/* ========================================================= */}
-          <div className="order-1 lg:order-2 lg:col-span-6 xl:col-span-6 relative w-full h-[360px] sm:h-[440px] md:h-[500px] lg:h-full min-h-full flex items-center justify-center overflow-visible">
+          <div className="order-1 lg:order-2 lg:col-span-6 xl:col-span-6 relative w-full h-[400px] sm:h-[480px] md:h-[540px] lg:h-full min-h-full flex items-end justify-center overflow-visible">
             
-            {/* Radial Gold Glow behind the photo */}
-            <div
-              className="absolute inset-0 pointer-events-none z-0"
-              style={{
-                background: "radial-gradient(circle at 50% 45%, rgba(212, 166, 42, 0.12) 0%, rgba(212, 166, 42, 0.03) 45%, transparent 70%)",
-              }}
-              aria-hidden="true"
-            />
+            {/* Photo + Stickers Container (Natural aspect ratio, uncropped, centered) */}
+            <div className="relative w-full lg:w-auto h-auto lg:h-full flex items-end justify-center">
+              
+              {/* Soft radial gold glow centered behind his head & shoulders */}
+              <div
+                className="absolute pointer-events-none z-0"
+                style={{
+                  top: "12%",
+                  left: "50%",
+                  transform: "translate(-50%, -20%)",
+                  width: "560px",
+                  height: "560px",
+                  background: "radial-gradient(circle at 50% 50%, rgba(212, 166, 42, 0.12) 0%, rgba(212, 166, 42, 0.05) 35%, rgba(212, 166, 42, 0.01) 60%, transparent 75%)",
+                }}
+                aria-hidden="true"
+              />
 
-            {/* Masked Photo Area: Centered with soft ambient fade on sides and bottom */}
-            <div
-              className="w-full max-w-[500px] sm:max-w-[560px] md:max-w-[620px] lg:max-w-[680px] xl:max-w-[740px] h-full relative z-10 flex items-center justify-center mx-auto lg:-translate-x-6 xl:-translate-x-12"
-              style={{
-                WebkitMaskImage: `
-                  linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 6%, black 18%, black 82%, rgba(0,0,0,0.5) 94%, transparent 100%),
-                  linear-gradient(to top, transparent 0%, rgba(0,0,0,0.5) 6%, black 18%)
-                `,
-                WebkitMaskComposite: "destination-in",
-                maskImage: `
-                  linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 6%, black 18%, black 82%, rgba(0,0,0,0.5) 94%, transparent 100%),
-                  linear-gradient(to top, transparent 0%, rgba(0,0,0,0.5) 6%, black 18%)
-                `,
-                maskComposite: "intersect",
-              }}
-            >
-              {traderImageSrc ? (
-                /* Real photo */
+              {/* Masked Photo Container: uncropped, flush to bottom, dissolved edges */}
+              <div
+                className="w-full lg:w-auto h-auto lg:h-full relative z-10 flex items-end justify-center"
+                style={{
+                  WebkitMaskImage: `
+                    linear-gradient(to right, transparent 0%, #000 28%, #000 72%, transparent 100%),
+                    linear-gradient(to bottom, transparent 0%, #000 22%, #000 100%)
+                  `,
+                  WebkitMaskComposite: "source-in",
+                  maskImage: `
+                    linear-gradient(to right, transparent 0%, #000 28%, #000 72%, transparent 100%),
+                    linear-gradient(to bottom, transparent 0%, #000 22%, #000 100%)
+                  `,
+                  maskComposite: "intersect",
+                }}
+              >
                 <Image
                   src={traderImageSrc}
                   alt="Tradedbycyber Lead Forex Trader"
@@ -171,35 +178,99 @@ export function HeroSection({
                   height={1024}
                   priority
                   quality={90}
-                  className="w-full h-full object-cover object-[center_top] select-none pointer-events-none"
+                  className="w-full h-auto lg:w-auto lg:h-full select-none pointer-events-none block"
+                  style={{
+                    filter: "saturate(0.9) brightness(0.9) contrast(1.05) hue-rotate(8deg)",
+                  }}
                 />
-              ) : (
-                /* Dashed placeholder sized exactly where photo sits (no card, no border, no frame) */
-                <div className="w-full h-full min-h-[340px] sm:min-h-[420px] lg:min-h-full border-2 border-dashed border-[#D4A62A]/40 bg-[rgba(20,17,13,0.5)] flex flex-col items-center justify-center p-6 text-center select-none">
-                  {/* Silhouette Icon */}
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-dashed border-[#D4A62A]/50 flex items-center justify-center text-[#D4A62A]/60 mb-3">
-                    <svg
-                      className="w-8 h-8 sm:w-10 sm:h-10"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={1.5}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
-                      />
-                    </svg>
-                  </div>
-                  <span className="font-mono text-sm sm:text-base font-black tracking-widest text-[#EFEAE4] uppercase">
-                    TRADER PHOTO HERE
+              </div>
+
+              {/* ------------------------------------------------------- */}
+              {/* 4 STICKERS ANCHORED WITH PERCENTAGES TO PHOTO CONTAINER */}
+              {/* (Around shoulders & empty backdrop; never over face)    */}
+              {/* ------------------------------------------------------- */}
+
+              {/* 1. Pink: "PRICE ACTION ©" (Upper-Left empty backdrop - mobile & desktop) */}
+              <div
+                className="absolute z-20 pointer-events-auto"
+                style={{
+                  top: "14%",
+                  left: "-4%",
+                }}
+              >
+                <Sticker
+                  color="pink"
+                  rotation={5}
+                  size="md"
+                  className="text-xs sm:text-sm font-black shadow-[3px_3px_0px_#0B0A08] border-2 border-[#0B0A08]"
+                >
+                  PRICE ACTION ©
+                </Sticker>
+              </div>
+
+              {/* 2. Yellow: "⚡ XAU/USD GOLD SETUPS" (Mid-Left near shoulder - mobile & desktop) */}
+              <div
+                className="absolute z-20 pointer-events-auto"
+                style={{
+                  top: "42%",
+                  left: "-10%",
+                }}
+              >
+                <Sticker
+                  color="yellow"
+                  rotation={-4}
+                  size="md"
+                  className="text-xs sm:text-sm font-black shadow-[3px_3px_0px_#0B0A08] border-2 border-[#0B0A08]"
+                >
+                  <span className="flex items-center gap-1.5">
+                    <span className="font-mono text-xs">⚡</span>
+                    <span>XAU/USD GOLD SETUPS</span>
                   </span>
-                  <span className="font-mono text-xs text-[#A89F8C] max-w-xs mt-1.5 leading-snug">
-                    Full photo or transparent cutout. Masked gradient automatically fades left &amp; bottom edges.
+                </Sticker>
+              </div>
+
+              {/* 3. Orange: "LONDON & NY SESSIONS →" (Mid-Right near shoulder - desktop only) */}
+              <div
+                className="absolute z-20 pointer-events-auto hidden lg:inline-flex"
+                style={{
+                  top: "36%",
+                  right: "-8%",
+                }}
+              >
+                <Sticker
+                  color="orange"
+                  rotation={-7}
+                  size="md"
+                  className="text-xs sm:text-sm font-black shadow-[3px_3px_0px_#0B0A08] border-2 border-[#0B0A08]"
+                >
+                  <span className="flex items-center gap-1.5">
+                    <span>LONDON &amp; NY SESSIONS</span>
+                    <span className="font-bold">→</span>
                   </span>
-                </div>
-              )}
+                </Sticker>
+              </div>
+
+              {/* 4. Teal: "PROP FIRM FUNDED ©26 ★" (Lower-Right near blazer - desktop only) */}
+              <div
+                className="absolute z-20 pointer-events-auto hidden lg:inline-flex"
+                style={{
+                  bottom: "16%",
+                  right: "-4%",
+                }}
+              >
+                <Sticker
+                  color="teal"
+                  rotation={-12}
+                  size="md"
+                  className="text-xs sm:text-sm font-black shadow-[3px_3px_0px_#0B0A08] border-2 border-[#0B0A08]"
+                >
+                  <span className="flex items-center gap-1.5">
+                    <span>PROP FIRM FUNDED ©26</span>
+                    <span className="font-mono text-xs">★</span>
+                  </span>
+                </Sticker>
+              </div>
+
             </div>
 
           </div>
