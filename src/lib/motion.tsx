@@ -21,8 +21,68 @@ export const HOVER_TRANSITION = {
 };
 
 /**
+ * useRevealInView Hook
+ * Robust intersection detector:
+ * 1. Immediately detects if element is already in the viewport on mount.
+ * 2. Uses IntersectionObserver with a sensitive 5% threshold and generous margin.
+ * 3. Has a 1.2s timeout safety net to ensure NO content ever stays permanently hidden.
+ */
+function useRevealInView() {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const [isInView, setIsInView] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    // 1. Immediate check: if already in or above viewport, reveal immediately
+    const checkViewport = () => {
+      const rect = el.getBoundingClientRect();
+      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      if (rect.top <= windowHeight * 0.98 && rect.bottom >= 0) {
+        setIsInView(true);
+        return true;
+      }
+      return false;
+    };
+
+    if (checkViewport()) return;
+
+    // 2. Observer for scroll entrance
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
+      {
+        threshold: 0.05,
+        rootMargin: "0px 0px -40px 0px",
+      }
+    );
+
+    observer.observe(el);
+
+    // 3. Fail-safe timeout: content must NEVER remain invisible
+    const timeout = setTimeout(() => {
+      setIsInView(true);
+    }, 1200);
+
+    return () => {
+      observer.disconnect();
+      clearTimeout(timeout);
+    };
+  }, []);
+
+  return { ref, isInView };
+}
+
+/**
  * ScrollReveal Component
- * Fades and rises 24px once as it enters the viewport (20% visible), 0.6s.
+ * Fades and rises 24px once as it enters the viewport, 0.6s.
+ * Uses outer DOM ref for accurate in-view detection.
  * Respects prefers-reduced-motion.
  */
 export interface ScrollRevealProps {
@@ -39,6 +99,7 @@ export function ScrollReveal({
   yOffset = 24,
 }: ScrollRevealProps) {
   const shouldReduceMotion = useReducedMotion();
+  const { ref, isInView } = useRevealInView();
 
   if (shouldReduceMotion) {
     return <div className={className}>{children}</div>;
@@ -46,10 +107,10 @@ export function ScrollReveal({
 
   return (
     <motion.div
+      ref={ref}
       className={className}
       initial={{ opacity: 0, y: yOffset }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: yOffset }}
       transition={{ duration: 0.6, ease: EASING, delay }}
     >
       {children}
@@ -59,7 +120,8 @@ export function ScrollReveal({
 
 /**
  * MaskedLineReveal Component
- * Section headlines reveal with masked line slide (overflow-hidden, slide up from 100% once).
+ * Section headlines reveal with masked line slide (overflow-hidden, slide up from 110% once).
+ * Attaches observer to the OUTER overflow-hidden element so it reliably detects viewport entry.
  */
 export interface MaskedLineRevealProps {
   children: React.ReactNode;
@@ -73,17 +135,17 @@ export function MaskedLineReveal({
   delay = 0,
 }: MaskedLineRevealProps) {
   const shouldReduceMotion = useReducedMotion();
+  const { ref, isInView } = useRevealInView();
 
   if (shouldReduceMotion) {
     return <div className={className}>{children}</div>;
   }
 
   return (
-    <div className={`overflow-hidden ${className}`}>
+    <div ref={ref} className={`overflow-hidden ${className}`}>
       <motion.div
-        initial={{ y: "100%", opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        viewport={{ once: true, amount: 0.2 }}
+        initial={{ y: "110%", opacity: 0 }}
+        animate={isInView ? { y: 0, opacity: 1 } : { y: "110%", opacity: 0 }}
         transition={{ duration: 0.7, ease: EASING, delay }}
       >
         {children}
@@ -104,73 +166,82 @@ export interface CountUpStatProps {
 
 export function CountUpStat({ value, className = "" }: CountUpStatProps) {
   const shouldReduceMotion = useReducedMotion();
-  const [displayValue, setDisplayValue] = useState("0");
+  const [displayValue, setDisplayValue] = useState(value);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const hasAnimated = useRef(false);
 
   useEffect(() => {
-    if (shouldReduceMotion) {
-      return;
-    }
+    if (shouldReduceMotion) return;
 
     const el = containerRef.current;
     if (!el) return;
 
+    const startCounting = () => {
+      if (hasAnimated.current) return;
+      hasAnimated.current = true;
+
+      // Parse value formats:
+      // Format 1: "1:3.4" (ratio with decimal)
+      // Format 2: "74%" (percentage)
+      // Format 3: "450+", "8+" (integer with plus)
+      if (value.startsWith("1:")) {
+        const targetNum = parseFloat(value.replace("1:", ""));
+        const duration = 1500;
+        const startTime = performance.now();
+
+        const step = (now: number) => {
+          const elapsed = now - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const easeOut = 1 - Math.pow(1 - progress, 3);
+          const current = (easeOut * targetNum).toFixed(1);
+          setDisplayValue(`1:${current}`);
+
+          if (progress < 1) {
+            requestAnimationFrame(step);
+          } else {
+            setDisplayValue(value);
+          }
+        };
+        requestAnimationFrame(step);
+      } else {
+        const numericPart = parseInt(value.replace(/[^0-9]/g, ""), 10);
+        const suffix = value.replace(/[0-9]/g, "");
+        const duration = 1500;
+        const startTime = performance.now();
+
+        const step = (now: number) => {
+          const elapsed = now - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const easeOut = 1 - Math.pow(1 - progress, 3);
+          const current = Math.floor(easeOut * numericPart);
+          setDisplayValue(`${current}${suffix}`);
+
+          if (progress < 1) {
+            requestAnimationFrame(step);
+          } else {
+            setDisplayValue(value);
+          }
+        };
+        requestAnimationFrame(step);
+      }
+    };
+
+    // Immediate check if element is already in viewport
+    const rect = el.getBoundingClientRect();
+    if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+      startCounting();
+      return;
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         const [entry] = entries;
-        if (entry.isIntersecting && !hasAnimated.current) {
-          hasAnimated.current = true;
+        if (entry.isIntersecting) {
           observer.disconnect();
-
-          // Parse value formats:
-          // Format 1: "1:3.4" (ratio with decimal)
-          // Format 2: "74%" (percentage)
-          // Format 3: "450+", "8+" (integer with plus)
-          if (value.startsWith("1:")) {
-            const targetNum = parseFloat(value.replace("1:", ""));
-            const duration = 1500;
-            const startTime = performance.now();
-
-            const step = (now: number) => {
-              const elapsed = now - startTime;
-              const progress = Math.min(elapsed / duration, 1);
-              // Ease-out cubic: 1 - Math.pow(1 - progress, 3)
-              const easeOut = 1 - Math.pow(1 - progress, 3);
-              const current = (easeOut * targetNum).toFixed(1);
-              setDisplayValue(`1:${current}`);
-
-              if (progress < 1) {
-                requestAnimationFrame(step);
-              } else {
-                setDisplayValue(value);
-              }
-            };
-            requestAnimationFrame(step);
-          } else {
-            const numericPart = parseInt(value.replace(/[^0-9]/g, ""), 10);
-            const suffix = value.replace(/[0-9]/g, "");
-            const duration = 1500;
-            const startTime = performance.now();
-
-            const step = (now: number) => {
-              const elapsed = now - startTime;
-              const progress = Math.min(elapsed / duration, 1);
-              const easeOut = 1 - Math.pow(1 - progress, 3);
-              const current = Math.floor(easeOut * numericPart);
-              setDisplayValue(`${current}${suffix}`);
-
-              if (progress < 1) {
-                requestAnimationFrame(step);
-              } else {
-                setDisplayValue(value);
-              }
-            };
-            requestAnimationFrame(step);
-          }
+          startCounting();
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.1 }
     );
 
     observer.observe(el);
