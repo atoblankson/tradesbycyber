@@ -153,9 +153,18 @@ export function Footer({ className = "" }: FooterProps) {
       <Container size="lg" className="relative z-10">
         <div className="pt-8 border-t border-[rgba(212,166,42,0.2)] space-y-6">
           {/* Small-print Risk Disclaimer */}
-          <p className="font-mono text-xs sm:text-[13px] leading-relaxed text-[#A89F8C] max-w-4xl">
-            Trading forex involves substantial risk of loss and is not suitable for every investor. Nothing on this site is financial advice.
-          </p>
+          <div className="font-mono text-xs sm:text-[13px] leading-relaxed text-[#A89F8C] max-w-4xl space-y-4">
+            <p>
+              DISCLAIMER: tradedbycyber provides trading education, mentorship, market commentary and trade breakdowns for informational purposes only. Nothing on this website or in our community channels, including videos, courses, mentorship sessions, signals, analysis or trade setups, is financial advice, an investment recommendation or an offer to buy or sell any financial instrument. Any account management or copy-trading arrangement is a separate, private agreement between the parties involved and is not offered through this website.
+            </p>
+            {/* TODO: client to confirm licensing/registration status and the exact wording of this last sentence with a lawyer before launch */}
+            <p>
+              Trading forex involves substantial risk of loss and is not suitable for every investor. Nothing on this site is financial advice.
+            </p>
+            <p>
+              We encourage you to speak with a licensed financial advisor or the regulator in your jurisdiction before you trade or hand control of any account to anyone. Using any third-party broker or platform is entirely your choice, and tradedbycyber is not liable for any loss or damage arising directly or indirectly from using this website or its content.
+            </p>
+          </div>
 
           {/* Bottom Row: Copyright + Back to top link */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-mono text-[11px] text-[#A89F8C]">
