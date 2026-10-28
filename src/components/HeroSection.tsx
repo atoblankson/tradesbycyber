@@ -141,23 +141,23 @@ export function HeroSection({
             <div
               className="absolute inset-0 pointer-events-none z-0"
               style={{
-                background: "radial-gradient(circle at 55% 50%, rgba(212, 166, 42, 0.1) 0%, rgba(212, 166, 42, 0.03) 45%, transparent 70%)",
+                background: "radial-gradient(circle at 50% 45%, rgba(212, 166, 42, 0.12) 0%, rgba(212, 166, 42, 0.03) 45%, transparent 70%)",
               }}
               aria-hidden="true"
             />
 
-            {/* Masked Photo Area: Left & bottom edge fade into warm black */}
+            {/* Masked Photo Area: Centered with soft ambient fade on sides and bottom */}
             <div
-              className="w-full h-full relative z-10 flex items-center justify-center"
+              className="w-full max-w-[500px] sm:max-w-[560px] md:max-w-[620px] lg:max-w-[680px] xl:max-w-[740px] h-full relative z-10 flex items-center justify-center mx-auto lg:-translate-x-6 xl:-translate-x-12"
               style={{
                 WebkitMaskImage: `
-                  linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 8%, black 20%),
-                  linear-gradient(to top, transparent 0%, rgba(0,0,0,0.5) 6%, black 16%)
+                  linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 6%, black 18%, black 82%, rgba(0,0,0,0.5) 94%, transparent 100%),
+                  linear-gradient(to top, transparent 0%, rgba(0,0,0,0.5) 6%, black 18%)
                 `,
                 WebkitMaskComposite: "destination-in",
                 maskImage: `
-                  linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 8%, black 20%),
-                  linear-gradient(to top, transparent 0%, rgba(0,0,0,0.5) 6%, black 16%)
+                  linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 6%, black 18%, black 82%, rgba(0,0,0,0.5) 94%, transparent 100%),
+                  linear-gradient(to top, transparent 0%, rgba(0,0,0,0.5) 6%, black 18%)
                 `,
                 maskComposite: "intersect",
               }}
@@ -171,7 +171,7 @@ export function HeroSection({
                   height={1024}
                   priority
                   quality={90}
-                  className="w-full h-full object-cover object-top select-none pointer-events-none"
+                  className="w-full h-full object-cover object-[center_top] select-none pointer-events-none"
                 />
               ) : (
                 /* Dashed placeholder sized exactly where photo sits (no card, no border, no frame) */
