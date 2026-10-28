@@ -32,7 +32,7 @@ export function Footer({ className = "" }: FooterProps) {
         {/* Top Grid: Brand + Navigation + Socials + Market Session Specs */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 sm:gap-12 pb-16 border-b border-[rgba(212,166,42,0.2)]">
           {/* Column 1: Brand Logo & Wordmark + Bio */}
-          <div className="lg:col-span-5 space-y-4">
+          <div className="lg:col-span-6 space-y-4">
             <Link
               href="/"
               className="inline-flex items-center gap-3 group focus:outline-none"
@@ -68,7 +68,7 @@ export function Footer({ className = "" }: FooterProps) {
           </div>
 
           {/* Column 2: Navigation Links */}
-          <div className="lg:col-span-2 space-y-4">
+          <div className="lg:col-span-3 space-y-4">
             <span className="font-mono text-xs uppercase tracking-widest text-[#E8C766] font-bold block">
               NAVIGATION
             </span>
@@ -108,27 +108,6 @@ export function Footer({ className = "" }: FooterProps) {
                 </li>
               ))}
             </ul>
-          </div>
-
-          {/* Column 4: Live Session Status Widget */}
-          <div className="lg:col-span-2 space-y-3 font-mono text-xs">
-            <span className="font-mono text-xs uppercase tracking-widest text-[#E8C766] font-bold block">
-              SESSION DESK
-            </span>
-            <div className="p-3 bg-[#14110D] border border-[#B8871B]/35 rounded-lg space-y-2 shadow-[2px_2px_0px_#6B4F12]">
-              <div className="flex items-center justify-between">
-                <span className="text-[#A89F8C]">LONDON:</span>
-                <span className="text-[#EFEAE4] font-bold">08:00 - 16:00 GMT</span>
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="text-[#A89F8C]">NEW YORK:</span>
-                <span className="text-[#EFEAE4] font-bold">13:00 - 21:00 GMT</span>
-              </div>
-              <div className="pt-1.5 border-t border-[rgba(212,166,42,0.2)] flex items-center gap-1.5 text-[11px] text-[#3DDC97] font-bold">
-                <span className="w-2 h-2 rounded-full bg-[#3DDC97] animate-pulse inline-block" />
-                <span>EXECUTION DESK ACTIVE</span>
-              </div>
-            </div>
           </div>
         </div>
       </Container>
