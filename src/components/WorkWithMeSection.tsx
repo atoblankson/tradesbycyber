@@ -9,6 +9,18 @@ export interface WorkWithMeSectionProps {
   className?: string;
 }
 
+const MASTER_TOPICS = [
+  "Support & Resistance",
+  "Supply & Demand",
+  "Bullish & Bearish Order Blocks",
+  "Market Structure",
+  "Liquidity",
+  "Trade Confirmation",
+  "Risk Management",
+  "Trading Psychology",
+  "XAUUSD Execution",
+];
+
 export function WorkWithMeSection({ className = "" }: WorkWithMeSectionProps) {
   return (
     <section
@@ -102,17 +114,7 @@ export function WorkWithMeSection({ className = "" }: WorkWithMeSectionProps) {
 
               {/* 2-Column Checklist (Single column on mobile) */}
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2.5 mb-6">
-                {[
-                  "Support & Resistance",
-                  "Supply & Demand",
-                  "Bullish & Bearish Order Blocks",
-                  "Market Structure",
-                  "Liquidity",
-                  "Trade Confirmation",
-                  "Risk Management",
-                  "Trading Psychology",
-                  "XAUUSD Execution",
-                ].map((item, idx) => (
+                {MASTER_TOPICS.map((item, idx) => (
                   <li key={idx} className="flex items-start gap-2.5">
                     <span className="flex-shrink-0 w-4 h-4 rounded-sm bg-[#0A0A0A] text-[#EFEAE4] flex items-center justify-center font-mono text-[10px] font-bold mt-0.5 select-none">
                       ✓
@@ -181,6 +183,27 @@ export function WorkWithMeSection({ className = "" }: WorkWithMeSectionProps) {
                   Long-term development.
                 </p>
               </div>
+
+              {/* Subheading: MASTER: */}
+              <div className="mb-3">
+                <span className="font-mono text-xs font-black uppercase tracking-wider text-[#0A0A0A]">
+                  MASTER:
+                </span>
+              </div>
+
+              {/* 2-Column Checklist (Single column on mobile) */}
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2.5 mb-6">
+                {MASTER_TOPICS.map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-2.5">
+                    <span className="flex-shrink-0 w-4 h-4 rounded-sm bg-[#0A0A0A] text-[#EFEAE4] flex items-center justify-center font-mono text-[10px] font-bold mt-0.5 select-none">
+                      ✓
+                    </span>
+                    <span className="font-sans text-xs text-[#0A0A0A]/85 font-medium leading-snug">
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
 
               {/* Strip of four small tags in a row */}
               <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-6 pt-5 border-t border-[#0A0A0A]/10">
