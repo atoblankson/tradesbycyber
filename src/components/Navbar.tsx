@@ -40,22 +40,11 @@ export function Navbar({ className = "" }: NavbarProps) {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      const scrolled = currentScrollY > 80;
+      const scrolled = currentScrollY > 40;
       setIsScrolled(scrolled);
 
-      if (currentScrollY <= 80) {
-        // Always visible within the first 80px of the page
-        setIsVisible(true);
-      } else {
-        const delta = currentScrollY - lastScrollYRef.current;
-        if (delta > 6 && !mobileMenuOpen) {
-          // Scrolling down -> hide
-          setIsVisible(false);
-        } else if (delta < -6) {
-          // Scrolling up -> show
-          setIsVisible(true);
-        }
-      }
+      // Always visible sticky pill - stays with user as they scroll down
+      setIsVisible(true);
 
       lastScrollYRef.current = currentScrollY;
 
