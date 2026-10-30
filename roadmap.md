@@ -114,11 +114,11 @@ Row-level security: traders can only read and write their own rows. The public s
 
 ### Phase 1: Static `/arena` in the site's design
 
-- [ ] Create the `/arena` route and add "Arena" to the navbar and footer.
-- [ ] Build the sections from the prototype using the site's components: hero, contests, leaderboard (sample data, clearly labeled), prizes, how it works, rules, CTA, risk notice.
-- [ ] Interest/registration modal wired to a placeholder.
-- [ ] Mobile and responsive pass. Animations per the site's rules.
-- [ ] Sample data labeled "SAMPLE DATA, NOT LIVE RESULTS" until real results exist.
+- [x] Create the `/arena` route and add "Arena" to the navbar and footer.
+- [x] Build the sections from the prototype using the site's components: hero, contests, leaderboard (sample data, clearly labeled), prizes, how it works, rules, CTA, risk notice.
+- [x] Interest/registration modal wired to a placeholder.
+- [x] Mobile and responsive pass. Animations per the site's rules.
+- [x] Sample data labeled "SAMPLE DATA, NOT LIVE RESULTS" until real results exist.
 
 **Done when:** `/arena` looks native to the website on desktop and mobile.
 

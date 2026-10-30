@@ -13,3 +13,4 @@ export * from "./WorkWithMeSection";
 export * from "./TestimonialsSection";
 export * from "./CtaSection";
 export * from "./Footer";
+export * from "./arena";

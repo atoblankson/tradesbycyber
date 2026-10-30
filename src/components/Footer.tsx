@@ -9,11 +9,12 @@ export interface FooterProps {
 
 export function Footer({ className = "" }: FooterProps) {
   const navLinks = [
-    { label: "Results", href: "#results" },
-    { label: "Strategy", href: "#strategy" },
-    { label: "Mentorship", href: "#mentorship" },
-    { label: "Community", href: "#testimonials" },
-    { label: "Contact", href: "#contact" },
+    { label: "Results", href: "/#results" },
+    { label: "Strategy", href: "/#strategy" },
+    { label: "Mentorship", href: "/#mentorship" },
+    { label: "Arena", href: "/arena" },
+    { label: "Community", href: "/#testimonials" },
+    { label: "Contact", href: "/#contact" },
   ];
 
   const socialLinks = [

@@ -3,6 +3,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import { EASING } from "@/lib/motion";
 
@@ -17,13 +18,16 @@ interface NavLinkItem {
 }
 
 const NAV_LINKS: NavLinkItem[] = [
-  { label: "Results", href: "#results", id: "results" },
-  { label: "Strategy", href: "#strategy", id: "strategy" },
-  { label: "Mentorship", href: "#mentorship", id: "mentorship" },
-  { label: "Contact", href: "#contact", id: "contact" },
+  { label: "Results", href: "/#results", id: "results" },
+  { label: "Strategy", href: "/#strategy", id: "strategy" },
+  { label: "Mentorship", href: "/#mentorship", id: "mentorship" },
+  { label: "Arena", href: "/arena", id: "arena" },
+  { label: "Contact", href: "/#contact", id: "contact" },
 ];
 
 export function Navbar({ className = "" }: NavbarProps) {
+  const pathname = usePathname();
+  const isArenaRoute = pathname?.startsWith("/arena");
   const shouldReduceMotion = useReducedMotion();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
@@ -227,7 +231,7 @@ export function Navbar({ className = "" }: NavbarProps) {
             {/* Desktop Navigation Links */}
             <div className="hidden md:flex items-center gap-6 lg:gap-8">
               {NAV_LINKS.map((link) => {
-                const isActive = activeSection === link.id;
+                const isActive = isArenaRoute ? link.id === "arena" : activeSection === link.id;
                 return (
                   <Link
                     key={link.id}
@@ -358,7 +362,7 @@ export function Navbar({ className = "" }: NavbarProps) {
               >
                 <div className="flex flex-col space-y-4">
                   {NAV_LINKS.map((link) => {
-                    const isActive = activeSection === link.id;
+                    const isActive = isArenaRoute ? link.id === "arena" : activeSection === link.id;
                     return (
                       <Link
                         key={link.id}
