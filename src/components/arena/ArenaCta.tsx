@@ -2,7 +2,8 @@
 
 import React from "react";
 import { Container } from "../Container";
-import { ScrollReveal } from "@/lib/motion";
+import { Sticker } from "../Sticker";
+import { MaskedLineReveal, ScrollReveal } from "@/lib/motion";
 
 export interface ArenaCtaProps {
   onOpenModal: () => void;
@@ -12,54 +13,119 @@ export function ArenaCta({ onOpenModal }: ArenaCtaProps) {
   return (
     <section
       id="arena-cta"
-      data-theme="dark"
+      data-theme="cream"
       aria-label="Arena Call to Action"
-      className="w-full bg-[#0B0A08] text-[#EFEAE4] py-20 sm:py-28 relative select-none border-b border-[rgba(212,166,42,0.25)]"
+      className="w-full bg-[#EFEAE4] text-[#0A0A0A] border-b-2 sm:border-b-[3px] border-[#0A0A0A] pt-28 pb-20 sm:py-28 md:py-36 lg:py-40 relative overflow-hidden select-none"
+      style={{
+        backgroundSize: "52px 52px",
+        backgroundImage: `
+          linear-gradient(to right, rgba(10, 10, 10, 0.08) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(10, 10, 10, 0.08) 1px, transparent 1px)
+        `,
+      }}
     >
-      <Container size="lg">
-        <ScrollReveal delay={0.1}>
-          <div className="w-full bg-[#14110D] border-2 border-[#D4A62A]/50 rounded-3xl p-8 sm:p-12 md:p-16 shadow-[8px_8px_0px_#6B4F12] flex flex-col md:flex-row items-center justify-between gap-8 sm:gap-12 relative overflow-hidden">
-            
-            {/* Background Accent Glow */}
-            <div
-              className="absolute -right-20 -bottom-20 w-80 h-80 rounded-full pointer-events-none opacity-20"
-              style={{
-                background: "radial-gradient(circle, #D4A62A 0%, transparent 70%)",
-              }}
-              aria-hidden="true"
-            />
+      {/* 3 Scattered Stickers with drift animations */}
+      {/* 1. Teal Sticker (Top-Left) */}
+      <div className="absolute top-3 sm:top-12 md:top-16 left-2.5 sm:left-8 md:left-14 lg:left-20 z-20 sticker-drift-1">
+        <Sticker
+          color="teal"
+          rotation={-5}
+          size="sm"
+          className="text-[11px] sm:text-xs md:text-sm font-black shadow-[2.5px_2.5px_0px_#0A0A0A] sm:shadow-[3px_3px_0px_#0A0A0A] border-2 border-[#0A0A0A] hover:-translate-y-0.5 hover:rotate-0 transition-transform duration-200"
+        >
+          <span className="flex items-center gap-1.5">
+            <span>⚡</span>
+            <span>NEXT CONTEST STARTS SOON</span>
+          </span>
+        </Sticker>
+      </div>
 
-            {/* Left Copy */}
-            <div className="max-w-2xl text-center md:text-left relative z-10">
-              <span className="font-mono text-xs uppercase tracking-widest text-[#E8C766] font-bold block mb-3">
-                YOUR NEXT MOVE
-              </span>
-              <h2 className="font-display uppercase text-4xl sm:text-6xl md:text-7xl tracking-tight leading-[0.88] text-[#EFEAE4] mb-4">
-                READY TO ENTER <span className="gold-metallic-text">THE ARENA?</span>
-              </h2>
-              <p className="font-sans text-sm sm:text-base text-[#A89F8C] leading-relaxed">
-                Register your interest today. Official contest dates, server parameters, and verified rules will be released to approved entrants first.
-              </p>
-            </div>
+      {/* 2. Pink Sticker (Top-Right) */}
+      <div className="absolute top-14 sm:top-16 md:top-20 right-2.5 sm:right-8 md:right-14 lg:right-24 z-20 sticker-drift-2">
+        <Sticker
+          color="pink"
+          rotation={4}
+          size="sm"
+          className="text-[11px] sm:text-xs md:text-sm font-black shadow-[2.5px_2.5px_0px_#0A0A0A] sm:shadow-[3px_3px_0px_#0A0A0A] border-2 border-[#0A0A0A] hover:-translate-y-0.5 hover:rotate-0 transition-transform duration-200"
+        >
+          ZERO ENTRY FEES
+        </Sticker>
+      </div>
 
-            {/* Right Action Button */}
-            <div className="flex-shrink-0 relative z-10 w-full sm:w-auto">
-              <button
-                type="button"
-                onClick={onOpenModal}
-                className="
-                  w-full sm:w-auto py-5 px-10 rounded-2xl
-                  gold-metallic-bg text-[#0B0A08]
-                  font-mono font-black uppercase text-sm tracking-wider
-                  shadow-[4px_4px_0px_#6B4F12]
-                  hover:-translate-y-1 hover:brightness-105 active:translate-y-[1px]
-                  transition-all duration-200 text-center cursor-pointer whitespace-nowrap
-                "
-              >
-                REGISTER INTEREST ↗
-              </button>
-            </div>
+      {/* 3. Yellow Sticker (Bottom-Left) */}
+      <div className="absolute bottom-6 sm:bottom-12 md:bottom-16 left-3 sm:left-10 md:left-16 lg:left-24 z-20 sticker-drift-3">
+        <Sticker
+          color="yellow"
+          rotation={-4}
+          size="sm"
+          className="text-[11px] sm:text-xs md:text-sm font-black shadow-[2.5px_2.5px_0px_#0A0A0A] sm:shadow-[3px_3px_0px_#0A0A0A] border-2 border-[#0A0A0A] hover:-translate-y-0.5 hover:rotate-0 transition-transform duration-200"
+        >
+          STRICT 20% DRAWDOWN LIMIT
+        </Sticker>
+      </div>
 
+      {/* Centered Content */}
+      <Container size="lg" className="relative z-10 flex flex-col items-center text-center">
+        {/* Massive Condensed Headline */}
+        <h2 className="font-display uppercase text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[9.5rem] tracking-tight leading-[0.84] text-[#0A0A0A] max-w-6xl mx-auto">
+          <MaskedLineReveal delay={0}>
+            <span>READY TO ENTER</span>
+          </MaskedLineReveal>
+          <MaskedLineReveal delay={0.08}>
+            <span>THE ARENA?</span>
+          </MaskedLineReveal>
+        </h2>
+
+        {/* Subtitle */}
+        <ScrollReveal delay={0.16}>
+          <p className="mt-6 sm:mt-8 font-sans text-base sm:text-lg md:text-xl text-[#0A0A0A]/80 max-w-2xl mx-auto leading-relaxed">
+            Register your interest today. Test your strategy under standardized demo parameters and earn your verified ranking on the CYBER FX leaderboard.
+          </p>
+        </ScrollReveal>
+
+        {/* Two Buttons: Black Solid + Outlined */}
+        <ScrollReveal delay={0.24}>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mt-8 sm:mt-12 w-full sm:w-auto">
+            {/* Button 1: Register Interest (Solid Black) */}
+            <button
+              type="button"
+              onClick={onOpenModal}
+              className="
+                w-full sm:w-auto
+                bg-[#0A0A0A] text-[#EFEAE4]
+                border-2 sm:border-[2.5px] border-[#0A0A0A]
+                shadow-[4px_4px_0px_#0A0A0A] sm:shadow-[5px_5px_0px_#0A0A0A]
+                hover:bg-[#5ED1C4] hover:text-[#0A0A0A]
+                hover:shadow-[6px_6px_0px_#0A0A0A] hover:-translate-y-0.5 hover:brightness-105
+                active:translate-y-[1px]
+                transition-all duration-200
+                font-mono font-black uppercase tracking-wider text-sm sm:text-base
+                py-4 sm:py-5 px-8 sm:px-10 rounded-xl
+                text-center cursor-pointer
+              "
+            >
+              REGISTER INTEREST ↗
+            </button>
+
+            {/* Button 2: View Leaderboard (Outlined) */}
+            <a
+              href="#leaderboard"
+              className="
+                w-full sm:w-auto
+                bg-transparent text-[#0A0A0A]
+                border-2 sm:border-[2.5px] border-[#0A0A0A]
+                shadow-[4px_4px_0px_#0A0A0A] sm:shadow-[5px_5px_0px_#0A0A0A]
+                hover:bg-[#F7D417]
+                hover:shadow-[6px_6px_0px_#0A0A0A] hover:-translate-y-0.5 hover:brightness-105
+                active:translate-y-[1px]
+                transition-all duration-200
+                font-mono font-black uppercase tracking-wider text-sm sm:text-base
+                py-4 sm:py-5 px-8 sm:px-10 rounded-xl
+                text-center
+              "
+            >
+              VIEW LEADERBOARD ↓
+            </a>
           </div>
         </ScrollReveal>
       </Container>

@@ -37,22 +37,22 @@ export function ArenaPageClient() {
       {/* 1. Arena Hero Section */}
       <ArenaHero onOpenModal={handleOpenModal} />
 
-      {/* 2. Available Contests */}
+      {/* 2. Available Contests (Cream Grid Theme) */}
       <ArenaContests onOpenModal={handleOpenModal} />
 
-      {/* 3. Season 01 Leaderboard */}
+      {/* 3. Season 01 Leaderboard (Dark Gold Theme) */}
       <ArenaLeaderboard />
 
-      {/* 4. Prize Distribution Pool */}
-      <ArenaPrizes />
-
-      {/* 5. Four Steps to Compete (Cream Theme Section) */}
+      {/* 4. Four Steps to Compete (Cream Grid Theme) */}
       <ArenaHowItWorks />
 
-      {/* 6. Official Draft Rules */}
+      {/* 5. Prize Distribution Pool (Dark Gold Theme) */}
+      <ArenaPrizes />
+
+      {/* 6. Official Draft Rules (Dark Gold Theme) */}
       <ArenaRules />
 
-      {/* 7. Bottom Call to Action */}
+      {/* 7. Bottom Call to Action (Cream Grid Theme) */}
       <ArenaCta onOpenModal={() => handleOpenModal()} />
 
       {/* 8. Risk Disclosure & Disclaimer Box */}
